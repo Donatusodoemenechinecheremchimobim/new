@@ -90,8 +90,8 @@ export default function Header({ activeTab, setActiveTab, openQuoteModal }: Head
               <div className="font-display font-black text-xl tracking-tighter text-slate-100 uppercase sm:text-2xl flex items-center gap-1 leading-none">
                 OIL DROP<span className="text-orange-500">.</span>
               </div>
-              <div className="text-[9px] font-mono tracking-[0.25em] text-slate-400 font-semibold uppercase leading-none mt-1">
-                PROCUREMENT & DISTRIBUTION
+              <div className="text-xs font-mono tracking-wider text-slate-405 font-black uppercase leading-none mt-1.5">
+                PROCUREMENT & LOGISTICS
               </div>
             </div>
           </div>
@@ -133,7 +133,7 @@ export default function Header({ activeTab, setActiveTab, openQuoteModal }: Head
           <div className="flex items-center lg:hidden gap-3">
             <button
               onClick={() => setActiveTab("quotation")}
-              className="bg-orange-500 text-slate-900 px-2.5 py-1.5 text-[10px] font-display font-bold tracking-widest rounded-none uppercase"
+              className="bg-orange-500 text-slate-900 px-3.5 py-1.5 text-xs font-display font-black tracking-widest rounded-none uppercase"
             >
               QUOTE
             </button>

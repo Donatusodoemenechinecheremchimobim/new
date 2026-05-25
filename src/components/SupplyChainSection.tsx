@@ -42,14 +42,14 @@ export default function SupplyChainSection() {
         
         {/* Supply Chain Header */}
         <div className="border-t-4 border-cyan-500 pt-4 mb-12">
-          <span className="font-mono text-xs text-cyan-400 uppercase tracking-widest block mb-1">
-            GLOBAL FLOW ASSURANCE TIMELINE
+          <span className="font-mono text-sm font-black text-cyan-400 uppercase tracking-widest block mb-1">
+            HOW WE SOURCE
           </span>
-          <h2 className="font-display font-black text-3xl sm:text-4xl text-white uppercase tracking-tight">
+          <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-white uppercase tracking-tight">
             SUPPLY CHAIN STRUCTURE
           </h2>
-          <p className="text-sm text-slate-400 mt-2 max-w-xl">
-            Oil Drop Chemical Ltd maintains structured procurement coordination for engagement with international chemical manufacturers and suppliers.
+          <p className="text-sm sm:text-base font-bold text-slate-200 mt-2 max-w-3xl leading-relaxed">
+            We operate a structured sourcing pipeline directly connecting international synthesizers and chemical formulation plants in Houston with regional industrial sites.
           </p>
         </div>
 
@@ -58,28 +58,28 @@ export default function SupplyChainSection() {
           
           {/* Left Block - Straight Talk */}
           <div className="lg:col-span-4 space-y-6">
-            <h3 className="font-display font-black text-2xl text-slate-100 uppercase tracking-tight">
-              INTERNATIONAL PROCUREMENT COORDINATION
+            <h3 className="font-display font-black text-2xl text-white uppercase tracking-tight">
+              Sourcing Liaison Office
             </h3>
             
-            <p className="text-xs text-slate-400 leading-relaxed font-sans">
-              To assure technical consistency, we maintain a central procurement liaison desk in Houston, Texas. Houston operates as the direct link to world-leading chemical synthesis centers in the United States, Europe, and Asia.
+            <p className="text-sm font-bold text-slate-200 leading-relaxed font-sans">
+              To assure technical consistency and purity, we maintain a central chemical procurement desk in Houston, Texas. Houston acts as our direct gateway to world-leading synthesizers in the Americas, Europe, and Asia.
             </p>
 
-            <div className="bg-slate-900 border border-slate-800 p-5 rounded">
-              <span className="font-mono text-[10px] text-cyan-400 uppercase tracking-widest block mb-2">OPERATIONAL METRICS:</span>
-              <ul className="space-y-3 text-[11px] font-mono text-slate-300">
+            <div className="bg-slate-900 border-2 border-slate-800 p-5 rounded-none">
+              <span className="font-mono text-xs font-black text-cyan-400 uppercase tracking-widest block mb-3">PROCUREMENT STANDARDS:</span>
+              <ul className="space-y-2.5 text-xs font-mono font-black text-slate-200">
                 <li className="flex justify-between">
-                  <span>VENDOR AUDITS:</span>
-                  <span className="text-slate-100 font-bold">100% LOT-MATCHED</span>
+                  <span className="text-slate-400">VENDOR AUDITS:</span>
+                  <span className="text-white uppercase">100% LOT-MATCHED</span>
                 </li>
-                <li className="flex justify-between border-t border-slate-850/80 pt-2">
-                  <span>TRANSIT TRACKING:</span>
-                  <span className="text-slate-100 font-bold">TELEX/OCEAN MANIFEST</span>
+                <li className="flex justify-between border-t-2 border-slate-800 pt-2.5">
+                  <span className="text-slate-400">TRANSIT DETAIL:</span>
+                  <span className="text-white uppercase">OCEAN MANIFEST</span>
                 </li>
-                <li className="flex justify-between border-t border-slate-850/80 pt-2">
-                  <span>DISCHARGE POINT:</span>
-                  <span className="text-cyan-400 font-bold">PORT HARCOURT DOCKS</span>
+                <li className="flex justify-between border-t-2 border-slate-800 pt-2.5">
+                  <span className="text-slate-400">DEPOT LOCATION:</span>
+                  <span className="text-cyan-400 uppercase">PORT HARCOURT</span>
                 </li>
               </ul>
             </div>
@@ -92,8 +92,8 @@ export default function SupplyChainSection() {
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover cursor-zoom-in transition-transform duration-500 hover:scale-105"
               />
-              <span className="absolute bottom-2 left-2 bg-slate-950/90 border border-slate-800 px-1.5 py-0.5 rounded-none font-mono text-[9px] text-slate-400 uppercase">
-                VOLUMETRIC OCEAN FREIGHT • TAP TO ZOOM
+              <span className="absolute bottom-2 left-2 bg-slate-950/95 border border-slate-705 px-2.5 py-1 rounded-none font-mono text-xs font-black text-white shadow uppercase">
+                OCEAN FREIGHT LOGISTICS • ZOOM
               </span>
             </div>
 
@@ -101,29 +101,29 @@ export default function SupplyChainSection() {
 
           {/* Right Block - Progressive flow card timeline */}
           <div className="lg:col-span-8 space-y-4">
-            {processSteps.map((step, idx) => (
+            {processSteps.map((step) => (
               <div
                 key={step.id}
-                className="bg-slate-900/40 hover:bg-slate-900 border border-slate-800/80 hover:border-slate-750 p-5 rounded-sm transition-all duration-150 flex flex-col sm:flex-row items-start gap-4"
+                className="bg-slate-900 border-2 border-slate-800 hover:border-cyan-500 p-5 rounded-none transition-all duration-150 flex flex-col sm:flex-row items-start gap-4"
               >
                 {/* Node Step bubble */}
                 <div className="flex items-center gap-3 shrink-0">
-                  <span className="font-mono text-lg font-black text-cyan-500 bg-cyan-950/60 border border-cyan-500/20 px-2.5 py-1 rounded">
+                  <span className="font-mono text-lg font-black text-cyan-400 bg-cyan-950/60 border-2 border-cyan-500/25 px-3 py-1 rounded-none">
                     {step.id}
                   </span>
                   
                   {/* Icon Block */}
-                  <div className="p-2 bg-slate-950 border border-slate-800 rounded">
+                  <div className="p-2 bg-slate-950 border border-slate-800 rounded-none">
                     {step.icon}
                   </div>
                 </div>
 
                 {/* Technical Description */}
                 <div>
-                  <h4 className="font-display font-extrabold text-sm text-slate-100 uppercase tracking-wide">
+                  <h4 className="font-display font-black text-base text-white uppercase tracking-wide">
                     {step.title}
                   </h4>
-                  <p className="text-xs text-slate-400 leading-relaxed font-sans mt-1.5">
+                  <p className="text-sm font-bold text-slate-200 leading-relaxed font-sans mt-1.5">
                     {step.desc}
                   </p>
                 </div>

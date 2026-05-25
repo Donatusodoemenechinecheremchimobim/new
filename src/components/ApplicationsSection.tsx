@@ -47,14 +47,14 @@ export default function ApplicationsSection({ onSelectApplication }: Application
         
         {/* Technical Alert header banner */}
         <div className="border-t-4 border-amber-500 pt-4 mb-12">
-          <span className="font-mono text-xs text-amber-500 uppercase tracking-widest block mb-1">
-            PROCESS SYSTEM CAPABILITIES & COMPRESSOR HEADERS
+          <span className="font-mono text-sm font-black text-amber-500 uppercase tracking-widest block mb-1">
+            WHAT WE DO
           </span>
-          <h2 className="font-display font-black text-3xl sm:text-4xl text-white uppercase tracking-tight">
-            INDUSTRIAL SECTORS SERVED
+          <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-white uppercase tracking-tight">
+            INDUSTRIES WE SERVE
           </h2>
-          <p className="text-sm text-slate-400 mt-2 max-w-xl">
-            Sustaining uptime across critical thermal loops, fluid distribution pipes, and separation basins.
+          <p className="text-sm sm:text-base font-bold text-slate-200 mt-2 max-w-3xl leading-relaxed">
+            Ensuring reliable supply chains and consistent product formulations across power, energy, chemical processing, and water purification facilities.
           </p>
         </div>
 
@@ -62,29 +62,29 @@ export default function ApplicationsSection({ onSelectApplication }: Application
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Left Grid Panel: Selector list */}
-          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 h-fit">
-            {INDUSTRY_APPLICATIONS.map((app) => {
+          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3.5 h-fit">
+            {INDUSTRY_APPLICATIONS.map((app, index) => {
               const matches = app.id === selectedAppId;
               return (
                 <button
                   key={app.id}
                   onClick={() => setSelectedAppId(app.id)}
-                  className={`text-left p-4 rounded border transition-all duration-150 flex items-center justify-between gap-4 cursor-pointer relative ${
+                  className={`text-left p-4 rounded-none border-2 transition-all duration-150 flex items-center justify-between gap-4 cursor-pointer relative ${
                     matches
-                      ? "bg-slate-950 border-cyan-500 text-white"
-                      : "bg-slate-950/45 border-slate-800 text-slate-400 hover:text-slate-100 hover:bg-slate-950/80"
+                      ? "bg-slate-950 border-cyan-500 text-white shadow-lg"
+                      : "bg-slate-950/45 border-slate-800 text-slate-300 hover:text-white hover:bg-slate-950"
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <div className={`p-2 rounded ${matches ? "bg-cyan-500/10 text-cyan-400" : "bg-slate-900 text-slate-500"}`}>
+                    <div className={`p-2 rounded-none border ${matches ? "bg-cyan-500/10 text-cyan-400 border-cyan-500/30" : "bg-slate-900 border-slate-800 text-slate-400"}`}>
                       {getIcon(app.icon)}
                     </div>
-                    <span className="font-display font-bold text-xs uppercase tracking-wider line-clamp-1">
+                    <span className="font-display font-black text-sm uppercase tracking-wide">
                       {app.name}
                     </span>
                   </div>
-                  <span className={`font-mono text-[9px] ${matches ? "text-cyan-400" : "text-slate-600"}`}>
-                    [ENG-{app.id.substring(0, 3).toUpperCase()}]
+                  <span className={`font-mono text-xs font-black ${matches ? "text-cyan-400" : "text-slate-500"}`}>
+                    Ref: 0{index + 1}
                   </span>
                 </button>
               );
@@ -92,7 +92,7 @@ export default function ApplicationsSection({ onSelectApplication }: Application
           </div>
 
           {/* Right Panel: Immersive Sector Showcase - Highly detailed with massive image layout */}
-          <div className="lg:col-span-7 bg-slate-950 border border-slate-800 rounded overflow-hidden flex flex-col justify-between">
+          <div className="lg:col-span-7 bg-slate-950 border-2 border-slate-800 rounded-none overflow-hidden flex flex-col justify-between">
             
             {/* Visual Header Image Container */}
             <div className="relative h-64 w-full cursor-pointer overflow-hidden bg-slate-950">
@@ -105,48 +105,48 @@ export default function ApplicationsSection({ onSelectApplication }: Application
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent"></div>
               
               {/* Category Identifier */}
-              <div className="absolute top-4 left-4 font-mono text-[9px] bg-slate-900/90 border border-slate-800 text-slate-300 px-2 py-1 rounded-none">
-                SECTOR REF: ODCL-APP-0X{INDUSTRY_APPLICATIONS.indexOf(activeApp) + 1}
+              <div className="absolute top-4 left-4 font-mono text-xs font-black bg-slate-900/95 border border-slate-800 text-slate-100 px-3 py-1.5 rounded-none shadow">
+                SECTOR SERIES 0{INDUSTRY_APPLICATIONS.indexOf(activeApp) + 1}
               </div>
 
               {/* Tap to Zoom indicator */}
-              <div className="absolute top-4 right-4 font-mono text-[9px] bg-slate-950/95 border border-cyan-500/40 text-cyan-400 px-2 py-1 rounded-none shadow">
-                TAP TO ZOOM
+              <div className="absolute top-4 right-4 font-mono text-xs font-black bg-slate-950/95 border-2 border-cyan-500 text-cyan-400 px-3 py-1.5 rounded-none shadow">
+                TAP TO ZOOM IMAGE
               </div>
             </div>
 
             {/* Application Detail Column */}
             <div className="p-6 md:p-8 space-y-6">
               <div className="space-y-2">
-                <h3 className="font-display font-black text-xl sm:text-2xl text-white uppercase tracking-tight">
+                <h3 className="font-display font-black text-2xl sm:text-3xl text-white uppercase tracking-tight">
                   {activeApp.name}
                 </h3>
-                <p className="text-xs text-slate-400 leading-relaxed font-sans font-medium">
+                <p className="text-sm font-bold text-slate-100 leading-relaxed font-sans">
                   {activeApp.description}
                 </p>
               </div>
 
-              <div className="border-t border-slate-800 pt-5 space-y-4">
+              <div className="border-t-2 border-slate-800 pt-5 space-y-5">
                 <div>
-                  <h4 className="font-mono text-[10px] text-cyan-400 uppercase tracking-widest mb-2">
-                    OPERATIONAL SYSTEM DETAILS
+                  <h4 className="font-mono text-xs font-black text-cyan-400 uppercase tracking-widest mb-2">
+                    PROCESS REQUIREMENT PROFILE
                   </h4>
-                  <p className="text-xs text-slate-300 leading-relaxed font-sans">
+                  <p className="text-sm font-bold text-slate-200 leading-relaxed font-sans">
                     {activeApp.details}
                   </p>
                 </div>
 
                 <div>
-                  <h4 className="font-mono text-[10px] text-amber-500 uppercase tracking-widest mb-2">
-                    CRITICAL SOURCED CHEMICAL CODES
+                  <h4 className="font-mono text-xs font-black text-amber-500 uppercase tracking-widest mb-2">
+                    SUGGESTED REQUISITION MATERIALS
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {activeApp.keyProducts.map((prod, idx) => (
                       <span
                         key={idx}
-                        className="bg-slate-900 border border-slate-800 px-3 py-1.5 rounded text-[10px] font-mono text-slate-200 flex items-center gap-1.5"
+                        className="bg-slate-900 border-2 border-slate-800 px-3 py-2 rounded-none text-xs font-mono font-black text-slate-100 flex items-center gap-2"
                       >
-                        <Check className="h-3 w-3 text-cyan-400 shrink-0" />
+                        <Check className="h-4 w-4 text-cyan-400 shrink-0 stroke-[3]" />
                         {prod}
                       </span>
                     ))}
@@ -155,14 +155,14 @@ export default function ApplicationsSection({ onSelectApplication }: Application
               </div>
 
               {/* Direct Inquiry Jumper */}
-              <div className="border-t border-slate-900 pt-5 flex items-center justify-between">
-                <span className="text-[10px] text-slate-500 font-mono">
-                  LOGS COMPLIANT: FREIGHT & REGULATORY
+              <div className="border-t-2 border-slate-800 pt-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <span className="text-xs text-slate-400 font-mono font-bold uppercase">
+                  READY FOR COA VERIFIED SUPPLY
                 </span>
                 
                 <button
                   onClick={() => onSelectApplication(activeApp.name)}
-                  className="bg-cyan-500 hover:bg-cyan-450 text-slate-950 px-4 py-2 text-[10px] font-display font-black tracking-widest uppercase rounded cursor-pointer transition-all shrink-0"
+                  className="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-6 py-3 text-xs font-display font-black tracking-widest uppercase rounded-none cursor-pointer transition-all shrink-0 hover:scale-[1.02] active:scale-95 border-2 border-cyan-500"
                 >
                   SET IN TECHNICAL QUOTE
                 </button>

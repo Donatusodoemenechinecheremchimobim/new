@@ -40,16 +40,16 @@ export default function ProductsSection({ onSelectItemForQuote }: ProductsSectio
     <section id="products-selection" className="py-16 md:py-24 bg-slate-950 border-b border-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         
-        {/* Technical Section Title */}
+        {/* Section Title */}
         <div className="border-t-4 border-cyan-500 pt-4 mb-12">
-          <span className="font-mono text-xs text-cyan-400 uppercase tracking-widest block mb-2">
-            TECHNICAL DISTRIBUTION LOG STAGES
+          <span className="font-mono text-sm font-black text-cyan-400 uppercase tracking-widest block mb-1">
+            OUR PRODUCT PORTFOLIO
           </span>
-          <h2 className="font-display font-black text-3xl sm:text-4xl text-white uppercase tracking-tight">
-            INDUSTRIAL PRODUCT GROUPS
+          <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-white uppercase tracking-tight">
+            INDUSTRIAL CHEMICAL PRODUCTS
           </h2>
-          <p className="text-sm text-slate-400 mt-2 max-w-xl">
-            Sourced from Tier-1 international refineries and chemical synthesis plants. Delivered with certified Certificates of Analysis (COA) to match client operational tolerances.
+          <p className="text-sm sm:text-base font-bold text-slate-200 mt-2 max-w-2xl leading-relaxed">
+            Sourced directly from verified global producers. Every shipment comes complete with verified Certificates of Analysis (COA) meeting strict operating specifications.
           </p>
         </div>
 
@@ -58,8 +58,8 @@ export default function ProductsSection({ onSelectItemForQuote }: ProductsSectio
           
           {/* Left Category Panels Selector */}
           <div className="lg:col-span-4 space-y-3.5">
-            <span className="block font-mono text-[10px] text-slate-500 uppercase tracking-widest pl-2">
-              SELECT CHEMICAL LINEAGE
+            <span className="block font-mono text-xs font-bold text-slate-300 uppercase tracking-wider pl-2">
+              SELECT CHEMICAL SERIES
             </span>
             {PRODUCT_GROUPS.map((group) => {
               const isActive = group.id === selectedGroupId;
@@ -67,28 +67,28 @@ export default function ProductsSection({ onSelectItemForQuote }: ProductsSectio
                 <button
                   key={group.id}
                   onClick={() => setSelectedGroupId(group.id)}
-                  className={`w-full text-left p-4 rounded border transition-all duration-150 relative overflow-hidden flex items-start gap-4 cursor-pointer ${
+                  className={`w-full text-left p-4 rounded border-2 transition-all duration-150 relative overflow-hidden flex items-start gap-4 cursor-pointer ${
                     isActive
-                      ? "bg-slate-900/90 border-cyan-500 text-white shadow-lg"
-                      : "bg-slate-900/30 border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 hover:bg-slate-900/50"
+                      ? "bg-slate-900/95 border-cyan-500 text-white shadow-lg"
+                      : "bg-slate-900/40 border-slate-800 text-slate-300 hover:text-slate-100 hover:border-slate-600 hover:bg-slate-900/70"
                   }`}
                 >
                   {/* Highlight bar */}
                   {isActive && (
-                    <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-cyan-500"></div>
+                    <div className="absolute left-0 top-0 bottom-0 w-2 bg-cyan-500"></div>
                   )}
 
                   {/* Icon Block */}
-                  <div className={`p-2.5 rounded shrink-0 ${isActive ? "bg-cyan-950 text-cyan-400 border border-cyan-500/30" : "bg-slate-950/80 text-slate-500 border border-slate-800"}`}>
+                  <div className={`p-2.5 rounded shrink-0 ${isActive ? "bg-cyan-950 text-cyan-400 border border-cyan-500/30" : "bg-slate-950/80 text-slate-400 border border-slate-850"}`}>
                     {getIcon(group.icon)}
                   </div>
 
                   {/* Info Column */}
                   <div>
-                    <h3 className="font-display font-bold text-xs uppercase tracking-widest text-slate-200">
+                    <h3 className="font-display font-black text-sm uppercase tracking-wider text-slate-100">
                       {group.name}
                     </h3>
-                    <p className="text-slate-400 text-xs mt-1.5 line-clamp-2">
+                    <p className="text-slate-200 font-bold text-xs mt-1.5 line-clamp-2">
                       {group.description}
                     </p>
                   </div>
@@ -97,12 +97,12 @@ export default function ProductsSection({ onSelectItemForQuote }: ProductsSectio
             })}
 
             {/* Quick Sourcing Prompt Box */}
-            <div className="bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800/80 p-5 rounded mt-6">
-              <h4 className="font-display font-bold text-xs uppercase tracking-widest text-slate-300">
-                Custom Chemical Formulation?
+            <div className="bg-gradient-to-br from-slate-900 to-slate-950 border-2 border-slate-800 p-5 rounded mt-6">
+              <h4 className="font-display font-black text-sm uppercase tracking-wide text-white">
+                Need a Custom Formulation?
               </h4>
-              <p className="text-xs text-slate-500 mt-2">
-                If your process environment requires bespoke concentrations, particle size grades, or custom solvent mixtures, contact our international sourcing team.
+              <p className="text-xs sm:text-sm font-bold text-slate-300 mt-2">
+                If your process needs custom concentrations, grades, or pack-out configurations, our bulk sourcing desk is ready to respond.
               </p>
             </div>
           </div>
@@ -137,35 +137,35 @@ export default function ProductsSection({ onSelectItemForQuote }: ProductsSectio
               {activeGroup.items.map((item, index) => (
                 <div
                   key={index}
-                  className="bg-slate-900/40 border border-slate-800/80 rounded p-5 space-y-4 hover:border-slate-700/80 hover:bg-slate-900/60 transition-all flex flex-col justify-between"
+                  className="bg-slate-900/40 border-2 border-slate-800 rounded p-5 space-y-4 hover:border-slate-600 hover:bg-slate-900/60 transition-all flex flex-col justify-between"
                 >
                   <div className="space-y-2">
                     {/* Item Title & Code */}
                     <div className="flex justify-between items-start gap-2">
-                      <h4 className="font-display font-extrabold text-sm uppercase tracking-wider text-slate-100">
+                      <h4 className="font-display font-black text-sm uppercase tracking-wider text-white">
                         {item.name}
                       </h4>
                       {item.chemicalFormula && (
-                        <span className="font-mono text-[10px] text-cyan-500 bg-cyan-950/40 border border-cyan-500/20 px-1.5 py-0.5 rounded shrink-0">
+                        <span className="font-mono text-xs font-bold text-cyan-400 bg-cyan-950/80 border-2 border-cyan-500/35 px-2 py-0.5 rounded-none shrink-0">
                           {item.chemicalFormula}
                         </span>
                       )}
                     </div>
 
-                    <p className="text-xs text-slate-400 leading-relaxed font-sans">
+                    <p className="text-sm font-bold text-slate-200 leading-relaxed font-sans">
                       {item.description}
                     </p>
 
                     {/* ASTM / Chemical Specs List */}
                     {item.specifications && item.specifications.length > 0 && (
-                      <div className="bg-slate-950/60 rounded p-2.5 border border-slate-800/40 mt-3">
-                        <span className="block font-mono text-[9px] text-slate-500 uppercase tracking-widest mb-1.5">
-                          TECHNICAL PROFILE PARAMETERS:
+                      <div className="bg-slate-950/80 rounded-none p-3 border-2 border-slate-800 mt-3">
+                        <span className="block font-mono text-[10px] font-black text-slate-350 uppercase tracking-wider mb-1.5">
+                          TYPICAL SPECIFICATIONS:
                         </span>
-                        <ul className="space-y-1">
+                        <ul className="space-y-1.5">
                           {item.specifications.map((spec, sidx) => (
-                            <li key={sidx} className="font-mono text-[9.5px] text-slate-300 flex items-center gap-1.5">
-                              <span className="h-1 w-1 bg-cyan-400 rounded-full"></span>
+                            <li key={sidx} className="font-mono text-xs font-bold text-slate-200 flex items-center gap-1.5">
+                              <span className="h-1.5 w-1.5 bg-orange-500 rounded-none animate-pulse"></span>
                               {spec}
                             </li>
                           ))}
@@ -177,10 +177,10 @@ export default function ProductsSection({ onSelectItemForQuote }: ProductsSectio
                   {/* Sourcing Action Button */}
                   <button
                     onClick={() => onSelectItemForQuote(item.name, activeGroup.name)}
-                    className="w-full mt-4 bg-slate-900 hover:bg-cyan-500 text-slate-300 hover:text-slate-950 py-2.5 rounded border border-slate-800 hover:border-cyan-500 font-display font-bold text-[10px] tracking-wider uppercase transition-all duration-150 flex items-center justify-center gap-1.5 cursor-pointer"
+                    className="w-full mt-4 bg-slate-950 hover:bg-orange-500 text-slate-100 hover:text-slate-950 py-3 rounded-none border-2 border-slate-800 hover:border-orange-500 font-display font-black text-xs tracking-wider uppercase transition-all duration-150 flex items-center justify-center gap-2 cursor-pointer"
                   >
                     SELECT FOR QUOTE ESTIMATION
-                    <ArrowRight className="h-3.5 w-3.5" />
+                    <ArrowRight className="h-4 w-4" />
                   </button>
                 </div>
               ))}

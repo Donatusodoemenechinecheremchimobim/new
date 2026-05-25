@@ -25,30 +25,27 @@ export default function Footer({ setActiveTab, openQuoteModal }: FooterProps) {
               OILDROP <span className="text-cyan-400">CHEMICAL</span>
             </span>
           </div>
-          <p className="text-xs leading-relaxed text-slate-400">
-            Oil Drop Chemical Ltd operates as an industrial chemical procurement and distribution company serving energy, manufacturing, and process industries through structured supply chain coordination and technical sourcing.
+          <p className="text-xs sm:text-sm font-bold leading-relaxed text-slate-305">
+            Oil Drop Chemical Ltd operates as an industrial chemical procurement company serving energy, manufacturing, and process industries through structured coordinate sourcing.
           </p>
-          <div className="font-mono text-[10px] text-slate-500">
-            REPRES: L-NGA/R-PH.8290-71
-          </div>
         </div>
 
         {/* Product Portfolios Links */}
         <div>
-          <h4 className="font-display font-bold text-xs tracking-widest text-white uppercase mb-4 border-b border-slate-800 pb-2">
-            PRODUCT PORTFOLIOS
+          <h4 className="font-display font-black text-xs tracking-widest text-white uppercase mb-4 border-b-2 border-slate-800 pb-2.5">
+            PRODUCTS
           </h4>
-          <ul className="space-y-2 text-xs">
+          <ul className="space-y-2 text-xs font-bold text-slate-300">
             {[
-              { id: "water-treatment", name: "Water Treatment Chemicals" },
-              { id: "filtration-materials", name: "Industrial Filtration Materials" },
-              { id: "oil-gas-chemicals", name: "Oil & Gas Process Chemicals" },
-              { id: "maintenance-chemicals", name: "Industrial Maintenance Chemicals" },
+              { id: "water-treatment", name: "Water Treatment" },
+              { id: "filtration-materials", name: "Filtration Materials" },
+              { id: "oil-gas-chemicals", name: "Oil & Gas Chemicals" },
+              { id: "maintenance-chemicals", name: "Industrial Maintenance" },
             ].map((prod) => (
               <li key={prod.id}>
                 <button
                   onClick={() => setActiveTab("products")}
-                  className="hover:text-cyan-400 flex items-center gap-1 group text-left"
+                  className="hover:text-cyan-400 flex items-center gap-1 group text-left cursor-pointer uppercase"
                 >
                   <ChevronRight className="h-3 w-3 text-cyan-500 group-hover:translate-x-1 transition-transform" />
                   {prod.name}
@@ -60,10 +57,10 @@ export default function Footer({ setActiveTab, openQuoteModal }: FooterProps) {
 
         {/* Sectors Served Menu */}
         <div>
-          <h4 className="font-display font-bold text-xs tracking-widest text-white uppercase mb-4 border-b border-slate-800 pb-2">
-            SECTORS SERVED
+          <h4 className="font-display font-black text-xs tracking-widest text-white uppercase mb-4 border-b-2 border-slate-800 pb-2.5">
+            SECTORS
           </h4>
-          <ul className="space-y-2 text-xs">
+          <ul className="space-y-2 text-xs font-bold text-slate-300">
             {[
               "Oil & Gas Production",
               "Natural Gas & LNG Processing",
@@ -71,8 +68,8 @@ export default function Footer({ setActiveTab, openQuoteModal }: FooterProps) {
               "Industrial Water Treatment",
               "Advanced Process Industries",
             ].map((sec) => (
-              <li key={sec} className="flex items-center gap-2">
-                <span className="h-1 w-1 bg-cyan-400 rounded-full"></span>
+              <li key={sec} className="flex items-center gap-2 uppercase">
+                <span className="h-1.5 w-1.5 bg-cyan-400 rounded-full"></span>
                 <span>{sec}</span>
               </li>
             ))}
@@ -81,22 +78,22 @@ export default function Footer({ setActiveTab, openQuoteModal }: FooterProps) {
 
         {/* Geographic Coordinates Pillar */}
         <div>
-          <h4 className="font-display font-bold text-xs tracking-widest text-white uppercase mb-4 border-b border-slate-800 pb-2">
-            SOCIETY COORDINATES
+          <h4 className="font-display font-black text-xs tracking-widest text-white uppercase mb-4 border-b-2 border-slate-800 pb-2.5">
+            OFFICES
           </h4>
-          <div className="space-y-4 text-xs">
+          <div className="space-y-4 text-xs font-bold text-slate-300">
             <div className="flex gap-2.5">
-              <MapPin className="h-4 w-4 text-cyan-400 shrink-0" />
+              <MapPin className="h-4.5 w-4.5 text-cyan-400 shrink-0" />
               <div>
-                <strong className="block text-slate-200">Nigeria Operations Desk</strong>
-                <p className="text-slate-500">Port Harcourt, Rivers State, Nigeria</p>
+                <strong className="block text-slate-100 uppercase font-black">Nigeria Operations</strong>
+                <p className="text-slate-400">Port Harcourt, Rivers State</p>
               </div>
             </div>
             <div className="flex gap-2.5">
-              <MapPin className="h-4 w-4 text-amber-500 shrink-0" />
+              <MapPin className="h-4.5 w-4.5 text-amber-500 shrink-0" />
               <div>
-                <strong className="block text-slate-200">International Liaison</strong>
-                <p className="text-slate-500">Houston, Texas, USA (Coordination Desk)</p>
+                <strong className="block text-slate-100 uppercase font-black">Houston Liaison</strong>
+                <p className="text-slate-400">Houston, Texas, USA</p>
               </div>
             </div>
           </div>
@@ -104,37 +101,33 @@ export default function Footer({ setActiveTab, openQuoteModal }: FooterProps) {
       </div>
 
       {/* Mid Technical Grid (Engineering Certifications) */}
-      <div className="bg-slate-900 border-y border-slate-800 py-6 px-4 md:px-8 text-xs">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-500 font-mono">
-          <div className="flex flex-wrap justify-center gap-6">
+      <div className="bg-slate-900 border-y-2 border-slate-800 py-6 px-4 md:px-8 text-xs">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-300 font-mono font-black">
+          <div className="flex flex-wrap justify-center gap-4 uppercase">
             <span className="flex items-center gap-1.5">
-              <Shield className="h-3.5 w-3.5 text-cyan-500" />
-              SPECIFICATION: ASTM / ISO CERTIFIED BASE
+              <Shield className="h-4 w-4 text-cyan-550" />
+              SPECIFICATION: ISO CERTIFIED SUPPLY
             </span>
-            <span>|</span>
-            <span>COA: MANDATORY LOT DOCUMENTATION</span>
-            <span>|</span>
-            <span>LOGISTICS: ROAD & FREIGHT COMPLIANT</span>
+            <span>•</span>
+            <span>MANDATORY COA LOGISTICS</span>
+            <span>•</span>
+            <span>COMPLIANT GLOBAL FREIGHT</span>
           </div>
           <button
             onClick={openQuoteModal}
-            className="text-xs text-cyan-400 hover:text-cyan-300 font-bold tracking-widest uppercase flex items-center gap-1 cursor-pointer"
+            className="text-xs text-cyan-400 hover:text-cyan-300 font-black tracking-widest uppercase flex items-center gap-1.5 cursor-pointer"
           >
-            LAUNCH PORTAL
-            <ExternalLink className="h-3 w-3" />
+            Sourcing Portal
+            <ExternalLink className="h-3.5 w-3.5" />
           </button>
         </div>
       </div>
 
       {/* Footer Bottom Base */}
-      <div className="bg-slate-950 py-6 px-4 md:px-8 text-center text-xs text-slate-600 font-mono">
+      <div className="bg-slate-950 py-6 px-4 md:px-8 text-center text-xs text-slate-400 font-mono font-bold">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
           <div>
-            &copy; {currentYear} Oil Drop Chemical Ltd. All rights reserved. Sourced & supply coordinated globally.
-          </div>
-          <div className="flex items-center gap-4 text-[10px]">
-            <span>NIGERIAN OPERATIONS CODE: ODCL-NGA</span>
-            <span>US COORD CODE: ODCL-USA</span>
+            &copy; {currentYear} Oil Drop Chemical Ltd. All rights reserved. Sourced & distributed globally.
           </div>
         </div>
       </div>

@@ -88,9 +88,9 @@ export default function Hero({ onQuoteClick, onExploreProducts }: HeroProps) {
           {/* Left Textual Spec Pillar */}
           <div className="space-y-6 lg:col-span-7">
             {/* Tag Alert */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-900 border-l-4 border-orange-500 border border-slate-850 rounded-none text-orange-500 font-mono text-xs tracking-wider uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-900 border-l-4 border-orange-500 border border-slate-850 rounded-none text-orange-400 font-mono text-sm font-black tracking-wider uppercase">
               <span className="h-2 w-2 rounded-none bg-orange-500 animate-pulse"></span>
-              Sourcing & logistics Interface
+              TRUSTED REGIONAL SUPPLIER
             </div>
 
             {/* Title: Thick, Rugged, High-contrast, Bold Typography */}
@@ -100,13 +100,13 @@ export default function Hero({ onQuoteClick, onExploreProducts }: HeroProps) {
             </h1>
 
             {/* Subtitle: High-clarity Industrial Spec */}
-            <p className="font-display text-base sm:text-lg font-black tracking-widest text-slate-350 uppercase">
-              Industrial Sourcing, Distribution & Supply Chain Solutions
+            <p className="font-display text-lg sm:text-xl font-extrabold tracking-wider text-slate-200 uppercase">
+              Industrial Chemical Sourcing & Supply Chain
             </p>
 
             {/* Concise Core Statement */}
-            <p className="text-sm text-slate-450 leading-relaxed max-w-2xl font-sans text-slate-400">
-              Oil Drop Chemical Ltd is an industrial chemical procurement and distribution company focused on the sourcing, supply, and logistics of process chemicals, filtration materials, and industrial consumables for energy, manufacturing, water treatment, and process industries.
+            <p className="text-sm sm:text-base text-slate-200 font-bold leading-relaxed max-w-2xl font-sans">
+              We provide straight-forward chemical procurement, bulk distribution, and optimized shipping logistics. We supply high-quality process additives, premium filtration media, and industrial consumables directly to power, energy, water treatment, and manufacturing facilities.
             </p>
 
             {/* Dual CTA Block */}
@@ -130,19 +130,19 @@ export default function Hero({ onQuoteClick, onExploreProducts }: HeroProps) {
             {/* Quick Sourcing Ticker Stats / Live metrics */}
             <div className="grid grid-cols-3 gap-4 border-t-4 border-slate-800 pt-8 mt-8">
               <div>
-                <dt className="text-xs font-mono text-slate-500 uppercase tracking-widest">Sourced Materials</dt>
-                <dd className="text-3xl font-display font-black text-white mt-1">42+</dd>
-                <div className="text-[10px] text-orange-500 font-mono mt-0.5">ACTIVE PORT GRADES</div>
+                <dt className="text-sm font-black text-slate-100 uppercase tracking-widest">Sourced Materials</dt>
+                <dd className="text-4xl font-display font-black text-orange-500 mt-1">42+</dd>
+                <div className="text-xs text-slate-300 font-bold mt-1 uppercase">PORT GRADES</div>
               </div>
               <div className="border-l-4 border-orange-500 pl-4">
-                <dt className="text-xs font-mono text-slate-500 uppercase tracking-widest">Logistics Nodes</dt>
-                <dd className="text-3xl font-display font-black text-slate-100 mt-1">PH / HOU</dd>
-                <div className="text-[10px] text-slate-400 font-mono mt-0.5">NIGERIA & USA HUB</div>
+                <dt className="text-sm font-black text-slate-100 uppercase tracking-widest">Global Nodes</dt>
+                <dd className="text-4xl font-display font-black text-white mt-1">PH / HOU</dd>
+                <div className="text-xs text-slate-300 font-bold mt-1 uppercase">NIGERIA & USA</div>
               </div>
-              <div className="border-l-4 border-slate-100 pl-4">
-                <dt className="text-xs font-mono text-slate-500 uppercase tracking-widest">Quality Assurance</dt>
-                <dd className="text-3xl font-display font-black text-white mt-1">100%</dd>
-                <div className="text-[10px] text-orange-500 font-mono mt-0.5">COA LOT VERIFIED</div>
+              <div className="border-l-4 border-white pl-4">
+                <dt className="text-sm font-black text-slate-100 uppercase tracking-widest">Verification</dt>
+                <dd className="text-4xl font-display font-black text-orange-500 mt-1">100%</dd>
+                <div className="text-xs text-slate-300 font-bold mt-1 uppercase">COA VERIFIED</div>
               </div>
             </div>
 
@@ -162,53 +162,53 @@ export default function Hero({ onQuoteClick, onExploreProducts }: HeroProps) {
                 />
                 
                 {/* Visual Technical Tags Overlay */}
-                <div className="absolute top-4 left-4 font-mono text-[9px] bg-slate-950/90 backdrop-blur border border-slate-800 text-slate-200 px-2 py-1 rounded-none shadow">
+                <div className="absolute top-4 left-4 font-mono text-xs font-black bg-slate-950/95 backdrop-blur border-2 border-slate-700 text-white px-2 py-1.5 rounded-none shadow">
                   {activeHero.ref}
                 </div>
                 
-                <div className="absolute bottom-4 right-4 font-mono text-[9px] bg-slate-950/95 backdrop-blur border border-orange-500/40 text-orange-400 px-2.5 py-1 rounded-none shadow">
+                <div className="absolute bottom-4 right-4 font-mono text-xs font-black bg-slate-950/95 backdrop-blur border-2 border-orange-500 text-orange-400 px-2.5 py-1.5 rounded-none shadow">
                   {activeHero.feed}
                 </div>
 
                 {/* Left/Right Slides Quick Touch Clickers */}
                 <button 
                   onClick={(e) => { e.stopPropagation(); handlePrevHero(); }}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-slate-950/85 hover:bg-slate-900 border border-slate-800 text-slate-300 hover:text-white rounded-none cursor-pointer opacity-100 sm:opacity-0 group-hover/img:opacity-100 transition-opacity z-20"
+                  className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-slate-950/95 hover:bg-slate-900 border-2 border-slate-700 text-slate-100 hover:text-white rounded-none cursor-pointer opacity-100 sm:opacity-0 group-hover/img:opacity-100 transition-opacity z-20"
                   aria-label="Previous Image"
                 >
-                  <ChevronLeft className="h-4 w-4" />
+                  <ChevronLeft className="h-5 w-5 font-bold" />
                 </button>
                 <button 
                   onClick={(e) => { e.stopPropagation(); handleNextHero(); }}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-slate-950/85 hover:bg-slate-900 border border-slate-800 text-slate-300 hover:text-white rounded-none cursor-pointer opacity-100 sm:opacity-0 group-hover/img:opacity-100 transition-opacity z-20"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-slate-950/95 hover:bg-slate-900 border-2 border-slate-700 text-slate-100 hover:text-white rounded-none cursor-pointer opacity-100 sm:opacity-0 group-hover/img:opacity-100 transition-opacity z-20"
                   aria-label="Next Image"
                 >
-                  <ChevronRight className="h-4 w-4" />
+                  <ChevronRight className="h-5 w-5 font-bold" />
                 </button>
 
                 {/* Main Swipe Hint strip in top right */}
-                <div className="absolute top-4 right-4 font-mono text-[8px] bg-cyan-950/90 border border-cyan-500/30 text-cyan-400 px-2 py-1 uppercase tracking-wider">
-                  IMAGE {activeIndex + 1} OF {heroImages.length} • TAP IMAGE TO ZOOM
+                <div className="absolute top-4 right-4 font-mono text-[10px] font-black bg-cyan-950/95 border-2 border-cyan-500 text-cyan-400 px-2 py-1.5 uppercase tracking-wider">
+                  IMAGE {activeIndex + 1} OF {heroImages.length}
                 </div>
 
                 {/* Left Solid Accent Line */}
-                <div className="absolute inset-y-0 left-0 w-1.5 bg-orange-500"></div>
+                <div className="absolute inset-y-0 left-0 w-2 bg-orange-500"></div>
               </div>
 
               {/* Decorative Thumbnail Selector Grid to allow clicking tons of pictures */}
               <div className="mt-3">
-                <span className="font-mono text-[9px] text-slate-400 block mb-1.5 uppercase tracking-wider">
-                  EXPLORE SECURED INFRASTRUCTURE & RESOURCE IMAGES (TAP THUMBNAIL)
+                <span className="font-mono text-xs font-black text-slate-200 block mb-2 uppercase tracking-wide">
+                  IMAGES GALLERY (TAP THUMBNAIL TO SWITCH, TAP IMAGE TO ZOOM)
                 </span>
-                <div className="grid grid-cols-6 gap-1.5 bg-slate-950 p-1.5 border border-slate-800">
+                <div className="grid grid-cols-6 gap-1.5 bg-slate-950 p-2 border-2 border-slate-800">
                   {heroImages.map((img, idx) => (
                     <button
                       key={idx}
                       onClick={() => setActiveIndex(idx)}
-                      className={`relative h-11 sm:h-12 border transition-all overflow-hidden ${
+                      className={`relative h-11 sm:h-12 border-2 transition-all overflow-hidden ${
                         idx === activeIndex 
-                          ? "border-orange-500 ring-2 ring-orange-500/30" 
-                          : "border-slate-800 hover:border-slate-500 opacity-60 hover:opacity-100"
+                          ? "border-orange-500 ring-4 ring-orange-500/30" 
+                          : "border-slate-800 hover:border-slate-500 opacity-70 hover:opacity-100"
                       }`}
                       title={img.alt}
                     >
@@ -224,14 +224,14 @@ export default function Hero({ onQuoteClick, onExploreProducts }: HeroProps) {
               </div>
 
               {/* Decorative Tech Specs base */}
-              <div className="mt-3 grid grid-cols-2 gap-2 text-[10px] font-mono text-slate-450 border-t border-slate-800 pt-3">
+              <div className="mt-3 grid grid-cols-2 gap-2 text-xs font-mono text-slate-350 border-t-2 border-slate-800 pt-3">
                 <div className="flex justify-between">
-                  <span>DISC TYPE:</span>
-                  <span className="text-slate-200 font-bold uppercase">{activeHero.disc}</span>
+                  <span className="font-bold text-slate-400">TYPE:</span>
+                  <span className="text-white font-black uppercase">{activeHero.disc}</span>
                 </div>
-                <div className="flex justify-between pl-2 border-l border-slate-800">
-                  <span>CRUSH STRENGTH:</span>
-                  <span className="text-slate-200 font-bold uppercase">{activeHero.strength}</span>
+                <div className="flex justify-between pl-2 border-l-2 border-slate-800">
+                  <span className="font-bold text-slate-400">STATUS:</span>
+                  <span className="text-white font-black uppercase">{activeHero.strength}</span>
                 </div>
               </div>
             </div>
