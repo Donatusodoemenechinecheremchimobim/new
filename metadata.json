@@ -1,0 +1,6 @@
+{
+  "name": "Oil Drop Chemical Ltd",
+  "description": "Industrial chemical procurement and distribution platform for energy, manufacturing, and process industries, featuring an interactive quotation engine and responsive industrial photo gallery.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
