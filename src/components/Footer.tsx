@@ -25,7 +25,7 @@ export default function Footer({ setActiveTab, openQuoteModal }: FooterProps) {
               OILDROP <span className="text-cyan-400">CHEMICAL</span>
             </span>
           </div>
-          <p className="text-xs sm:text-sm font-bold leading-relaxed text-slate-305">
+          <p className="text-xs sm:text-sm font-bold leading-relaxed text-slate-300">
             Oil Drop Chemical Ltd operates as an industrial chemical procurement company serving energy, manufacturing, and process industries through structured coordinate sourcing.
           </p>
         </div>
@@ -105,7 +105,7 @@ export default function Footer({ setActiveTab, openQuoteModal }: FooterProps) {
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-300 font-mono font-black">
           <div className="flex flex-wrap justify-center gap-4 uppercase">
             <span className="flex items-center gap-1.5">
-              <Shield className="h-4 w-4 text-cyan-550" />
+              <Shield className="h-4 w-4 text-cyan-400" />
               SPECIFICATION: ISO CERTIFIED SUPPLY
             </span>
             <span>•</span>

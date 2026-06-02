@@ -123,7 +123,7 @@ export default function ProductsSection({ onSelectItemForQuote }: ProductsSectio
               
               {/* Info absolute overlay cards */}
               <div className="absolute bottom-5 left-5 right-5">
-                <span className="font-mono text-[10px] text-cyan-400 uppercase tracking-widest bg-cyan-950/90 border border-cyan-500/20 px-2 py-0.5 rounded-none inline-block mb-2">
+                <span className="font-mono text-xs font-black text-cyan-400 uppercase tracking-widest bg-cyan-950/90 border border-cyan-500/20 px-2 py-1 rounded-none inline-block mb-2">
                   PORTFOLIO ACTIVE SERIES • TAP TO ZOOM IMAGE
                 </span>
                 <h3 className="font-display font-black text-2xl sm:text-3xl text-white uppercase tracking-tight leading-none">
@@ -159,7 +159,7 @@ export default function ProductsSection({ onSelectItemForQuote }: ProductsSectio
                     {/* ASTM / Chemical Specs List */}
                     {item.specifications && item.specifications.length > 0 && (
                       <div className="bg-slate-950/80 rounded-none p-3 border-2 border-slate-800 mt-3">
-                        <span className="block font-mono text-[10px] font-black text-slate-350 uppercase tracking-wider mb-1.5">
+                        <span className="block font-mono text-xs font-black text-slate-300 uppercase tracking-wider mb-1.5">
                           TYPICAL SPECIFICATIONS:
                         </span>
                         <ul className="space-y-1.5">

@@ -95,7 +95,7 @@ export default function App() {
   };
 
   return (
-    <div id="odcl-app-root" className="min-h-screen bg-slate-950 flex flex-col text-slate-100 selection:bg-cyan-500 selection:text-slate-950 font-sans antialiased">
+    <div id="odcl-app-root" className="min-h-screen bg-slate-950 flex flex-col text-slate-100 selection:bg-cyan-500 selection:text-slate-950 font-sans antialiased overflow-x-hidden w-full max-w-full relative">
       {/* Header element */}
       <Header 
         activeTab={activeTab === "quotation" ? "quotation" : activeTab} 
@@ -127,7 +127,7 @@ export default function App() {
                   
                   {/* Left Column: Direct info */}
                   <div className="lg:col-span-7 space-y-6">
-                    <div className="inline-flex gap-2 items-center font-mono text-[10px] text-cyan-400 bg-cyan-950/40 border border-cyan-500/20 px-2 py-0.5 rounded">
+                    <div className="inline-flex gap-2 items-center font-mono text-xs font-black text-cyan-400 bg-cyan-950/40 border-2 border-cyan-500/25 px-2.5 py-1 rounded">
                       <span>PROCESS STABILITY CODES</span>
                     </div>
                     
@@ -147,10 +147,10 @@ export default function App() {
                         { title: "Supply Chain Coordination & Logistics", desc: "Handling ocean clearing, bonded warehousing buffers, and road freight haulage direct to upstream processing heads." }
                       ].map((item, idx) => (
                         <div key={idx} className="flex gap-3 bg-slate-950 p-4 border border-slate-850 rounded">
-                          <span className="font-mono text-cyan-400 font-extrabold">{idx + 1}.</span>
+                          <span className="font-mono text-cyan-400 font-extrabold text-xs sm:text-sm">{idx + 1}.</span>
                           <div>
-                            <strong className="block text-slate-200 uppercase tracking-wide font-display text-[11px]">{item.title}</strong>
-                            <p className="text-slate-400 text-[11px] mt-1">{item.desc}</p>
+                            <strong className="block text-white uppercase tracking-wide font-display text-xs sm:text-sm font-black">{item.title}</strong>
+                            <p className="text-slate-300 text-xs sm:text-sm font-bold leading-relaxed mt-1">{item.desc}</p>
                           </div>
                         </div>
                       ))}
@@ -166,7 +166,7 @@ export default function App() {
                         referrerPolicy="no-referrer"
                         className="w-full h-full object-cover cursor-zoom-in transition-transform duration-500 hover:scale-105"
                       />
-                      <span className="absolute bottom-2 left-2 bg-slate-950/90 px-1.5 py-0.5 border border-slate-800 text-[9px] font-mono text-slate-300">
+                      <span className="absolute bottom-2 left-2 bg-slate-950/90 px-2 py-1 border border-slate-800 text-xs font-mono font-black text-slate-300 uppercase">
                         01 / TECHNICAL LAB TESTING • TAP TO VIEW
                       </span>
                     </div>
@@ -178,7 +178,7 @@ export default function App() {
                         referrerPolicy="no-referrer"
                         className="w-full h-full object-cover cursor-zoom-in transition-transform duration-500 hover:scale-105"
                       />
-                      <span className="absolute bottom-2 left-2 bg-slate-950/90 px-1.5 py-0.5 border border-slate-800 text-[9px] font-mono text-slate-300">
+                      <span className="absolute bottom-2 left-2 bg-slate-950/90 px-2 py-1 border border-slate-800 text-xs font-mono font-black text-slate-300 uppercase">
                         02 / PROCESS WATER LOOP • TAP TO VIEW
                       </span>
                     </div>
@@ -190,7 +190,7 @@ export default function App() {
                         referrerPolicy="no-referrer"
                         className="w-full h-full object-cover cursor-zoom-in transition-transform duration-500 hover:scale-105"
                       />
-                      <span className="absolute bottom-3 left-3 bg-slate-950/90 px-2 py-0.5 border border-slate-800 text-[10px] font-mono text-orange-500 font-bold">
+                      <span className="absolute bottom-3 left-3 bg-slate-950/90 px-2.5 py-1.5 border border-slate-800 text-xs font-mono text-orange-500 font-black uppercase">
                         03 / CONSOLIDATED BULK STOCK DEPOT • TAP TO ZOOM
                       </span>
                     </div>
@@ -216,12 +216,12 @@ export default function App() {
                         <h3 className="font-display font-black text-xl text-white uppercase tracking-tight">
                           Nigeria Operations Base
                         </h3>
-                        <p className="text-xs text-slate-400 font-sans leading-relaxed">
+                        <p className="text-sm text-slate-300 font-sans leading-relaxed">
                           Our local base coordinates local warehousing buffer stocks, custom manifest clearances in coastal ports, heavy packaging splitting, and prompt delivery directly to production client yards in Port Harcourt.
                         </p>
                       </div>
                       
-                      <div className="bg-slate-950 border border-slate-850 p-4 rounded text-xs font-mono text-slate-400 mt-6 md:mt-12">
+                      <div className="bg-slate-950 border border-slate-850 p-4 rounded text-sm font-mono text-slate-350 mt-6 md:mt-12">
                         <strong className="block text-slate-200 uppercase mb-1">LOCAL HUB STRATS:</strong>
                         Port Harcourt Logistics Terminal, Port Onne Customs Access, road haulage coordination.
                       </div>
@@ -236,12 +236,12 @@ export default function App() {
                         <h3 className="font-display font-black text-xl text-white uppercase tracking-tight">
                           International Procurement Coordination
                         </h3>
-                        <p className="text-xs text-slate-400 font-sans leading-relaxed">
+                        <p className="text-sm text-slate-300 font-sans leading-relaxed">
                           Located in the Houston energy belt, our coordination desk maintains direct contact with global raw-material manufacturers, evaluating purity sheets and managing deep-ocean packing containers.
                         </p>
                       </div>
 
-                      <div className="bg-slate-950 border border-slate-850 p-4 rounded text-xs font-mono text-slate-400 mt-6 md:mt-12">
+                      <div className="bg-slate-950 border border-slate-850 p-4 rounded text-sm font-mono text-slate-350 mt-6 md:mt-12">
                         <strong className="block text-slate-200 uppercase mb-1">GLOBAL COORD STRATS:</strong>
                         International supplier contract negotiations, technical validation, telex clearance, freight bulk consolidation.
                       </div>
@@ -257,7 +257,7 @@ export default function App() {
                   <h3 className="font-display font-black text-2xl text-white uppercase tracking-tight">
                     CRITICAL FLUID FORMULATIONS REQUIRED ASAP?
                   </h3>
-                  <p className="text-xs text-slate-400 font-sans max-w-xl mx-auto">
+                  <p className="text-sm text-slate-350 font-sans max-w-xl mx-auto leading-relaxed">
                     Evaluate sourcing feasibilities on complex descaling chemicals, adsorbents, dehydration glycols, or custom flocculant structures instantly.
                   </p>
                   <button
@@ -391,13 +391,12 @@ export default function App() {
 
             </div>
 
-            {/* Direct Official correspondence contacts */}
-            <div className="bg-slate-950 border border-slate-850 p-5 rounded-sm grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono text-slate-400">
+            <div className="bg-slate-950 border border-slate-850 p-5 rounded-sm grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-mono text-slate-300">
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-cyan-400 shrink-0" />
                 <div>
-                  <span className="block text-[9px] text-slate-500 uppercase">PROCUREMENT EMAIL DESK</span>
-                  <a href={`mailto:${CONTACT_INFO.generalContacts.email}`} className="text-slate-205 hover:text-cyan-400 text-slate-200">
+                  <span className="block text-xs font-black text-slate-400 uppercase tracking-wide">PROCUREMENT EMAIL DESK</span>
+                  <a href={`mailto:${CONTACT_INFO.generalContacts.email}`} className="text-slate-200 hover:text-cyan-400 font-bold">
                     {CONTACT_INFO.generalContacts.email}
                   </a>
                 </div>
@@ -406,8 +405,8 @@ export default function App() {
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-cyan-400 shrink-0" />
                 <div>
-                  <span className="block text-[9px] text-slate-500 uppercase">TECHNICAL ADVISORY PANEL</span>
-                  <a href={`mailto:${CONTACT_INFO.generalContacts.technicalSupport}`} className="text-slate-205 hover:text-cyan-400 text-slate-200">
+                  <span className="block text-xs font-black text-slate-400 uppercase tracking-wide">TECHNICAL ADVISORY PANEL</span>
+                  <a href={`mailto:${CONTACT_INFO.generalContacts.technicalSupport}`} className="text-slate-200 hover:text-cyan-400 font-bold">
                     {CONTACT_INFO.generalContacts.technicalSupport}
                   </a>
                 </div>
@@ -434,15 +433,15 @@ export default function App() {
 
               {/* Focal Location pin coordinate dots */}
               <div className="relative z-10 flex flex-col items-center text-center space-y-1">
-                <span className="h-3 w-3 bg-red-500 rounded-full animate-pulse border-2 border-slate-950"></span>
-                <span className="font-mono text-[9px] text-slate-250 bg-slate-950 px-2 py-0.5 rounded border border-slate-800 text-slate-100">
+                <span className="h-3.5 w-3.5 bg-red-500 rounded-full animate-pulse border-2 border-slate-950"></span>
+                <span className="font-mono text-xs font-black text-slate-200 bg-slate-950 px-2.5 py-1 rounded border border-slate-800">
                   4.8156° N, 7.0498° E
                 </span>
-                <span className="text-[8px] font-mono text-cyan-400 uppercase">PORT HARCOURT DOCK A</span>
+                <span className="text-xs font-mono font-black text-cyan-400 uppercase tracking-wide">PORT HARCOURT DOCK A</span>
               </div>
             </div>
 
-            <div className="text-[11px] text-slate-500 leading-normal font-sans">
+            <div className="text-xs sm:text-sm font-bold text-slate-400 leading-relaxed font-sans">
               Our central storage depot is strategically positioned inside the industrial sector of Port Harcourt, permitting expedited access to raw distribution lines and deepwater harbors.
             </div>
           </div>
@@ -466,8 +465,8 @@ export default function App() {
           >
             {/* Close instruction top bar */}
             <div className="w-full max-w-5xl flex justify-between items-center mb-2 text-slate-400 z-10 px-1">
-              <span className="font-mono text-[10px] text-cyan-400 uppercase tracking-widest flex items-center gap-1.5">
-                <span className="h-1.5 w-1.5 bg-cyan-400 rounded-full animate-ping"></span>
+              <span className="font-mono text-xs font-black text-cyan-400 uppercase tracking-widest flex items-center gap-2">
+                <span className="h-2 w-2 bg-cyan-400 rounded-full animate-ping"></span>
                 TAP BACKDROP OR PRESS ESC TO DISMISS
               </span>
               <button
@@ -506,7 +505,7 @@ export default function App() {
                     {zoomedImage.alt}
                   </span>
                 </div>
-                <div className="text-[10px] text-slate-500 uppercase tracking-wider">
+                <div className="text-xs font-black text-slate-400 uppercase tracking-wider">
                   OIL DROP CHEMICAL LTD • SECURED SPEC clearance
                 </div>
               </div>

@@ -90,7 +90,7 @@ export default function Header({ activeTab, setActiveTab, openQuoteModal }: Head
               <div className="font-display font-black text-xl tracking-tighter text-slate-100 uppercase sm:text-2xl flex items-center gap-1 leading-none">
                 OIL DROP<span className="text-orange-500">.</span>
               </div>
-              <div className="text-xs font-mono tracking-wider text-slate-405 font-black uppercase leading-none mt-1.5">
+              <div className="text-xs font-mono tracking-wider text-slate-400 font-black uppercase leading-none mt-1.5">
                 PROCUREMENT & LOGISTICS
               </div>
             </div>

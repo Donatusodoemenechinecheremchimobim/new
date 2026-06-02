@@ -187,7 +187,7 @@ export default function Hero({ onQuoteClick, onExploreProducts }: HeroProps) {
                 </button>
 
                 {/* Main Swipe Hint strip in top right */}
-                <div className="absolute top-4 right-4 font-mono text-[10px] font-black bg-cyan-950/95 border-2 border-cyan-500 text-cyan-400 px-2 py-1.5 uppercase tracking-wider">
+                <div className="absolute top-4 right-4 font-mono text-xs font-black bg-cyan-950/95 border-2 border-cyan-500 text-cyan-400 px-2 py-1.5 uppercase tracking-wider">
                   IMAGE {activeIndex + 1} OF {heroImages.length}
                 </div>
 

@@ -464,7 +464,7 @@ export default function ProcurementSection({
                       {Array.from({ length: Math.min(estimatedIBCPackCount, 24) }).map((_, idx) => (
                         <div
                           key={idx}
-                          className="h-5 w-5 bg-cyan-950 border border-cyan-550 flex items-center justify-center text-[10px] font-mono font-black text-cyan-400"
+                          className="h-5 w-5 bg-cyan-950 border border-cyan-500 flex items-center justify-center text-xs font-mono font-black text-cyan-400"
                           title="Volumetric Unit PACK"
                         >
                           U
@@ -503,44 +503,44 @@ export default function ProcurementSection({
                 {/* Form fields representation */}
                 <div className="space-y-3 text-xs font-bold leading-normal">
                   <div className="grid grid-cols-3 py-1.5 border-b border-slate-800/80">
-                    <span className="text-slate-450 uppercase font-black">CLIENT REF:</span>
+                    <span className="text-slate-400 uppercase font-black">CLIENT REF:</span>
                     <span className="col-span-2 text-white uppercase font-black">{companyName || "NOT PROVIDED"}</span>
                   </div>
 
                   <div className="grid grid-cols-3 py-1.5 border-b border-slate-800/80">
-                    <span className="text-slate-455 uppercase font-black">CONTACT REP:</span>
+                    <span className="text-slate-400 uppercase font-black">CONTACT REP:</span>
                     <span className="col-span-2 text-slate-200 uppercase font-black">{contactPerson || "NOT PROVIDED"}</span>
                   </div>
 
                   <div className="grid grid-cols-3 py-1.5 border-b border-slate-800/80">
-                    <span className="text-slate-450 uppercase font-black">PRODUCT REQ:</span>
+                    <span className="text-slate-400 uppercase font-black">PRODUCT REQ:</span>
                     <span className="col-span-2 text-cyan-400 font-black uppercase">{productRequired || "PENDING PRODUCT SOURCING"}</span>
                   </div>
 
                   <div className="grid grid-cols-3 py-1.5 border-b border-slate-800/80">
-                    <span className="text-slate-450 uppercase font-black">QTY PARAMS:</span>
+                    <span className="text-slate-400 uppercase font-black">QTY PARAMS:</span>
                     <span className="col-span-2 text-slate-200 font-black">{estimatedQuantity ? `${estimatedQuantity} ${quantityUnit}` : "NOT CHOSEN"}</span>
                   </div>
 
                   <div className="grid grid-cols-3 py-1.5 border-b border-slate-800/80">
-                    <span className="text-slate-450 uppercase font-black">DESTINATION:</span>
+                    <span className="text-slate-400 uppercase font-black">DESTINATION:</span>
                     <span className="col-span-2 text-white uppercase font-black">{deliveryLocation || "NO LOCATION SPECIFIED"}</span>
                   </div>
 
                   <div className="grid grid-cols-3 py-1.5 border-b border-slate-800/80">
-                    <span className="text-slate-450 uppercase font-black">TIMELINE:</span>
+                    <span className="text-slate-400 uppercase font-black">TIMELINE:</span>
                     <span className="col-span-2 text-slate-200 uppercase font-black">{requiredTimeline.replace("_", " ")}</span>
                   </div>
 
                   <div className="py-2">
-                    <span className="text-slate-450 uppercase font-black block mb-1.5">SPECIAL LOG NOTES:</span>
+                    <span className="text-slate-400 uppercase font-black block mb-1.5">SPECIAL LOG NOTES:</span>
                     <p className="p-3 bg-slate-950 rounded-none text-slate-300 font-medium font-mono border border-slate-800 leading-relaxed">
                       {technicalSpecs || "Standard analytical purity thresholds required."}
                     </p>
                   </div>
                 </div>
 
-                <div className="border-t border-slate-800 pt-4 flex gap-4 text-xs font-black text-slate-450">
+                <div className="border-t border-slate-800 pt-4 flex gap-4 text-xs font-black text-slate-400">
                   <div className="w-1/2">
                     <span>Approved by Desk Analyst</span>
                     <div className="h-6 border-b border-slate-800 mt-1"></div>
@@ -590,7 +590,7 @@ export default function ProcurementSection({
                         {item.productRequired}
                       </td>
                       <td className="py-3.5 px-4 text-white font-mono font-black text-xs">{item.estimatedQuantity}</td>
-                      <td className="py-3.5 px-4 text-slate-305 font-bold text-xs">{item.deliveryLocation}</td>
+                      <td className="py-3.5 px-4 text-slate-300 font-bold text-xs">{item.deliveryLocation}</td>
                       <td className="py-3.5 px-4 text-center">
                         <span className="inline-block px-3 py-1 bg-slate-950 border-2 border-cyan-500 text-cyan-400 text-xs font-mono font-black rounded-none uppercase animate-pulse">
                           {item.status}

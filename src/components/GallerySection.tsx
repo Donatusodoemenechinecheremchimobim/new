@@ -53,7 +53,7 @@ export default function GallerySection() {
           <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-white uppercase tracking-tight">
             ASSETS & MEDIA GALLERY
           </h2>
-          <p className="text-sm sm:text-base font-bold text-slate-205 mt-2 max-w-2xl leading-relaxed">
+          <p className="text-sm sm:text-base font-bold text-slate-200 mt-2 max-w-2xl leading-relaxed">
             Sourcing pipelines, physical storage warehouses, quality verification laboratories, and logistics terminals.
           </p>
         </div>
