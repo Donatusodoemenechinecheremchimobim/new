@@ -364,28 +364,50 @@ export default function App() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               
               {/* Nigeria Office details */}
-              <div className="bg-slate-950 border border-slate-850 p-5 rounded-sm space-y-3">
-                <h4 className="font-display font-bold text-xs uppercase tracking-wider text-cyan-450 text-cyan-400">
-                  {CONTACT_INFO.nigeriaOffice.title}
-                </h4>
-                <div className="text-xs uppercase font-medium text-slate-100">{CONTACT_INFO.nigeriaOffice.company}</div>
-                <div className="text-xs text-slate-400">{CONTACT_INFO.nigeriaOffice.address}</div>
-                <div className="text-xs text-slate-400 font-mono mt-2">
-                  <span className="block">TEL: {CONTACT_INFO.nigeriaOffice.phone}</span>
-                  <span className="block">ALT: {CONTACT_INFO.nigeriaOffice.phone2}</span>
+              <div className="bg-slate-950 border-2 border-cyan-500/30 p-6 rounded-md shadow-lg space-y-4">
+                <div className="flex justify-between items-center border-b border-slate-800 pb-2.5">
+                  <h4 className="font-display font-black text-sm uppercase tracking-wider text-cyan-400">
+                    {CONTACT_INFO.nigeriaOffice.title}
+                  </h4>
+                  <span className="h-2.5 w-2.5 bg-green-500 rounded-full animate-pulse shadow-[0_0_12px_#22c55e]"></span>
+                </div>
+                <div className="space-y-1">
+                  <div className="text-sm uppercase font-black text-white">{CONTACT_INFO.nigeriaOffice.company}</div>
+                  <div className="text-xs text-slate-300 font-bold">{CONTACT_INFO.nigeriaOffice.address}</div>
+                </div>
+                <div className="bg-slate-900/80 p-4 rounded-md border border-slate-800 space-y-3 mt-3">
+                  <a href={`tel:${CONTACT_INFO.nigeriaOffice.phone}`} className="flex justify-between items-center group cursor-pointer">
+                    <span className="text-slate-400 text-xs font-black tracking-wide uppercase">LINE 1:</span>
+                    <span className="text-base font-mono font-black text-white group-hover:text-cyan-400 transition-colors tracking-widest">{CONTACT_INFO.nigeriaOffice.phone}</span>
+                  </a>
+                  <a href={`tel:${CONTACT_INFO.nigeriaOffice.phone2}`} className="flex justify-between items-center group cursor-pointer">
+                    <span className="text-slate-400 text-xs font-black tracking-wide uppercase">LINE 2 (ALT):</span>
+                    <span className="text-base font-mono font-black text-white group-hover:text-cyan-400 transition-colors tracking-widest">{CONTACT_INFO.nigeriaOffice.phone2}</span>
+                  </a>
                 </div>
               </div>
 
               {/* US Office liaison details */}
-              <div className="bg-slate-950 border border-slate-850 p-5 rounded-sm space-y-3">
-                <h4 className="font-display font-bold text-xs uppercase tracking-wider text-amber-500">
-                  {CONTACT_INFO.houstonOffice.title}
-                </h4>
-                <div className="text-xs uppercase font-medium text-slate-100">Houston Coordination desk</div>
-                <div className="text-xs text-slate-400">{CONTACT_INFO.houstonOffice.address}</div>
-                <div className="text-xs text-slate-400 font-mono mt-2">
-                  <span className="block">TEL: {CONTACT_INFO.houstonOffice.phone}</span>
-                  <span className="block">LIAISON: {CONTACT_INFO.houstonOffice.email}</span>
+              <div className="bg-slate-950 border-2 border-amber-500/30 p-6 rounded-md shadow-lg space-y-4">
+                <div className="flex justify-between items-center border-b border-slate-800 pb-2.5">
+                  <h4 className="font-display font-black text-sm uppercase tracking-wider text-amber-400">
+                    {CONTACT_INFO.houstonOffice.title}
+                  </h4>
+                  <span className="h-2.5 w-2.5 bg-amber-500 rounded-full animate-pulse shadow-[0_0_12px_#f59e0b]"></span>
+                </div>
+                <div className="space-y-1">
+                  <div className="text-sm uppercase font-black text-white">Houston Coordination Desk</div>
+                  <div className="text-xs text-slate-300 font-bold">{CONTACT_INFO.houstonOffice.address}</div>
+                </div>
+                <div className="bg-slate-900/80 p-4 rounded-md border border-slate-800 space-y-3 mt-3">
+                  <a href={`tel:${CONTACT_INFO.houstonOffice.phone}`} className="flex justify-between items-center group cursor-pointer">
+                    <span className="text-slate-400 text-xs font-black tracking-wide uppercase">US DIRECT:</span>
+                    <span className="text-sm sm:text-base font-mono font-black text-white group-hover:text-amber-400 transition-colors tracking-wider">{CONTACT_INFO.houstonOffice.phone}</span>
+                  </a>
+                  <a href={`mailto:${CONTACT_INFO.houstonOffice.email}`} className="flex justify-between items-center group cursor-pointer">
+                    <span className="text-slate-400 text-xs font-black tracking-wide uppercase">EMAIL DESK:</span>
+                    <span className="text-xs font-mono font-black text-white group-hover:text-amber-400 transition-colors truncate pl-2">{CONTACT_INFO.houstonOffice.email}</span>
+                  </a>
                 </div>
               </div>
 

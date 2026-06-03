@@ -51,9 +51,13 @@ export default function Header({ activeTab, setActiveTab, openQuoteModal }: Head
             SYS: STABLE
           </span>
           <span className="text-slate-500">|</span>
-          <span className="flex items-center gap-1">
+          <span className="flex items-center gap-1.5 flex-wrap">
             <MapPin className="h-3.5 w-3.5 text-slate-500" />
-            NGA DEV: +234 PORT HARCOURT
+            <span className="text-slate-400 font-semibold">NGA LINES:</span>
+            <span className="text-slate-100 font-black tracking-widest bg-cyan-950/40 px-1.5 py-0.5 rounded border border-cyan-800/30">09134959214</span>
+            <span className="text-slate-500 font-bold">/</span>
+            <span className="text-slate-100 font-black tracking-widest bg-cyan-950/40 px-1.5 py-0.5 rounded border border-cyan-800/30">07041109414</span>
+            <span className="text-slate-400 font-extrabold text-[10px] uppercase ml-1">(PORT HARCOURT)</span>
           </span>
           <span className="text-slate-500">|</span>
           <span className="flex items-center gap-1">
