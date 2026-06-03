@@ -350,14 +350,14 @@ export const COMPANY_PROFILE = {
 
 export const CONTACT_INFO = {
   nigeriaOffice: {
-    title: "NIGERIAN CALL LINES",
-    company: "Oil Drop Chemical Ltd",
-    address: "Port Harcourt, Rivers State, Nigeria",
+    title: "Head Office – Nigeria",
+    company: "OILDROP CHEMICAL LTD",
+    address: "Plot 36 Boskel Road, Off Km 16, Portharcourt Aba Expressway, PortHarcourt Rivers State.",
     phone: "09134959214",
     phone2: "07041109414"
   },
   houstonOffice: {
-    title: "OILDROP International Office (Houston)",
+    title: "International Business Office",
     address: "Houston, Texas, USA",
     phone: "+1 (713) 555-8902",
     email: "procurement@oildropchemical.com"

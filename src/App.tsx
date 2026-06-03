@@ -380,10 +380,12 @@ export default function App() {
                     <span className="text-slate-400 text-xs font-black tracking-wide uppercase">TEL:</span>
                     <span className="text-base font-mono font-black text-white group-hover:text-cyan-400 transition-colors tracking-widest">{CONTACT_INFO.nigeriaOffice.phone}</span>
                   </a>
-                  <a href={`tel:${CONTACT_INFO.nigeriaOffice.phone2}`} className="flex justify-between items-center group cursor-pointer">
-                    <span className="text-slate-400 text-xs font-black tracking-wide uppercase">TEL (ALT):</span>
-                    <span className="text-base font-mono font-black text-white group-hover:text-cyan-400 transition-colors tracking-widest">{CONTACT_INFO.nigeriaOffice.phone2}</span>
-                  </a>
+                  {CONTACT_INFO.nigeriaOffice.phone2 && (
+                    <a href={`tel:${CONTACT_INFO.nigeriaOffice.phone2}`} className="flex justify-between items-center group cursor-pointer">
+                      <span className="text-slate-400 text-xs font-black tracking-wide uppercase">TEL:</span>
+                      <span className="text-base font-mono font-black text-white group-hover:text-cyan-400 transition-colors tracking-widest">{CONTACT_INFO.nigeriaOffice.phone2}</span>
+                    </a>
+                  )}
                 </div>
               </div>
 
