@@ -377,11 +377,11 @@ export default function App() {
                 </div>
                 <div className="bg-slate-900/80 p-4 rounded-md border border-slate-800 space-y-3 mt-3">
                   <a href={`tel:${CONTACT_INFO.nigeriaOffice.phone}`} className="flex justify-between items-center group cursor-pointer">
-                    <span className="text-slate-400 text-xs font-black tracking-wide uppercase">LINE 1:</span>
+                    <span className="text-slate-400 text-xs font-black tracking-wide uppercase">TEL:</span>
                     <span className="text-base font-mono font-black text-white group-hover:text-cyan-400 transition-colors tracking-widest">{CONTACT_INFO.nigeriaOffice.phone}</span>
                   </a>
                   <a href={`tel:${CONTACT_INFO.nigeriaOffice.phone2}`} className="flex justify-between items-center group cursor-pointer">
-                    <span className="text-slate-400 text-xs font-black tracking-wide uppercase">LINE 2 (ALT):</span>
+                    <span className="text-slate-400 text-xs font-black tracking-wide uppercase">TEL (ALT):</span>
                     <span className="text-base font-mono font-black text-white group-hover:text-cyan-400 transition-colors tracking-widest">{CONTACT_INFO.nigeriaOffice.phone2}</span>
                   </a>
                 </div>
@@ -396,8 +396,7 @@ export default function App() {
                   <span className="h-2.5 w-2.5 bg-amber-500 rounded-full animate-pulse shadow-[0_0_12px_#f59e0b]"></span>
                 </div>
                 <div className="space-y-1">
-                  <div className="text-sm uppercase font-black text-white">Houston Coordination Desk</div>
-                  <div className="text-xs text-slate-300 font-bold">{CONTACT_INFO.houstonOffice.address}</div>
+                  <div className="text-sm uppercase font-black text-white">Houston, Texas, USA</div>
                 </div>
                 <div className="bg-slate-900/80 p-4 rounded-md border border-slate-800 space-y-3 mt-3">
                   <a href={`tel:${CONTACT_INFO.houstonOffice.phone}`} className="flex justify-between items-center group cursor-pointer">

@@ -26,7 +26,7 @@ export default function Footer({ setActiveTab, openQuoteModal }: FooterProps) {
             </span>
           </div>
           <p className="text-xs sm:text-sm font-bold leading-relaxed text-slate-300">
-            Oil Drop Chemical Ltd operates as an industrial chemical procurement company serving energy, manufacturing, and process industries through structured coordinate sourcing.
+            Oil Drop Chemical Ltd is a strategic industrial chemical procurement partner serving Africa’s energy, manufacturing, and process industries through trusted global manufacturer relationships and sourcing expertise.
           </p>
         </div>
 

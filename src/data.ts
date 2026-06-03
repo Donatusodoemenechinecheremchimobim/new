@@ -358,7 +358,7 @@ export const CONTACT_INFO = {
   },
   houstonOffice: {
     title: "OILDROP International Office (Houston)",
-    address: "Houston, Texas, USA (Coordination Desk)",
+    address: "Houston, Texas, USA",
     phone: "+1 (713) 555-8902",
     email: "procurement@oildropchemical.com"
   },
