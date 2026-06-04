@@ -17,7 +17,7 @@ export default function AboutSection() {
             ABOUT OIL DROP CHEMICAL LTD
           </h2>
           <p className="text-sm sm:text-base font-bold text-slate-200 mt-2 max-w-2xl leading-relaxed">
-            Linking global manufacturers to industrial end-users across critical energy lanes and manufacturing hubs.
+           Linking global manufacturers with industrial end-users across Africa’s energy corridors and manufacturing hubs.
           </p>
         </div>
 
