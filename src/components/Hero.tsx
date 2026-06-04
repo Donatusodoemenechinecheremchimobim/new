@@ -106,7 +106,7 @@ export default function Hero({ onQuoteClick, onExploreProducts }: HeroProps) {
 
             {/* Concise Core Statement */}
             <p className="text-sm sm:text-base text-slate-200 font-bold leading-relaxed max-w-2xl font-sans">
-              We provide straight-forward chemical procurement, bulk distribution, and optimized shipping logistics. We supply high-quality process additives, premium filtration media, and industrial consumables directly to power, energy, water treatment, and manufacturing facilities.
+            OILDROP Chemical Ltd provides industrial chemical procurement, strategic sourcing, and supply chain solutions for the energy, manufacturing, water treatment, and process industries. Through trusted global partnerships, we deliver reliable access to quality chemicals, process additives, raw materials, and essential industrial inputs across Africa.
             </p>
 
             {/* Dual CTA Block */}
