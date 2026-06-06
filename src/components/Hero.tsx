@@ -106,7 +106,7 @@ export default function Hero({ onQuoteClick, onExploreProducts }: HeroProps) {
 
             {/* Concise Core Statement */}
             <p className="text-sm sm:text-base text-slate-200 font-bold leading-relaxed max-w-2xl font-sans">
-            OILDROP Chemical Ltd provides industrial chemical procurement, strategic sourcing, and supply chain solutions for the energy, manufacturing, water treatment, and process industries. Through trusted global partnerships, we deliver reliable access to quality chemicals, process additives, raw materials, and essential industrial inputs across Africa.
+              We provide straight-forward chemical procurement, bulk distribution, and optimized shipping logistics. We supply high-quality process additives, premium filtration media, and industrial consumables directly to power, energy, water treatment, and manufacturing facilities.
             </p>
 
             {/* Dual CTA Block */}
@@ -128,21 +128,21 @@ export default function Hero({ onQuoteClick, onExploreProducts }: HeroProps) {
             </div>
 
             {/* Quick Sourcing Ticker Stats / Live metrics */}
-            <div className="grid grid-cols-3 gap-4 border-t-4 border-slate-800 pt-8 mt-8">
-              <div>
-                <dt className="text-sm font-black text-slate-100 uppercase tracking-widest">Sourced Materials</dt>
-                <dd className="text-4xl font-display font-black text-orange-500 mt-1">42+</dd>
-                <div className="text-xs text-slate-300 font-bold mt-1 uppercase">PORT GRADES</div>
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 border-t-4 border-slate-800 pt-8 mt-8">
+              <div className="min-w-0">
+                <dt className="text-[10px] min-[380px]:text-xs md:text-sm font-black text-slate-100 uppercase tracking-normal min-[380px]:tracking-wider md:tracking-widest truncate sm:overflow-visible sm:whitespace-normal">Sourced Materials</dt>
+                <dd className="text-2xl min-[380px]:text-3xl md:text-4xl font-display font-black text-orange-500 mt-1 leading-none">42+</dd>
+                <div className="text-[9px] min-[380px]:text-xs text-slate-300 font-bold mt-1 uppercase truncate">PORT GRADES</div>
               </div>
-              <div className="border-l-4 border-orange-500 pl-4">
-                <dt className="text-sm font-black text-slate-100 uppercase tracking-widest">Global Nodes</dt>
-                <dd className="text-4xl font-display font-black text-white mt-1">PH / HOU</dd>
-                <div className="text-xs text-slate-300 font-bold mt-1 uppercase">NIGERIA & USA</div>
+              <div className="border-l-4 border-orange-500 pl-2 sm:pl-4 min-w-0">
+                <dt className="text-[10px] min-[380px]:text-xs md:text-sm font-black text-slate-100 uppercase tracking-normal min-[380px]:tracking-wider md:tracking-widest truncate sm:overflow-visible sm:whitespace-normal">Global Nodes</dt>
+                <dd className="text-2xl min-[380px]:text-3xl md:text-4xl font-display font-black text-white mt-1 leading-none">PH / HOU</dd>
+                <div className="text-[9px] min-[380px]:text-xs text-slate-300 font-bold mt-1 uppercase truncate">NIGERIA & USA</div>
               </div>
-              <div className="border-l-4 border-white pl-4">
-                <dt className="text-sm font-black text-slate-100 uppercase tracking-widest">Verification</dt>
-                <dd className="text-4xl font-display font-black text-orange-500 mt-1">100%</dd>
-                <div className="text-xs text-slate-300 font-bold mt-1 uppercase">COA VERIFIED</div>
+              <div className="border-l-4 border-white pl-2 sm:pl-4 min-w-0">
+                <dt className="text-[10px] min-[380px]:text-xs md:text-sm font-black text-slate-100 uppercase tracking-normal min-[380px]:tracking-wider md:tracking-widest truncate sm:overflow-visible sm:whitespace-normal">Verification</dt>
+                <dd className="text-2xl min-[380px]:text-3xl md:text-4xl font-display font-black text-orange-500 mt-1 leading-none">100%</dd>
+                <div className="text-[9px] min-[380px]:text-xs text-slate-300 font-bold mt-1 uppercase truncate">COA VERIFIED</div>
               </div>
             </div>
 
