@@ -1,7 +1,7 @@
 // Centralized mapping of static images hosted in /public/images/ to guarantee reliable rendering
 export const IMAGES = {
   // Hub Sourcing
-  oilSourcing: "/images/IMG-20260523-WA0004.jpg",
+  oilSourcing: "/images/IMG-20260522-WA0001.jpg",
   logisticsHub: "/images/IMG-20260523-WA0005.jpg",
   processWater: "/images/IMG-20260523-WA0006.jpg",
   maintenanceSystem: "/images/IMG-20260522-WA0016.jpg",
@@ -27,6 +27,7 @@ export const IMAGES = {
   imgWA0007: "/images/IMG-20260523-WA0007.jpg",
   imgWA0007_1: "/images/IMG-20260523-WA0007-1.jpg",
   imgWA0000: "/images/IMG-20260605-WA0000.jpg",
+  petrochemicalRefining: "/images/IMG-20260522-WA0002.jpg",
   motion3066: "/images/motion_photo_3066753875363824983.jpg",
 
   // Motion Assets for Gallery

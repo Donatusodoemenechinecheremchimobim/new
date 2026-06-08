@@ -33,7 +33,7 @@ export default function ApplicationsSection({ onSelectApplication }: Application
   const appImages: Record<string, string> = {
     "oil-gas-systems": IMAGES.oilSourcing,
     "gas-lng-processing": IMAGES.plantDehydrator,
-    "petrochemical-refining": IMAGES.bulkStock,
+    "petrochemical-refining": IMAGES.petrochemicalRefining,
     "water-treatment-systems": IMAGES.processWater,
     "manufacturing-process": IMAGES.maintenanceSystem,
     "environmental-waste": IMAGES.gal7,

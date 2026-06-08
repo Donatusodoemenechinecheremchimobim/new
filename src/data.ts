@@ -271,9 +271,9 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: "gal-7",
-    title: "Multi-layered Filtration Bed",
-    category: "industrial-filtration",
-    description: "Deep bed multi-media filter designed for removing mechanical solids from industrial process loops.",
+    title: "Industrial Chemical Packaging & Containment",
+    category: "logistics-procurement",
+    description: "Multi-layered sealed containment and heavy-duty protective chemical packaging engineered to secure bulk materials, moisture-sensitive catalysts, and industrial liquids from atmospheric degradation and leakages during distribution.",
     url: IMAGES.motion3066
   },
   {
