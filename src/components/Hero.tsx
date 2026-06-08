@@ -8,7 +8,7 @@ interface HeroProps {
 }
 
 export default function Hero({ onQuoteClick, onExploreProducts }: HeroProps) {
-  // Configured list of premium pictures the user provided to load dynmically in Hero
+  // Configured list of premium pictures the user provided to load dynamically in Hero
   const heroImages = [
     { 
       src: IMAGES.heroOildrop, 
@@ -19,44 +19,44 @@ export default function Hero({ onQuoteClick, onExploreProducts }: HeroProps) {
       strength: "UNIFORM ≥85 N"
     },
     { 
-      src: IMAGES.plantDehydrator, 
-      alt: "Midstream purification vessels", 
-      ref: "WAREHOUSE: PORT HARCOURT BULK STORAGE", 
-      feed: "TEG & DEG GLYCOLS LOT 26",
-      disc: "PURITY FEED SYSTEM",
-      strength: "CERTIFIED COMPONENT"
+      src: IMAGES.bluePallet, 
+      alt: "Chemical stock shipment pallet", 
+      ref: "STOCK: SECURED BLUE CHEMICAL PALLET", 
+      feed: "INDUSTRIAL BULK PACKAGING",
+      disc: "DISTRIBUTION CENTER",
+      strength: "PREMIUM GRADE LOT-09"
     },
     { 
-      src: IMAGES.bulkStock, 
-      alt: "Consolidated raw chemical bulk stock yard", 
-      ref: "LOGISTICS: SHIPPED CARGOES DEPOT", 
-      feed: "PACKED BARRELS STOCKED IN NIGERIA",
-      disc: "STOCK DISTRIBUTION",
+      src: IMAGES.waterTreatment, 
+      alt: "Water treatment chemicals and purification loop", 
+      ref: "PLANT: METROPOLITAN PURIFICATION SECTOR", 
+      feed: "COAGULANTS & WATER REGULATORS",
+      disc: "PURIFICATION LOOP",
       strength: "BATCH STABILITY LEVEL 1"
     },
     { 
-      src: IMAGES.filtrationMedia, 
-      alt: "Industrial filtration materials testing", 
-      ref: "FILTER LAB: ACTIVATED CARBON & ANTHRACITE", 
-      feed: "FOR DEEP-BED PROCESS FILTERS",
-      disc: "FILTRATION POROSITY",
-      strength: "IODINE INDEX ≥1000 mg/g"
+      src: IMAGES.bluePallet1, 
+      alt: "Staged raw chemicals on pallet", 
+      ref: "WAREHOUSE: PORT HARCOURT STORAGE", 
+      feed: "STAGED RESIDUES & ADDITIVES",
+      disc: "GLYCOLS DEHYDRATION",
+      strength: "CERTIFIED COMPONENT"
     },
     { 
-      src: IMAGES.oilSourcing, 
-      alt: "Upstream chemicals sourcing pipeline", 
-      ref: "SOURCE HUB: SECURED DIRECT CHANNELS", 
-      feed: "COA COMPLIANT DOSING REAGENTS",
-      disc: "REAGENT FEED PIPELINE",
-      strength: "HPLC LAB VERIFIED"
+      src: IMAGES.imgWA0007, 
+      alt: "Analytical lab testing system", 
+      ref: "SOURCE HUB: NIGERIAN LOGISTICS PIPELINE", 
+      feed: "COA COMPLIANT REAGENTS",
+      disc: "REAGENT FEED SYSTEM",
+      strength: "COA LAB VERIFIED"
     },
     { 
-      src: IMAGES.logisticsHub, 
-      alt: "Volumetric ocean freight logistics container hub", 
-      ref: "CLEARING CAPABILITY: HUB DIRECT ONNE", 
-      feed: "CUSTOM CLEARED BULK SHIPPING",
-      disc: "FORWARD DISTRIBUTION",
-      strength: "EXPEDITED SEA ROUTING"
+      src: IMAGES.imgWA0015, 
+      alt: "High-pressure vessel maintenance", 
+      ref: "SYSTEM: BULK DEHYDRATOR INTERFACE", 
+      feed: "SURFACE VALVES AND PRESSURE INLETS",
+      disc: "MAINTENANCE NODE",
+      strength: "PRESSURE TEST PASS"
     },
   ];
 

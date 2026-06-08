@@ -232,70 +232,70 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: "Liquid Dehydration Columns",
     category: "oil-gas",
     description: "Industrial Triethylene Glycol (TEG) gas contact tower in midstream processing loop.",
-    url: IMAGES.gal1
+    url: IMAGES.pic9
   },
   {
     id: "gal-2",
     title: "Analytical Quality Verification",
     category: "technical-facilities",
     description: "Active laboratory screening of newly sourced chemical batches to guarantee active ingredient compliance.",
-    url: IMAGES.gal2
+    url: IMAGES.pic10
   },
   {
     id: "gal-3",
     title: "Primary Coagulation Clarifiers",
     category: "water-treatment",
     description: "Industrial-scale settler pool utilizing heavy cationic inorganic metal salts for turbidity reduction.",
-    url: IMAGES.gal3
+    url: IMAGES.bluePallet
   },
   {
     id: "gal-4",
     title: "Sieved Desiccant Inventory",
     category: "industrial-filtration",
     description: "Vacuum-sealed packaging of synthetic zeolite molecular sieve beads ready for process load-in.",
-    url: IMAGES.gal4
+    url: IMAGES.bluePallet1
   },
   {
     id: "gal-5",
     title: "Port Logistics Infrastructure",
     category: "logistics-procurement",
     description: "Staged shipping loading terminal coordinating distribution between international supply chains and local warehouses.",
-    url: IMAGES.gal5
+    url: IMAGES.waterTreatment
   },
   {
     id: "gal-6",
     title: "Process Pipeline Manifold",
     category: "oil-gas",
     description: "Stainless steel pressure lines directing raw gases through vertical moisture separators.",
-    url: IMAGES.gal6
+    url: IMAGES.imgWA0000
   },
   {
     id: "gal-7",
     title: "Multi-layered Filtration Bed",
     category: "industrial-filtration",
     description: "Deep bed multi-media filter designed for removing mechanical solids from industrial process loops.",
-    url: IMAGES.gal7
+    url: IMAGES.motion3066
   },
   {
     id: "gal-8",
     title: "Gas Liquefaction Node",
     category: "oil-gas",
     description: "Interstage high-pressure heat exchangers designed for LNG purifications under cryogenic limits.",
-    url: IMAGES.gal8
+    url: IMAGES.imgWA0015
   },
   {
     id: "gal-9",
     title: "Bulk Cargo Depot",
     category: "logistics-procurement",
     description: "Secured customs warehousing handling dry and liquid chemical distributions.",
-    url: IMAGES.gal9
+    url: IMAGES.imgWA0007
   },
   {
     id: "gal-10",
     title: "Technical Supply Review",
     category: "technical-facilities",
     description: "Engineering panel and sourcing coordinators evaluating batch test sheets for local compliance.",
-    url: IMAGES.gal10
+    url: IMAGES.imgWA0007_1
   },
   {
     id: "gal-11",
