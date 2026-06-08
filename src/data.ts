@@ -246,21 +246,21 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: "Primary Coagulation Clarifiers",
     category: "water-treatment",
     description: "Industrial-scale settler pool utilizing heavy cationic inorganic metal salts for turbidity reduction.",
-    url: IMAGES.bluePallet
+    url: IMAGES.waterTreatment
   },
   {
     id: "gal-4",
     title: "Sieved Desiccant Inventory",
     category: "industrial-filtration",
     description: "Vacuum-sealed packaging of synthetic zeolite molecular sieve beads ready for process load-in.",
-    url: IMAGES.bluePallet1
+    url: IMAGES.sievedDesiccant
   },
   {
     id: "gal-5",
     title: "Port Logistics Infrastructure",
     category: "logistics-procurement",
     description: "Staged shipping loading terminal coordinating distribution between international supply chains and local warehouses.",
-    url: IMAGES.waterTreatment
+    url: IMAGES.logisticsHub
   },
   {
     id: "gal-6",
@@ -274,7 +274,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: "Industrial Chemical Packaging & Containment",
     category: "logistics-procurement",
     description: "Multi-layered sealed containment and heavy-duty protective chemical packaging engineered to secure bulk materials, moisture-sensitive catalysts, and industrial liquids from atmospheric degradation and leakages during distribution.",
-    url: IMAGES.motion3066
+    url: IMAGES.bluePallet1
   },
   {
     id: "gal-8",

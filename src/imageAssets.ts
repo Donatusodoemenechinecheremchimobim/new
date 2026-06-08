@@ -11,13 +11,14 @@ export const IMAGES = {
   labTesting: "/images/IMG-20260523-WA0011.jpg",
   plantDehydrator: "/images/IMG-20260523-WA0012.jpg",
   bulkStock: "/images/IMG-20260524-WA0003.jpg",
-  filtrationMedia: "/images/filtration.jpg",
+  filtrationMedia: "/images/IMG-20260523-WA0011.jpg",
   sandMedia: "/images/sand.jpg",
   sandMediaAlternative: "/images/san2.jpg",
 
   // Brand-New Uploaded Assets 2026
   bluePallet: "/images/blue pallet.jpg",
   bluePallet1: "/images/blue pallet-1.jpg",
+  sievedDesiccant: "/images/IMG-20260523-WA0004.jpg",
   waterTreatment: "/images/water treatment.jpg",
   pic9: "/images/pic9.jpg",
   pic10: "/images/pic10.jpg",
