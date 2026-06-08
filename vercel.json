@@ -2,10 +2,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    {
-      "source": "/((?!sitemap\\.xml|robots\\.txt|favicon\\.svg|.*\\.[a-zA-Z0-9]+$).*)",
-      "destination": "/index.html"
-    }
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
     {

@@ -36,50 +36,6 @@ export default function App() {
   // Zoomed image state for global lightbox viewer
   const [zoomedImage, setZoomedImage] = useState<{ src: string; alt: string } | null>(null);
 
-  // Synchronize dynamic URL parameter 'page' or 'tab' or hashes with our state for SEO & Deep Linking
-  useEffect(() => {
-    // 1. On Mount: check query parameters & hashes
-    const params = new URLSearchParams(window.location.search);
-    const pageParam = params.get("page") || params.get("tab") || window.location.hash.substring(1);
-    
-    const validTabs = ["home", "about", "products", "applications", "supply-chain", "gallery", "quotation"];
-    if (pageParam && validTabs.includes(pageParam.toLowerCase())) {
-      setActiveTab(pageParam.toLowerCase());
-    }
-
-    // 2. Setup popstate listener to respond to forward/backward browser buttons
-    const handlePopState = () => {
-      const updatedParams = new URLSearchParams(window.location.search);
-      const updatedPage = updatedParams.get("page") || updatedParams.get("tab") || window.location.hash.substring(1);
-      if (updatedPage && validTabs.includes(updatedPage.toLowerCase())) {
-        setActiveTab(updatedPage.toLowerCase());
-      } else {
-        setActiveTab("home");
-      }
-    };
-
-    window.addEventListener("popstate", handlePopState);
-    return () => {
-      window.removeEventListener("popstate", handlePopState);
-    };
-  }, []);
-
-  // Update the browser URL dynamically whenever activeTab changes
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const currentPage = params.get("page") || params.get("tab");
-    
-    if (currentPage !== activeTab) {
-      if (activeTab === "home") {
-        // Clear query parameters for home page to keep root clean
-        window.history.replaceState(null, "", window.location.pathname || "/");
-      } else {
-        // Use replaceState to avoid cluttering the history back-stack while changing tabs dynamically
-        window.history.replaceState(null, "", `?page=${activeTab}`);
-      }
-    }
-  }, [activeTab]);
-
   // Keyboard escape and window listeners for zoom modal
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

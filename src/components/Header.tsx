@@ -44,66 +44,30 @@ export default function Header({ activeTab, setActiveTab, openQuoteModal }: Head
   return (
     <header className="w-full sticky top-0 z-50 shadow-xl">
       {/* Top Technical Wire Strip */}
-      <div className="bg-slate-900 border-b border-slate-800 text-xs text-slate-400 font-mono py-2 px-4 sm:px-6 md:px-8">
-        {/* Desktop View */}
-        <div className="hidden md:flex flex-row justify-between items-center gap-2">
-          <div className="flex flex-wrap justify-start items-center gap-4">
-            <span className="flex items-center gap-1.5 text-cyan-400">
-              <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
-              SYS: STABLE
-            </span>
-            <span className="text-slate-500">|</span>
-            <span className="flex items-center gap-1.5 flex-wrap">
-              <MapPin className="h-3.5 w-3.5 text-slate-500" />
-              <span className="text-slate-400 font-semibold">NGA LINES:</span>
-              <span className="text-slate-100 font-black tracking-widest bg-cyan-950/40 px-1.5 py-0.5 rounded border border-cyan-800/30">09134959214</span>
-              <span className="text-slate-500 font-bold">/</span>
-              <span className="text-slate-100 font-black tracking-widest bg-cyan-950/40 px-1.5 py-0.5 rounded border border-cyan-800/30">07041109414</span>
-              <span className="text-slate-400 font-extrabold text-[10px] uppercase ml-1">(PORT HARCOURT)</span>
-            </span>
-            <span className="text-slate-500">|</span>
-            <span className="flex items-center gap-1">
-              <MapPin className="h-3.5 w-3.5 text-slate-500" />
-              US COORD: HOUSTON, TX
-            </span>
-          </div>
-          <div className="flex items-center gap-3">
-            <span className="text-slate-500">UTC:</span>
-            <span className="text-slate-300 font-semibold">{timeStr || "2026-05-25 14:11:00 UTC"}</span>
-          </div>
+      <div className="bg-slate-900 border-b border-slate-800 text-xs text-slate-400 font-mono py-2 px-4 sm:px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-2">
+        <div className="flex flex-wrap justify-center md:justify-start items-center gap-4">
+          <span className="flex items-center gap-1.5 text-cyan-400">
+            <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+            SYS: STABLE
+          </span>
+          <span className="text-slate-500">|</span>
+          <span className="flex items-center gap-1.5 flex-wrap">
+            <MapPin className="h-3.5 w-3.5 text-slate-500" />
+            <span className="text-slate-400 font-semibold">NGA LINES:</span>
+            <span className="text-slate-100 font-black tracking-widest bg-cyan-950/40 px-1.5 py-0.5 rounded border border-cyan-800/30">09134959214</span>
+            <span className="text-slate-500 font-bold">/</span>
+            <span className="text-slate-100 font-black tracking-widest bg-cyan-950/40 px-1.5 py-0.5 rounded border border-cyan-800/30">07041109414</span>
+            <span className="text-slate-400 font-extrabold text-[10px] uppercase ml-1">(PORT HARCOURT)</span>
+          </span>
+          <span className="text-slate-500">|</span>
+          <span className="flex items-center gap-1">
+            <MapPin className="h-3.5 w-3.5 text-slate-500" />
+            US COORD: HOUSTON, TX
+          </span>
         </div>
-
-        {/* Mobile View - Configured for maximum compact elegance without omitting text */}
-        <div className="flex md:hidden flex-col items-center justify-center text-center gap-1.5 text-[10px] tracking-tight py-1 font-mono">
-          {/* Row 1: System Status & US Coord */}
-          <div className="flex items-center justify-center gap-1.5 flex-wrap text-slate-400 font-bold">
-            <span className="flex items-center gap-1 text-cyan-400">
-              <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></span>
-              SYS: STABLE
-            </span>
-            <span className="text-slate-600">|</span>
-            <span className="flex items-center gap-1 text-slate-300 leading-none">
-              <MapPin className="h-3 w-3 text-orange-500 inline-block align-middle" />
-              US COORD: HOUSTON, TX
-            </span>
-          </div>
-
-          {/* Row 2: NGA lines line-wrapped compactly */}
-          <div className="flex items-center justify-center gap-1 flex-wrap text-slate-300">
-            <span className="text-slate-400 font-extrabold text-[9px] uppercase tracking-normal">NGA LINES:</span>
-            <span className="font-extrabold text-white bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800">09134959214</span>
-            <span className="text-slate-600 font-bold">/</span>
-            <span className="font-extrabold text-white bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800">07041109414</span>
-            <span className="text-slate-400 text-[9px] font-bold uppercase">(PORT HARCOURT)</span>
-          </div>
-
-          {/* Row 3: UTC */}
-          <div className="flex items-center justify-center gap-1 text-slate-500 font-extrabold text-[9px] tracking-wider uppercase border-t border-slate-800/50 w-full pt-1">
-            <span>UTC:</span>
-            <span className="text-slate-300 font-bold bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800 text-[10px]">
-              {timeStr || "2026-05-25 14:11:00 UTC"}
-            </span>
-          </div>
+        <div className="flex items-center gap-3">
+          <span className="text-slate-500">UTC:</span>
+          <span className="text-slate-300 font-semibold">{timeStr || "2026-05-25 14:11:00 UTC"}</span>
         </div>
       </div>
 
