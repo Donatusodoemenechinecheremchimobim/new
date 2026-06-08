@@ -267,7 +267,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: "Process Pipeline Manifold",
     category: "oil-gas",
     description: "Stainless steel pressure lines directing raw gases through vertical moisture separators.",
-    url: IMAGES.imgWA0000
+    url: IMAGES.imgWA0006
   },
   {
     id: "gal-7",

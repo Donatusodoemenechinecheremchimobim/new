@@ -22,6 +22,8 @@ export const IMAGES = {
   pic9: "/images/pic9.jpg",
   pic10: "/images/pic10.jpg",
   imgWA0015: "/images/IMG-20260522-WA0015.jpg",
+  imgWA0005: "/images/IMG-20260523-WA0005.jpg",
+  imgWA0006: "/images/IMG-20260523-WA0006.jpg",
   imgWA0007: "/images/IMG-20260523-WA0007.jpg",
   imgWA0007_1: "/images/IMG-20260523-WA0007-1.jpg",
   imgWA0000: "/images/IMG-20260605-WA0000.jpg",
