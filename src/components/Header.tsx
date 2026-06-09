@@ -44,30 +44,35 @@ export default function Header({ activeTab, setActiveTab, openQuoteModal }: Head
   return (
     <header className="w-full sticky top-0 z-50 shadow-xl">
       {/* Top Technical Wire Strip */}
-      <div className="bg-slate-900 border-b border-slate-800 text-xs text-slate-400 font-mono py-2 px-4 sm:px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-2">
-        <div className="flex flex-wrap justify-center md:justify-start items-center gap-4">
-          <span className="flex items-center gap-1.5 text-cyan-400">
-            <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+      <div className="bg-slate-900 border-b border-slate-800 text-[10px] sm:text-xs text-slate-400 font-mono py-2 px-4 sm:px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-2">
+        <div className="flex flex-wrap flex-col sm:flex-row justify-center md:justify-start items-center gap-1.5 sm:gap-4 text-center sm:text-left">
+          <span className="flex items-center gap-1.5 text-cyan-400 justify-center">
+            <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse shrink-0"></span>
             SYS: STABLE
           </span>
-          <span className="text-slate-500">|</span>
-          <span className="flex items-center gap-1.5 flex-wrap">
-            <MapPin className="h-3.5 w-3.5 text-slate-500" />
-            <span className="text-slate-400 font-semibold">NGA LINES:</span>
-            <span className="text-slate-100 font-black tracking-widest bg-cyan-950/40 px-1.5 py-0.5 rounded border border-cyan-800/30">09134959214</span>
-            <span className="text-slate-500 font-bold">/</span>
-            <span className="text-slate-100 font-black tracking-widest bg-cyan-950/40 px-1.5 py-0.5 rounded border border-cyan-800/30">07041109414</span>
-            <span className="text-slate-400 font-extrabold text-[10px] uppercase ml-1">(PORT HARCOURT)</span>
+          <span className="hidden sm:inline text-slate-700">|</span>
+          <span className="flex flex-wrap items-center justify-center gap-1 sm:gap-1.5">
+            <span className="flex items-center gap-1 whitespace-nowrap">
+              <MapPin className="h-3.5 w-3.5 text-slate-500 shrink-0" />
+              <span className="text-slate-400 font-semibold">NGA LINES:</span>
+            </span>
+            <span className="whitespace-nowrap flex items-center gap-1 text-slate-100 font-black">
+              <span className="tracking-widest bg-cyan-950/40 px-1.5 py-0.5 rounded border border-cyan-800/30 text-[10px] sm:text-xs">09134959214</span>
+              <span className="text-slate-500 font-bold">/</span>
+              <span className="tracking-widest bg-cyan-950/40 px-1.5 py-0.5 rounded border border-cyan-800/30 text-[10px] sm:text-xs">07041109414</span>
+            </span>
+            <span className="text-slate-400 font-extrabold text-[9px] uppercase tracking-wide ml-0.5 whitespace-nowrap shrink-0">(PORT HARCOURT)</span>
           </span>
-          <span className="text-slate-500">|</span>
-          <span className="flex items-center gap-1">
-            <MapPin className="h-3.5 w-3.5 text-slate-500" />
-            US COORD: HOUSTON, TX
+          <span className="hidden sm:inline text-slate-700">|</span>
+          <span className="flex items-center gap-1 justify-center whitespace-nowrap">
+            <MapPin className="h-3.5 w-3.5 text-slate-500 shrink-0" />
+            <span className="text-slate-400">US COORD:</span>
+            <span className="text-slate-200 font-bold">HOUSTON, TX</span>
           </span>
         </div>
-        <div className="flex items-center gap-3">
-          <span className="text-slate-500">UTC:</span>
-          <span className="text-slate-300 font-semibold">{timeStr || "2026-05-25 14:11:00 UTC"}</span>
+        <div className="flex items-center gap-1.5 justify-center border-t border-slate-800/50 pt-1.5 md:pt-0 md:border-t-0 w-full md:w-auto">
+          <span className="text-slate-500 font-semibold">UTC:</span>
+          <span className="text-slate-300 font-semibold bg-slate-950/40 px-1.5 py-0.5 rounded border border-slate-800/30">{timeStr || "2026-05-25 14:11:00 UTC"}</span>
         </div>
       </div>
 
