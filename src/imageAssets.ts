@@ -8,20 +8,20 @@ export const IMAGES = {
 
   // Main Assets
   heroOildrop: "/images/IMG-20260523-WA0010.jpg",
-  labTesting: "/images/IMG-20260523-WA0011.jpg",
+  labTesting: "/images/IMG-20260523-WA0011-1.jpg",
   plantDehydrator: "/images/IMG-20260523-WA0012.jpg",
   bulkStock: "/images/IMG-20260524-WA0003.jpg",
-  filtrationMedia: "/images/IMG-20260523-WA0011.jpg",
+  filtrationMedia: "/images/IMG-20260523-WA0011-1.jpg",
   sandMedia: "/images/IMG-20260523-WA0004.jpg", // Routed to active desiccant beads
-  sandMediaAlternative: "/images/IMG-20260523-WA0011.jpg", // Routed to active lab verification
+  sandMediaAlternative: "/images/IMG-20260523-WA0011-1.jpg", // Routed to active lab verification
 
   // Brand-New Uploaded Assets 2026
   bluePallet: "/images/IMG-20260524-WA0003.jpg", // Routed to active bulk stock
   bluePallet1: "/images/IMG-20260524-WA0003.jpg", // Routed to active bulk stock
-  sievedDesiccant: "/images/IMG-20260523-WA0004.jpg",
+  sievedDesiccant: "/images/sand.jpg",
   waterTreatment: "/images/IMG-20260523-WA0006.jpg", // Routed to active process water
   pic9: "/images/IMG-20260523-WA0006.jpg", // Routed to active process pipeline manifold
-  pic10: "/images/IMG-20260523-WA0011.jpg", // Routed to active lab testing
+  pic10: "/images/IMG-20260523-WA0011-1.jpg", // Routed to active lab testing
   imgWA0015: "/images/IMG-20260522-WA0015.jpg",
   imgWA0005: "/images/IMG-20260523-WA0005.jpg",
   imgWA0006: "/images/IMG-20260523-WA0006.jpg",
@@ -33,7 +33,7 @@ export const IMAGES = {
 
   // Motion Assets for Gallery (now routed to premium working real pictures to eliminate corrupt placeholders)
   gal1: "/images/IMG-20260523-WA0012.jpg",
-  gal2: "/images/IMG-20260523-WA0011.jpg",
+  gal2: "/images/IMG-20260523-WA0011-1.jpg",
   gal3: "/images/IMG-20260523-WA0006.jpg",
   gal4: "/images/IMG-20260523-WA0004.jpg",
   gal5: "/images/IMG-20260523-WA0005.jpg",
