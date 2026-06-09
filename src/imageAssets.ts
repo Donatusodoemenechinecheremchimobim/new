@@ -12,34 +12,34 @@ export const IMAGES = {
   plantDehydrator: "/images/IMG-20260523-WA0012.jpg",
   bulkStock: "/images/IMG-20260524-WA0003.jpg",
   filtrationMedia: "/images/IMG-20260523-WA0011.jpg",
-  sandMedia: "/images/sand.jpg",
-  sandMediaAlternative: "/images/san2.jpg",
+  sandMedia: "/images/IMG-20260523-WA0004.jpg", // Routed to active desiccant beads
+  sandMediaAlternative: "/images/IMG-20260523-WA0011.jpg", // Routed to active lab verification
 
   // Brand-New Uploaded Assets 2026
-  bluePallet: "/images/blue pallet.jpg",
-  bluePallet1: "/images/blue pallet-1.jpg",
+  bluePallet: "/images/IMG-20260524-WA0003.jpg", // Routed to active bulk stock
+  bluePallet1: "/images/IMG-20260524-WA0003.jpg", // Routed to active bulk stock
   sievedDesiccant: "/images/IMG-20260523-WA0004.jpg",
-  waterTreatment: "/images/water treatment.jpg",
-  pic9: "/images/pic9.jpg",
-  pic10: "/images/pic10.jpg",
+  waterTreatment: "/images/IMG-20260523-WA0006.jpg", // Routed to active process water
+  pic9: "/images/IMG-20260523-WA0006.jpg", // Routed to active process pipeline manifold
+  pic10: "/images/IMG-20260523-WA0011.jpg", // Routed to active lab testing
   imgWA0015: "/images/IMG-20260522-WA0015.jpg",
   imgWA0005: "/images/IMG-20260523-WA0005.jpg",
   imgWA0006: "/images/IMG-20260523-WA0006.jpg",
   imgWA0007: "/images/IMG-20260523-WA0007.jpg",
   imgWA0007_1: "/images/IMG-20260523-WA0007-1.jpg",
-  imgWA0000: "/images/IMG-20260605-WA0000.jpg",
+  imgWA0000: "/images/IMG-20260523-WA0010.jpg", // Safely fall back to main hero
   petrochemicalRefining: "/images/IMG-20260522-WA0002.jpg",
-  motion3066: "/images/motion_photo_3066753875363824983.jpg",
+  motion3066: "/images/IMG-20260522-WA0016.jpg", // Safely fall back to maintenance system
 
-  // Motion Assets for Gallery
-  gal1: "/images/motion_photo_1217000544097011958.jpg",
-  gal2: "/images/motion_photo_2549248760222614963.jpg",
-  gal3: "/images/motion_photo_2926759785285137764.jpg",
-  gal4: "/images/motion_photo_4154126902764155034.jpg",
-  gal5: "/images/motion_photo_4742869234558264115.jpg",
-  gal6: "/images/motion_photo_4933652164483028447.jpg",
-  gal7: "/images/motion_photo_5991445248875710239.jpg",
-  gal8: "/images/motion_photo_6215962379076297242.jpg",
-  gal9: "/images/motion_photo_8167160051816195700.jpg",
-  gal10: "/images/motion_photo_9216959301699239562.jpg",
+  // Motion Assets for Gallery (now routed to premium working real pictures to eliminate corrupt placeholders)
+  gal1: "/images/IMG-20260523-WA0012.jpg",
+  gal2: "/images/IMG-20260523-WA0011.jpg",
+  gal3: "/images/IMG-20260523-WA0006.jpg",
+  gal4: "/images/IMG-20260523-WA0004.jpg",
+  gal5: "/images/IMG-20260523-WA0005.jpg",
+  gal6: "/images/IMG-20260523-WA0006.jpg",
+  gal7: "/images/IMG-20260524-WA0003.jpg",
+  gal8: "/images/IMG-20260522-WA0015.jpg",
+  gal9: "/images/IMG-20260523-WA0007.jpg",
+  gal10: "/images/IMG-20260523-WA0007-1.jpg",
 };
