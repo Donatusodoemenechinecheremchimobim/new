@@ -8,6 +8,7 @@ import AboutSection from "./components/AboutSection";
 import GallerySection from "./components/GallerySection";
 import ProcurementSection from "./components/ProcurementSection";
 import SupplyChainSection from "./components/SupplyChainSection";
+import ElectricalTestingSection from "./components/ElectricalTestingSection";
 import { AnimatePresence, motion } from "motion/react";
 import { 
   Building2, 
@@ -251,6 +252,38 @@ export default function App() {
                 </div>
               </section>
 
+              {/* Section 3.6.4 Feature Callout */}
+              <section className="py-12 bg-slate-900 border-b border-slate-950 font-sans">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+                  <div className="bg-slate-950 border-2 border-amber-500/40 p-6 md:p-8 rounded-none flex flex-col lg:flex-row items-center justify-between gap-6 shadow-xl">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <span className="font-mono text-xs font-black text-amber-500 bg-amber-950/80 border border-amber-500/40 px-2.5 py-1 uppercase">
+                          SECTION 3.6.4
+                        </span>
+                        <span className="font-mono text-xs font-black text-cyan-400 uppercase">
+                          ASSET INTEGRITY PHILOSOPHY
+                        </span>
+                      </div>
+                      <h3 className="font-display font-black text-xl sm:text-2xl text-white uppercase tracking-tight">
+                        Electrical Testing, Diagnostics and Performance Verification
+                      </h3>
+                      <p className="text-sm font-bold text-slate-300 max-w-3xl leading-relaxed">
+                        Comprehensive testing and diagnostic activities for Fire Detection (FDAS), Fire & Gas (FGS), Suppression, and ESD systems. Thermal imaging, battery verification, and cable integrity assessments.
+                      </p>
+                    </div>
+
+                    <button
+                      onClick={() => setActiveTab("electrical-testing")}
+                      className="shrink-0 bg-amber-500 hover:bg-amber-400 text-slate-950 font-display font-black text-xs uppercase tracking-widest px-6 py-3.5 rounded-none cursor-pointer transition-all flex items-center gap-2 border border-amber-400"
+                    >
+                      VIEW SECTION 3.6.4
+                      <ArrowRight className="h-4 w-4" />
+                    </button>
+                  </div>
+                </div>
+              </section>
+
               {/* Quick Quote Prompt banner */}
               <section className="bg-gradient-to-r from-slate-950 via-cyan-950/20 to-slate-950 py-12 text-center border-b border-slate-900">
                 <div className="max-w-4xl mx-auto px-4 space-y-4">
@@ -317,6 +350,18 @@ export default function App() {
               transition={{ duration: 0.15 }}
             >
               <SupplyChainSection />
+            </motion.div>
+          )}
+
+          {activeTab === "electrical-testing" && (
+            <motion.div
+              key="tab-electrical-testing"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.15 }}
+            >
+              <ElectricalTestingSection />
             </motion.div>
           )}
 
