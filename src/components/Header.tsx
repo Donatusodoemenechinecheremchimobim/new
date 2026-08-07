@@ -38,7 +38,6 @@ export default function Header({ activeTab, setActiveTab, openQuoteModal }: Head
     { id: "products", label: "PROD SELECTION" },
     { id: "applications", label: "SYS APPLICATIONS" },
     { id: "supply-chain", label: "SUPPLY CHAIN" },
-    { id: "electrical-testing", label: "3.6.4 ELEC TESTING" },
     { id: "gallery", label: "PHOTO GALLERY" },
   ];
 
