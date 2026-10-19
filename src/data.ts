@@ -1,95 +1,252 @@
-import { ProductGroup, IndustryApplication, GalleryItem } from "./types";
+import { ProductGroup, IndustryApplication, GalleryItem, CapabilityItem, InfrastructureItem } from "./types";
 import { IMAGES } from "./imageAssets";
+
+export const CAPABILITIES: CapabilityItem[] = [
+  {
+    id: "chemical-procurement",
+    title: "Industrial Chemical Procurement",
+    subtitle: "Direct Global Manufacturer Sourcing",
+    description: "Sourcing qualified industrial chemicals, processing additives, and raw materials directly from audited global manufacturers according to rigorous client specifications.",
+    features: [
+      "Direct relationships with primary chemical synthesizers",
+      "Strict batch-level Certificate of Analysis (COA) verification",
+      "Transparent lot tracing and manufacturer compliance documentation",
+      "Flexible packaging options: Bulk tankers, IBC totes (1000L), 200L drums, and bags"
+    ],
+    icon: "Boxes",
+    image: IMAGES.bulkStock
+  },
+  {
+    id: "spec-matching",
+    title: "Product & Specification Matching",
+    subtitle: "Technical Equivalents & Alternatives",
+    description: "Assisting engineering and procurement teams in identifying certified chemical equivalents, alternative formulations, and grade upgrades to resolve supply constraints without compromising plant integrity.",
+    features: [
+      "Equivalents mapping based on CAS number and active purity",
+      "TDS & SDS review and operating parameter alignment",
+      "Compatibility testing for process loops and pipeline metallurgy",
+      "Formulation optimization to reduce dosage and lifecycle costs"
+    ],
+    icon: "Microscope",
+    image: IMAGES.labTesting
+  },
+  {
+    id: "global-sourcing",
+    title: "Global Sourcing Network",
+    subtitle: "Americas, Europe & Asia Procurement Channels",
+    description: "Coordinating multi-regional chemical procurement through established manufacturer channels across North America, Europe, and Asia to secure competitive pricing and reliable supply.",
+    features: [
+      "Houston, Texas coordination desk for North American synthesizers",
+      "European and Asian manufacturer engagement and auditing",
+      "Bulk volume aggregation for favorable commercial terms",
+      "Mitigation of geopolitical and shipping lane disruptions"
+    ],
+    icon: "Globe2",
+    image: IMAGES.oilSourcing
+  },
+  {
+    id: "logistics-execution",
+    title: "Logistics & Supply Chain Coordination",
+    subtitle: "End-to-End Freight, Clearance & Delivery",
+    description: "Managing the complete supply chain lifecycle from international port departure and customs clearance to bonded warehousing and on-site industrial delivery.",
+    features: [
+      "Ocean freight forwarding and container tracking",
+      "Rapid customs clearance through Port Onne and Apapa / Tin Can",
+      "Hazmat-certified handling, packaging, and multimodal road transport",
+      "Just-in-time delivery scheduling for continuous operations"
+    ],
+    icon: "Truck",
+    image: IMAGES.logisticsHub
+  },
+  {
+    id: "warehousing-infrastructure",
+    title: "Warehousing & Secure Containment",
+    subtitle: "Strategic Regional Storage Hubs",
+    description: "Operating modern warehousing infrastructure in Port Harcourt with specialized storage for hazardous liquids, moisture-sensitive molecular sieves, and bulk filtration media.",
+    features: [
+      "Strategically located along the Port Harcourt / Aba industrial corridor",
+      "Segregated, ventilated, and spill-contained storage zones",
+      "Climate-controlled inventory storage for sensitive desiccants",
+      "Safety compliant loading docks and certified material handling"
+    ],
+    icon: "Warehouse",
+    image: IMAGES.bluePallet
+  },
+  {
+    id: "specialty-sourcing",
+    title: "Custom & Specialty Sourcing",
+    subtitle: "Bespoke & Hard-to-Source Formulations",
+    description: "Leveraging international manufacturer partnerships to source specialized chemicals, bespoke blends, and custom-granulated media tailored to unique plant operating parameters.",
+    features: [
+      "Custom particle size grading for filtration sand and catalysts",
+      "Dedicated sourcing campaigns for legacy plant chemicals",
+      "Small-batch specialty imports for pilots and trials",
+      "Direct access to technical chemists for formulation advisory"
+    ],
+    icon: "Cpu",
+    image: IMAGES.sievedDesiccant
+  }
+];
+
+export const INFRASTRUCTURE_ASSETS: InfrastructureItem[] = [
+  {
+    id: "ph-warehouse",
+    title: "Port Harcourt Central Warehouse & Distribution Hub",
+    category: "warehousing",
+    location: "Plot 36 Boskel Road, Port Harcourt Expressway, Rivers State",
+    capacity: "5,000+ MT Bulk & Palletized Storage",
+    description: "Our primary West African distribution facility equipped with heavy racking, high-load concrete flooring, and dedicated docks for simultaneous container de-stuffing and dispatch.",
+    highlights: [
+      "Strategically situated with immediate expressway access to Trans-Amadi, Onne, and regional oil & gas facilities",
+      "Heavy forklift and mechanical handling fleet for 200L drums, 1000L IBCs, and 25kg/1000kg bulk bags",
+      "Comprehensive perimeter security, fire suppression, and environmental containment bunds"
+    ],
+    image: IMAGES.bluePallet
+  },
+  {
+    id: "desiccant-containment",
+    title: "Moisture-Controlled Desiccant & Media Storage",
+    category: "handling",
+    location: "Port Harcourt Distribution Center",
+    capacity: "Dedicated Climate-Protected Bays",
+    description: "Engineered storage environments designed to prevent pre-activation and moisture absorption of synthetic zeolites, molecular sieves, activated alumina, and sieved filtration sand.",
+    highlights: [
+      "Sealed hermetic containment and moisture-barrier over-wrapping",
+      "Lot-tracked inventory ensuring first-in, first-out (FIFO) freshness",
+      "Certified crush-strength and dust-attrition testing before dispatch"
+    ],
+    image: IMAGES.sievedDesiccant
+  },
+  {
+    id: "lab-validation",
+    title: "Quality Assurance & Batch Screening Center",
+    category: "laboratory",
+    location: "Technical Services Desk",
+    capacity: "Comprehensive Analytical Testing",
+    description: "Rigorous quality control protocols ensuring that every incoming lot matches international ASTM standards, manufacturer specifications, and the customer's purchase order COA.",
+    highlights: [
+      "Assay concentration, specific gravity, and pH verification",
+      "Moisture content determination and Karl Fischer titration checks",
+      "Cross-referencing batch samples with verified technical data sheets (TDS)"
+    ],
+    image: IMAGES.labTesting
+  },
+  {
+    id: "port-logistics",
+    title: "Port Onne & Apapa Maritime Sourcing Conduits",
+    category: "port",
+    location: "Port Onne Free Zone & Lagos Maritime Gates",
+    capacity: "High-Volume Ocean Container Clearance",
+    description: "Established freight and bonded terminal access points facilitating rapid customs clearance, container demurrage minimization, and direct port-to-plant haulage.",
+    highlights: [
+      "Direct coordination with international shipping lines (Maersk, CMA CGM, MSC)",
+      "Streamlined customs inspection and regulatory clearance protocols",
+      "Dedicated heavy-duty logistics fleet for direct delivery to plant gates"
+    ],
+    image: IMAGES.logisticsHub
+  }
+];
 
 export const PRODUCT_GROUPS: ProductGroup[] = [
   {
     id: "water-treatment",
     name: "Water Treatment Chemicals",
     icon: "Droplets",
-    description: "Formulated process chemicals optimized for clarification, pH adjustments, and total suspended solids (TSS) reduction in high-throughput industrial and municipal water circuits.",
+    description: "High-grade coagulants, flocculants, biocides, and pH modulators formulated for industrial clarification, cooling towers, boiler systems, and municipal water circuits.",
     items: [
       {
-        name: "Coagulants",
-        chemicalFormula: "Al2(SO4)3 / Fe2(SO4)3 / PAC",
-        description: "High-charge inorganic metal salts (aluminum/iron based) and organic polymers engineered to neutralize colloidal electrical charges, initiating structural micro-floc formation.",
+        name: "Inorganic & Organic Coagulants",
+        chemicalFormula: "Al2(SO4)3 / Fe2(SO4)3 / Polyaluminium Chloride (PAC)",
+        description: "High-charge inorganic metal salts and polyaluminium compounds engineered to neutralize colloidal electrical charges and initiate rapid micro-floc formation.",
         specifications: [
           "Active Content: 10% - 48% basis specific grades",
           "Specific Gravity: 1.20 - 1.35 g/cm³",
           "pH Range suitability: 4.5 - 9.0"
-        ]
+        ],
+        typicalApplications: ["Raw water clarification", "Effluent treatment plants (ETP)", "Industrial process water"]
       },
       {
-        name: "Flocculants",
-        chemicalFormula: "Polyacrylamide (PAM) series",
-        description: "Ultra-high molecular weight synthetic polymers in linear and branched configurations, designed to bridge micro-floc into robust, fast-settling macroscopic solids.",
+        name: "Polyacrylamide (PAM) Flocculants",
+        chemicalFormula: "Anionic, Cationic & Non-Ionic PAM Series",
+        description: "Ultra-high molecular weight synthetic polymers in linear and branched structures, designed to bridge micro-floc into robust, fast-settling macroscopic flocs.",
         specifications: [
-          "Anionic, Cationic, and Non-Ionic physical forms",
+          "Available in Anionic, Cationic, and Non-Ionic powder/emulsion forms",
           "Bulk Density: Approx. 0.75 g/cm³",
-          "Dissolution rate: < 60 minutes"
-        ]
+          "Rapid dissolution rate: < 60 minutes"
+        ],
+        typicalApplications: ["Sludge dewatering", "Centrifuge thickening", "Mining & industrial effluent"]
       },
       {
-        name: "pH Control Agents",
+        name: "pH Control & Neutralization Agents",
         chemicalFormula: "NaOH / Ca(OH)2 / HCl / H2SO4",
-        description: "Industrial-grade acids and alkalis tailored for raw water neutralizing manifolds and stabilization phases in secondary process circuits.",
+        description: "Industrial-grade alkalis and acids tailored for raw water neutralizing manifolds, boiler feed conditioning, and wastewater neutralization.",
         specifications: [
-          "Concentrations: Standard industrial dilutions or concentrated technical grades",
-          "Safety: Packaged for hazardous material transit compliance"
-        ]
+          "Concentrations: Standard industrial solutions or concentrated technical grades",
+          "UN-approved packaging for hazardous material transport compliance"
+        ],
+        typicalApplications: ["Boiler feed water", "Cooling towers", "Effluent neutralization"]
       },
       {
-        name: "Disinfection & Oxidation Chemicals",
-        chemicalFormula: "NaOCl / Ca(OCl)2 / H2O2",
-        description: "Highly stable chemical biocides and oxidizing agents formulated to eliminate biological fouling and degrade organic compounds in circulating cooling towers and effluent streams.",
+        name: "Disinfection, Oxidation & Biocides",
+        chemicalFormula: "NaOCl / Ca(OCl)2 / Isothiazolinone / Glutaraldehyde",
+        description: "Highly stable oxidizing and non-oxidizing biocides formulated to prevent microbiological fouling, algae bloom, and slime accumulation in circulating cooling loops.",
         specifications: [
-          "Available Chlorine equivalent matching",
-          "High stability under elevated thermal process conditions"
-        ]
+          "Broad-spectrum efficacy against aerobic and anaerobic bacteria",
+          "High thermal stability under continuous recirculating conditions"
+        ],
+        typicalApplications: ["Cooling towers", "Closed recirculating loops", "Paper & process circuits"]
       }
     ]
   },
   {
     id: "filtration-materials",
-    name: "Industrial Filtration Materials",
+    name: "Industrial Filtration & Adsorption Media",
     icon: "Filter",
-    description: "Solid-phase desiccant matrices, selective adsorbents, and specialized filter beds engineered to extract vapor-phase contaminants and precise particulate streams.",
+    description: "Crystalline synthetic zeolites, desiccants, activated alumina, granular activated carbon, and graded sand media engineered for deep dehydration and particulate removal.",
     items: [
       {
-        name: "Desiccants",
-        chemicalFormula: "Molecular Sieve 3A/4A/13X, Activated Alumina",
-        description: "Highly crystalline aluminosilicates (synthetic zeolites) with uniform pore structures, designed for selective molecular sorting and deep dehydration of gases to ultra-low dew points (< -100°C).",
+        name: "Synthetic Molecular Sieves (Type 3A / 4A / 13X)",
+        chemicalFormula: "Potassium/Sodium/Calcium Aluminosilicate",
+        description: "Uniform crystalline pore structures designed for deep gas dehydration, dynamic moisture extraction to dew points below -100°C, and selective hydrocarbon separation.",
         specifications: [
-          "Available in spherical bead or cylindrical extrudates",
-          "High crush strength (> 80 N for 1/8\" beads)",
-          "Low attrition rate (< 0.1 wt%)"
-        ]
+          "Available in 1.6mm - 2.5mm (1/8\") and 3.0mm - 5.0mm (1/16\") spherical beads",
+          "High crush strength (> 85 N per bead) for high bed heights",
+          "Ultra-low attrition loss (< 0.1 wt%)"
+        ],
+        typicalApplications: ["Natural gas dehydration", "LNG pre-cooling trains", "Cryogenic air separation"]
       },
       {
-        name: "Adsorbents",
-        chemicalFormula: "Activated Carbon, Silica Gel (Type A/B)",
-        description: "High-surface-area porous carbonaceous and inorganic matrices optimized for capturing volatile organic compounds (VOCs), trace heavy metals, and targeted process fluids.",
+        name: "Activated Alumina & Desiccant Media",
+        chemicalFormula: "Al2O3 · xH2O",
+        description: "High surface area spherical alumina adsorbents engineered for compressed air drying, catalyst support, and fluoride/arsenic removal in water streams.",
         specifications: [
-          "Iodine Number: 900 - 1100 mg/g (Carbon grades)",
-          "Surface Area (BET): up to 1000+ m²/g"
-        ]
+          "BET Surface Area: ≥ 320 m²/g",
+          "Static Adsorption Capacity: ≥ 17.5% at 60% RH",
+          "Uniform bead sizing minimizing pressure drop across vessels"
+        ],
+        typicalApplications: ["Instrument air dryers", "Acid scavenger beds", "Claus tail gas treatment"]
       },
       {
-        name: "Filtration Media",
-        chemicalFormula: "Silica Sand, Anthracite, Garnet, Clinoptilolite",
-        description: "Multi-graded particulate beds designed for multi-layer rapid gravity filters, stripping mechanical turbidity down to sub-micron tolerances.",
+        name: "Granular Activated Carbon (GAC) & Pellets",
+        chemicalFormula: "Coal, Coconut Shell & Wood Matrix",
+        description: "Porous carbonaceous matrices with optimized micro- and meso-pore distribution for liquid-phase decolorization, VOC removal, and hydrocarbon adsorption.",
         specifications: [
-          "Uniformity Coefficient: < 1.4",
-          "Acid Solubility: < 2.0% compliance specs"
-        ]
+          "Iodine Number: 900 - 1150 mg/g",
+          "Hardness Number: ≥ 95%",
+          "Low ash content (< 5%)"
+        ],
+        typicalApplications: ["Amine solvent purification", "Condensate polishing", "Drinking & process water purification"]
       },
       {
-        name: "Gas & Moisture Control Materials",
-        chemicalFormula: "Calcium Sulfate, Potassium Permanganate Alumina",
-        description: "Chemical scavengers and reactive absorbent matrices designed to dry technical air systems and oxidize vaporous toxic sulfur/nitrogen compounds on contact.",
+        name: "Sieved Filtration Sand & Multi-Grade Media",
+        chemicalFormula: "High-Purity Quartz Silica & Anthracite",
+        description: "Precision-sieved, washed, and kiln-dried quartz sand, garnet, and anthracite tailored for multi-layer rapid gravity and pressure filter beds.",
         specifications: [
-          "Color-indicating formulations for depletion visualization",
-          "Non-corrosive and mechanically stable during service cycles"
-        ]
+          "Effective Size (d10): 0.45mm - 1.20mm (custom fractions)",
+          "Uniformity Coefficient (UC): ≤ 1.35",
+          "Acid Solubility: < 1.5% in compliance with AWWA B100"
+        ],
+        typicalApplications: ["Industrial water filtration", "Tertiary effluent polishers", "Borehole well gravel packs"]
       }
     ]
   },
@@ -97,79 +254,86 @@ export const PRODUCT_GROUPS: ProductGroup[] = [
     id: "oil-gas-chemicals",
     name: "Oil & Gas Process Chemicals",
     icon: "Layers",
-    description: "High-performance processing chemicals formulated to suppress pipeline hydrates, eliminate dissolved acid gases, and optimize flow assurance configurations.",
+    description: "Flow assurance chemicals, dehydration glycols, demulsifiers, corrosion inhibitors, and gas sweetening agents engineered for harsh production environments.",
     items: [
       {
-        name: "Gas Dehydration Materials",
-        chemicalFormula: "TEG / DEG / MEG / Molecular Sieves",
-        description: "High-purity Liquid Glycols (Triethylene, Diethylene, Monoethylene) designed to scrub moisture from raw natural gas streams in continuous-contact absorbers.",
+        name: "Liquid Glycols (TEG, MEG, DEG)",
+        chemicalFormula: "Triethylene / Monoethylene / Diethylene Glycol",
+        description: "High-purity liquid glycols engineered for continuous-contact absorption towers, eliminating water vapor from natural gas streams to prevent pipeline hydrate formation.",
         specifications: [
           "Purity: ≥ 99.5 wt%",
-          "Water Content: ≤ 0.2 wt%",
-          "Optimized high thermal stability to withstand regenerator reboiler temp up to 204°C"
-        ]
+          "Water Content: ≤ 0.15 wt%",
+          "High thermal stability resisting thermal degradation up to 204°C in reboilers"
+        ],
+        typicalApplications: ["Natural gas dehydration towers", "Pipeline hydrate inhibition", "Chiller loops"]
       },
       {
-        name: "Moisture Removal Systems",
-        chemicalFormula: "Deliquescent Salts / Molecular Sieves",
-        description: "Solid-state absorbing matrices and specialized dry-bed configurations tailored for wellhead dehydration stations operating without regenerator systems.",
+        name: "Demulsifiers & Emulsion Breakers",
+        chemicalFormula: "Polyol & Oxyalkylated Phenolic Resin Blends",
+        description: "Fast-acting surface-active formulations structured to break tough water-in-oil and oil-in-water emulsions, yielding pipeline-spec crude and clean separated water.",
         specifications: [
-          "High capacity per unit weight in wet gas regions",
-          "Minimal downstream carrying risks"
-        ]
+          "Effective at low ppm dosages across wide temperature ranges (25°C - 85°C)",
+          "Rapid water drop rate and sharp interface resolution"
+        ],
+        typicalApplications: ["Crude oil separation trains", "Desalter units", "Produced water treatment"]
       },
       {
-        name: "Process Treatment Additives",
-        chemicalFormula: "Demulsifiers, Corrosion Inhibitors, Scale Inhibitors",
-        description: "High-affinity surface-active formulations structured to rapidly destabilize crude-water emulsions and protect downhole/surface metal alloys from chemical decay.",
+        name: "Corrosion & Scale Inhibitors",
+        chemicalFormula: "Imidazoline / Phosphate Ester / Phosphonate Blends",
+        description: "Film-forming and threshold inhibitors formulated to protect carbon steel pipelines, downhole tubulars, and heat exchangers from CO2/H2S corrosion and mineral scale deposition.",
         specifications: [
-          "Excellent partition coefficient performance",
-          "Thermal stability tested up to 180°C in high-salinity wells"
-        ]
+          "Thermal stability up to 180°C under high salinity and sour gas conditions",
+          "Partitioning optimized for water-wet and mixed hydrocarbon systems"
+        ],
+        typicalApplications: ["Flowlines & gathering networks", "Water injection wells", "Subsea tiebacks"]
       },
       {
-        name: "System Conditioning Chemicals",
-        chemicalFormula: "H2S Scavengers, Defoamers, Biocides",
-        description: "Reactive nitrogen-bearing polymers and silicone block-polymers designed to rapidly eliminate toxic hydrogen sulfide (H2S) in process streams and suppress mechanical foam.",
+        name: "Hydrogen Sulfide (H2S) & Gas Scavengers",
+        chemicalFormula: "Triazine Derivatives & Non-Triazine Formulations",
+        description: "Direct-injection chemical scavengers that irreversibly convert toxic, corrosive H2S into non-hazardous, water-soluble byproducts in gas and liquid streams.",
         specifications: [
-          "Instantaneous hydrogen sulfide reaction dynamics",
-          "Low dosing rate requirements (ppm level activation)"
-        ]
+          "Fast reaction kinetics with minimal foaming or solid byproduct fallout",
+          "Available in oil-soluble, water-soluble, and dual-phase formulations"
+        ],
+        typicalApplications: ["Natural gas processing lines", "Crude storage tanks", "Marine vessel loading"]
       }
     ]
   },
   {
     id: "maintenance-chemicals",
-    name: "Industrial Maintenance Chemicals",
+    name: "Industrial Maintenance & Specialty Chemicals",
     icon: "ShieldAlert",
-    description: "Concentrated cleaning, scale dissolution, and preventive conditioning systems engineered to sustain thermal efficiency and protect flow loops.",
+    description: "Heavy-duty cleaning formulations, scale dissolvers, heat transfer fluids, and protective chemicals designed to maximize plant uptime and equipment reliability.",
     items: [
       {
-        name: "Industrial Cleaning Agents",
-        chemicalFormula: "Surfactant Blends / Degreasers",
-        description: "Heavy-duty solvent-free formulations engineered to dissolve polymerized crude oil, paraffin residues, and synthetic greases from metal substrates.",
+        name: "Heavy-Duty Degreasers & Safety Solvents",
+        chemicalFormula: "Bio-Surfactant Blends / High-Flash Solvent Systems",
+        description: "Industrial-strength degreasing agents engineered to dissolve polymerized crude oil, heavy greases, asphaltic residues, and drilling muds from metallic surfaces.",
         specifications: [
-          "Flash Point: Non-flammable water-based systems, or High-flash organic solvents (> 65°C)",
-          "Biodegradable formulation profiles"
-        ]
+          "High Flash Point (> 65°C) or non-flammable water-based systems",
+          "Non-corrosive to yellow metals, gaskets, and pump seals"
+        ],
+        typicalApplications: ["Rig washing & platform maintenance", "Engine bay cleaning", "Tank & vessel cleaning"]
       },
       {
-        name: "System Flush Chemicals",
-        chemicalFormula: "Acidic & Alkaline Descalers",
-        description: "Engineered acid-base chemistry with multi-metal corrosion inhibitors, formulated for chemical cleaning (CIP loops) to digest hard carbonate, sulfate, and iron-oxide scale.",
+        name: "Chemical Cleaning & Scale Descalers (CIP)",
+        chemicalFormula: "Inhibited Hydrochloric, Sulfamic & Organic Acids",
+        description: "Formulated cleaning systems with multi-metal corrosion inhibitors designed to circulate through heat exchangers, boilers, and cooling loops to dissolve hard mineral scale.",
         specifications: [
-          "Inhibitor protection efficiency: > 98.5% on mild steel and yellow metals",
-          "Compatible with automated dosing setups"
-        ]
+          "Inhibitor efficiency: > 99% protection on mild steel, stainless, and copper alloys",
+          "Rapid dissolution of calcium carbonate, iron oxides, and silica scale"
+        ],
+        typicalApplications: ["Heat exchanger bundle cleaning", "Boiler descaling", "Pipe spools & cooling jackets"]
       },
       {
-        name: "Process Support Chemicals",
-        chemicalFormula: "Heat Transfer Fluids, Antifreeze, Heat Stabilizers",
-        description: "Glycol-based thermal fluids engineered with high-efficiency corrosion inhibitors to facilitate heat transfer inside complex manufacturing loops.",
+        name: "Inhibited Heat Transfer Fluids & Antifreeze",
+        chemicalFormula: "Formulated Ethylene & Propylene Glycol Solutions",
+        description: "Engineered thermal fluids containing long-life organic corrosion inhibitor packages for secondary refrigeration, HVAC, and industrial process cooling loops.",
         specifications: [
-          "Operating temperature range: -50°C to +175°C",
-          "Low viscosity at sub-zero cycles for high circulation efficiency"
-        ]
+          "Operating temperature range: -45°C to +160°C",
+          "Pre-diluted with deionized water or concentrated for on-site blending"
+        ],
+        typicalApplications: ["Gas chilling systems", "Compressor station cooling", "Industrial refrigeration"]
       }
     ]
   }
@@ -180,190 +344,215 @@ export const INDUSTRY_APPLICATIONS: IndustryApplication[] = [
     id: "oil-gas-systems",
     name: "Oil & Gas Production and Processing",
     icon: "Flame",
-    description: "Sourcing and supply of chemical systems for upstream extraction, pipeline transportation, and downstream refinery loops.",
-    details: "We ensure continuous flow assurance by supplying premium dehydration glycols, scale inhibitors, and emulsion breakers. In downstream systems, our chemicals preserve vessel integrity and sustain gas scrubbing operations.",
-    keyProducts: ["TEG / DEG Technical Glycols", "Scale and Corrosion Inhibitors", "Demulsification Additives"]
+    description: "Chemical supply and flow assurance solutions for upstream extraction, gathering networks, separation trains, and field export pipelines.",
+    details: "We ensure continuous flow assurance and asset integrity by supplying high-purity dehydration glycols (TEG/MEG), high-efficiency demulsifiers, scale inhibitors, and film-forming corrosion inhibitors. Our logistics network ensures reliable inventory replenishment across land, swamp, and offshore facilities.",
+    keyProducts: ["Triethylene Glycol (TEG 99.5%)", "Scale & Corrosion Inhibitors", "Crude Oil Demulsifiers", "H2S Scavengers"]
   },
   {
     id: "gas-lng-processing",
     name: "Natural Gas Processing and LNG Systems",
     icon: "Wind",
-    description: "Process-critical adsorbents, molecular sieves, and solvents for cryogenic dehydration and sulfur/CO2 extraction.",
-    details: "Gas processing infrastructures depend on ultra-low moisture parameters to prevent downstream clathrate hydrate formation. Our high-crush strength Molecular Sieves (type 3A and 4A) guarantee reliable deep dehydration (< 0.1 ppm H2O) in natural gas treatment headers.",
-    keyProducts: ["Molecular Sieve 3A / 4A Beads", "Triethylene Glycols (TEG)", "Acid Gas Scavengers"]
+    description: "Cryogenic dehydration media, molecular sieves, and solvents for gas processing, NGL fractionation, and LNG liquefaction trains.",
+    details: "Gas processing facilities require ultra-low water dew points (< -100°C) to prevent catastrophic hydrate freezing in cryogenic liquefaction units. We supply high-crush-strength Molecular Sieve beads (3A and 4A), activated alumina, and TEG matching international gas transmission specifications.",
+    keyProducts: ["Molecular Sieve 3A / 4A Beads", "High-Purity TEG", "Activated Alumina Adsorbents", "MDEA Solvent Additives"]
   },
   {
     id: "petrochemical-refining",
     name: "Petrochemical and Refining Operations",
     icon: "Cpu",
-    description: "Catalyst protection, thermal loop media, and system conditioning formulations for volatile refining processes.",
-    details: "Refinery columns require continuous thermal containment and minimal foulant buildup. We supply specialized catalysts, desiccants, and in-line cleaning systems that prevent thermal fouling, saving megawatt hours across processing headers.",
-    keyProducts: ["Activated Alumina", "Refinery Defoamers", "Heat Transfer Fluids"]
+    description: "Process additives, descaling formulations, thermal fluids, and adsorbent media for downstream distillation, cracking, and utility loops.",
+    details: "Refinery and petrochemical operations require continuous thermal efficiency and minimal fouling in critical heat exchangers and reboilers. We supply high-grade descaling agents, antifoams, specialty solvents, and catalyst support media that protect unit availability and reduce turnaround intervals.",
+    keyProducts: ["Inhibited Cleaning Descalers", "Process Antifoams", "Granular Activated Carbon", "Heat Transfer Fluids"]
   },
   {
     id: "water-treatment-systems",
     name: "Industrial Water Treatment Systems",
     icon: "Activity",
-    description: "High-tonnage chemicals for industrial water treatment circuits, cooling towers, and raw intakes.",
-    details: "Our technical chemical sourcing provides reliable access to flocculation polymers, coagulant salts, and biocide formulations, preventing mineral precipitation and biological fouling in closed-loop cooling towers and heavy manufacturing recycle systems.",
-    keyProducts: ["Polyacrylamide (PAM)", "Aluminum Sulfate / PAC", "Sodium Hypochlorite Biocides"]
+    description: "Specialty coagulants, flocculants, biocides, and conditioning agents for heavy industrial water circuits, cooling towers, and effluent treatment.",
+    details: "From cooling tower scale prevention to heavy industrial wastewater clarification, our chemical sourcing programs deliver certified polyaluminium chloride (PAC), polyacrylamide polymers (PAM), and broad-spectrum biocides that maintain operational compliance and protect heat exchange surfaces.",
+    keyProducts: ["Polyaluminium Chloride (PAC)", "Polyacrylamide (PAM Series)", "Biocides & Algaecides", "pH Control Alkalis/Acids"]
   },
   {
     id: "manufacturing-process",
     name: "Manufacturing and Process Industries",
     icon: "Settings",
-    description: "Cleaners, cooling media, and process chemicals to maximize machine availability and product quality.",
-    details: "Providing heavy machinery loops, manufacturing systems, and metallurgy plants with custom solvent cleaners, pH modulators, and scale descaling compounds. Reduces manual breakdown labor through active chemical preventative mantenimiento.",
-    keyProducts: ["Safety Solvent Degreasers", "Closed-Loop pH Stabilizers", "CIP Scalers"]
+    description: "Industrial cleaning chemicals, degreasers, cooling fluids, and specialty consumables for food & beverage, metallurgy, and manufacturing plants.",
+    details: "Providing manufacturing plants with reliable bulk supplies of safety solvents, Clean-In-Place (CIP) chemicals, boiler water conditioning agents, and specialty media that extend equipment life and ensure product quality consistency.",
+    keyProducts: ["Safety Solvent Degreasers", "CIP Cleaning Formulations", "Inhibited Glycol Coolants", "Silica Sand Media"]
   },
   {
     id: "environmental-waste",
     name: "Environmental and Waste Treatment Systems",
     icon: "Leaf",
-    description: "Sludge dewatering polymers, odor control oxidizers, and remediation chemicals for regulatory compliance.",
-    details: "We supply chemical solutions for industrial wastewater centers, stabilizing pH and augmenting physical separation stages. This supports compliance with direct effluent disposal regulations.",
-    keyProducts: ["Highly Charged DewateringPAM", "Hydrogen Peroxide Oxidizers", "Heavy Metal Precipitants"]
+    description: "Sludge dewatering polymers, odor control oxidizers, and neutralizing chemicals for municipal and industrial environmental management.",
+    details: "Supporting environmental engineers and waste treatment plants with high-charge dewatering polymers, neutralizing chemicals, and heavy metal precipitants that reduce sludge volume and ensure environmental compliance.",
+    keyProducts: ["Cationic Dewatering Polymers", "Hydrogen Peroxide Oxidizers", "Hydrated Lime", "Granular Carbon Filters"]
   }
 ];
 
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-1",
-    title: "Liquid Dehydration Columns",
+    title: "Triethylene Glycol (TEG) Dehydration Infrastructure",
     category: "oil-gas",
-    description: "Industrial Triethylene Glycol (TEG) gas contact tower in midstream processing loop.",
-    url: IMAGES.pic9
+    description: "Industrial TEG absorption tower and gas contactor in midstream gas processing pipeline.",
+    url: IMAGES.pic9,
+    location: "Niger Delta Gas Processing Terminal"
   },
   {
     id: "gal-2",
-    title: "Analytical Quality Verification",
+    title: "Process Scientist Validation & Lab Verification",
     category: "technical-facilities",
-    description: "Active laboratory screening of newly sourced chemical batches to guarantee active ingredient compliance.",
-    url: IMAGES.pic10
+    description: "Analytical screening of chemical batch lots and COA validation before warehouse release.",
+    url: IMAGES.labTesting,
+    location: "Quality Assurance Laboratory"
   },
   {
     id: "gal-3",
-    title: "Primary Coagulation Clarifiers",
+    title: "Process Water Clarification System",
     category: "water-treatment",
-    description: "Industrial-scale settler pool utilizing heavy cationic inorganic metal salts for turbidity reduction.",
-    url: IMAGES.waterTreatment
+    description: "Primary clarifier settling basin using coagulants and flocculants for industrial turbidity reduction.",
+    url: IMAGES.waterTreatment,
+    location: "Industrial Effluent Treatment Facility"
   },
   {
     id: "gal-4",
-    title: "Sieved Desiccant Inventory",
+    title: "Sieved Desiccant & Filtration Media Inventory",
     category: "industrial-filtration",
-    description: "Vacuum-sealed packaging of synthetic zeolite molecular sieve beads ready for process load-in.",
-    url: IMAGES.sievedDesiccant
+    description: "Vacuum-sealed packaging of synthetic zeolite molecular sieves and precision-sieved filtration sand.",
+    url: IMAGES.sievedDesiccant,
+    location: "Port Harcourt Distribution Center"
   },
   {
     id: "gal-5",
-    title: "Port Logistics Infrastructure",
+    title: "Maritime Freight & Logistics Infrastructure",
     category: "logistics-procurement",
-    description: "Staged shipping loading terminal coordinating distribution between international supply chains and local warehouses.",
-    url: IMAGES.logisticsHub
+    description: "Container handling and staging terminal coordinating international chemical shipments with regional depots.",
+    url: IMAGES.logisticsHub,
+    location: "Port Onne Maritime Terminal"
   },
   {
     id: "gal-6",
-    title: "Process Pipeline Manifold",
+    title: "High-Pressure Process Pipeline Header",
     category: "oil-gas",
-    description: "Stainless steel pressure lines directing raw gases through vertical moisture separators.",
-    url: IMAGES.imgWA0006
+    description: "Stainless steel pressure manifold directing hydrocarbon gas through vertical separation stages.",
+    url: IMAGES.imgWA0006,
+    location: "Upstream Gathering Station"
   },
   {
     id: "gal-7",
-    title: "Industrial Chemical Packaging & Containment",
+    title: "Bulk Stock Packaging & Protective Containment",
     category: "logistics-procurement",
-    description: "Multi-layered sealed containment and heavy-duty protective chemical packaging engineered to secure bulk materials, moisture-sensitive catalysts, and industrial liquids from atmospheric degradation and leakages during distribution.",
-    url: IMAGES.bluePallet1
+    description: "Multi-layered protective packaging and palletized chemical drums staged for industrial dispatch.",
+    url: IMAGES.bluePallet1,
+    location: "Central Warehouse, Port Harcourt"
   },
   {
     id: "gal-8",
-    title: "Gas Liquefaction Node",
+    title: "Cryogenic Gas Liquefaction Train",
     category: "oil-gas",
-    description: "Interstage high-pressure heat exchangers designed for LNG purifications under cryogenic limits.",
-    url: IMAGES.imgWA0015
+    description: "Interstage high-pressure cryogenic heat exchangers in natural gas liquefaction circuit.",
+    url: IMAGES.imgWA0015,
+    location: "LNG Processing Facility"
   },
   {
     id: "gal-9",
-    title: "Bulk Cargo Depot",
+    title: "Secure Chemical Warehouse Facility",
     category: "logistics-procurement",
-    description: "Secured customs warehousing handling dry and liquid chemical distributions.",
-    url: IMAGES.imgWA0007
+    description: "Dedicated warehouse bays with certified racking for liquid drums and palletized chemical consumables.",
+    url: IMAGES.imgWA0007,
+    location: "Port Harcourt Logistics Hub"
   },
   {
     id: "gal-10",
-    title: "Technical Supply Review",
+    title: "Technical Specification & Sourcing Review",
     category: "technical-facilities",
-    description: "Engineering panel and sourcing coordinators evaluating batch test sheets for local compliance.",
-    url: IMAGES.imgWA0007_1
+    description: "Engineering and procurement coordinators reviewing technical data sheets and ASTM specifications.",
+    url: IMAGES.imgWA0007_1,
+    location: "Technical Services Desk"
   },
   {
     id: "gal-11",
-    title: "Subsurface Flow Header",
+    title: "Automated Chemical Injection Manifold",
     category: "oil-gas",
-    description: "Pressure regulation valve station executing chemical dosage controls.",
-    url: IMAGES.oilSourcing
+    description: "Precision chemical dosing pumps delivering corrosion and scale inhibitors to high-pressure flowlines.",
+    url: IMAGES.oilSourcing,
+    location: "Production Flowline Header"
   },
   {
     id: "gal-12",
-    title: "Effluent Secondary Treatment",
+    title: "Biological Effluent Aeration & Water Polishing",
     category: "water-treatment",
-    description: "Large aeration chamber for chemical sludge treatment during final process safety step.",
-    url: IMAGES.processWater
+    description: "Secondary aeration and chemical polishing stage in multi-barrier industrial wastewater treatment plant.",
+    url: IMAGES.processWater,
+    location: "Wastewater Treatment Center"
   }
 ];
 
 export const COMPANY_PROFILE = {
-  aboutText: "Oil Drop Chemical Ltd is an industrial chemical procurement and distribution company engaged in the sourcing, evaluation, and supply of industrial-grade chemicals and process materials. The company supports industrial clients requiring consistent and reliable supply of chemicals used in production systems, processing operations, and industrial maintenance.",
-  functionalGoal: {
-    title: "Our Functional Role",
-    roles: [
-      {
-        title: "Sourcing & Sourcing Interface",
-        desc: "Operating as an efficient technical interface between heavy industrial system operators and global chemical formulators."
-      },
-      {
-        title: "Supply Chain Coordination & Delivery",
-        desc: "Driving high-volume logistics and freight solutions to ensure chemical materials are delivered with structural and chemical specifications intact."
-      },
-      {
-        title: "Product Verification & Matching",
-        desc: "Performing deep technical assessment on batch certifications, matching specific materials to raw chemical demands of downstream processors."
-      },
-      {
-        title: "Application Support Support Desk",
-        desc: "Assisting users with technical literature, chemical compatibility charts, and dosing guidance for complex plant circuits."
-      }
-    ]
-  },
+  name: "Oil Drop Chemical Ltd",
+  tagline: "Building Reliable Industrial Supply Chains",
+  heroSubtitle: "OILDROP provides industrial chemical sourcing, procurement, logistics, and distribution solutions to energy, manufacturing, water treatment, and process industries.",
+  shortDescription: "An Industrial Supply Partner for Africa. We connect industrial customers with qualified global manufacturers and reliable supply chains. From technical sourcing and specification matching to import coordination, warehousing, and delivery, we help industries access the materials they need to operate.",
+  vision: "To build one of Africa's most capable and reliable industrial chemical and materials supply networks, empowering continental industrialization through supply chain excellence.",
+  mission: "To provide industries with reliable access to quality chemical products and process materials through global sourcing, technical understanding, and disciplined supply chain execution.",
+  strategicPillars: [
+    {
+      title: "Chemicals & Process Materials",
+      description: "Procurement, technical matching, and distribution of high-purity industrial chemicals and process consumables."
+    },
+    {
+      title: "Specialty Materials & Media",
+      description: "Molecular sieves, desiccants, activated alumina, filtration sand, and specialized adsorbents for critical applications."
+    },
+    {
+      title: "End-to-End Supply Chain",
+      description: "International sourcing, ocean freight, customs clearance, secure warehousing, and just-in-time site delivery."
+    },
+    {
+      title: "Technical Solutions & Matching",
+      description: "TDS/SDS alignment, certified equivalents identification, and application-specific formulation advisory."
+    },
+    {
+      title: "Infrastructure & Containment",
+      description: "Strategically located warehouses, certified hazmat handling, and climate-controlled storage facilities."
+    }
+  ],
   geographicStructure: {
     nigeria: {
-      location: "Port Harcourt, Rivers State, Nigeria",
-      scope: "Primary industrial storage hubs, local custom clearances, heavy warehousing, bulk repackaging, and local client servicing teams."
+      location: "Port Harcourt, Rivers State, Nigeria (Headquarters & Central Warehouse)",
+      scope: "Primary distribution hub, bonded warehousing, customs clearance coordination, technical sales, and nationwide fleet dispatch."
     },
-    international: {
-      location: "Houston, Texas, USA (Coordination Desk)",
-      scope: "Global manufacturer liaison, international compliance, raw materials procurement, container coordination, and engineering verification Desk."
+    houston: {
+      location: "Houston, Texas, USA (International Procurement Desk)",
+      scope: "Manufacturer liaison, North American synthesizers coordination, export compliance, batch auditing, and international trade desk."
+    },
+    global: {
+      location: "Global Sourcing Channels (Americas, Europe & Asia)",
+      scope: "Audited manufacturer partnerships, volume aggregation, quality benchmarking, and specialized chemical synthesizers."
     }
   }
 };
 
 export const CONTACT_INFO = {
   nigeriaOffice: {
-    title: "Head Office – Nigeria",
+    title: "Nigeria Operations & Headquarters",
     company: "OILDROP CHEMICAL LTD",
-    address: "Plot 36 Boskel Road, Off Km 16, Portharcourt Aba Expressway, PortHarcourt Rivers State.",
-    phone: "09134959214",
-    phone2: "07041109414"
+    address: "Plot 36 Boskel Road, Off Km 16, Port Harcourt - Aba Expressway, Port Harcourt, Rivers State, Nigeria.",
+    phone: "+234 913 495 9214",
+    phone2: "+234 704 110 9414",
+    email: "procurement@oildropchemical.com"
   },
   houstonOffice: {
-    title: "International Business Office",
+    title: "International Procurement Desk",
     address: "Houston, Texas, USA",
     phone: "+1 (713) 555-8902",
     email: "procurement@oildropchemical.com"
   },
   generalContacts: {
     email: "procurement@oildropchemical.com",
-    technicalSupport: "tech@oildropchemical.com"
+    technicalSupport: "tech@oildropchemical.com",
+    workingHours: "Monday – Friday: 8:00 AM – 5:00 PM (WAT / CST)"
   }
 };
+

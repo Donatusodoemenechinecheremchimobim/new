@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { INDUSTRY_APPLICATIONS } from "../data";
-import { Flame, Wind, Cpu, Activity, Settings, Leaf, ShieldAlert, Check } from "lucide-react";
+import { Flame, Wind, Cpu, Activity, Settings, Leaf, CheckCircle2, ArrowRight, Factory } from "lucide-react";
 import { IMAGES } from "../imageAssets";
 
 interface ApplicationsSectionProps {
@@ -25,11 +25,10 @@ export default function ApplicationsSection({ onSelectApplication }: Application
       case "Leaf":
         return <Leaf className="h-5 w-5" />;
       default:
-        return <Settings className="h-5 w-5" />;
+        return <Factory className="h-5 w-5" />;
     }
   };
 
-  // Curated local images map representing industrial fields for space
   const appImages: Record<string, string> = {
     "oil-gas-systems": IMAGES.oilSourcing,
     "gas-lng-processing": IMAGES.plantDehydrator,
@@ -42,129 +41,136 @@ export default function ApplicationsSection({ onSelectApplication }: Application
   const activeApp = INDUSTRY_APPLICATIONS.find((a) => a.id === selectedAppId) || INDUSTRY_APPLICATIONS[0];
 
   return (
-    <section id="system-applications" className="py-16 md:py-24 bg-slate-900 border-b border-slate-950">
+    <section id="system-applications" className="py-16 md:py-24 bg-slate-950 border-b border-slate-800 text-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         
-        {/* Technical Alert header banner */}
-        <div className="border-t-4 border-amber-500 pt-4 mb-12">
-          <span className="font-mono text-sm font-black text-amber-500 uppercase tracking-widest block mb-1">
-            WHAT WE DO
-          </span>
-          <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-white uppercase tracking-tight">
-            INDUSTRIES WE SERVE
+        {/* Section Header */}
+        <div className="max-w-3xl mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 border border-amber-500/30 rounded text-amber-400 text-xs font-bold uppercase tracking-wider mb-4">
+            <Factory className="h-4 w-4" />
+            <span>Industrial Sector Solutions</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-white uppercase tracking-tight leading-tight">
+            Industries We <br />
+            <span className="text-amber-500">Power & Support</span>
           </h2>
-          <p className="text-sm sm:text-base font-bold text-slate-200 mt-2 max-w-3xl leading-relaxed">
-            Ensuring reliable supply chains and consistent product formulations across power, energy, chemical processing, and water purification facilities.
+          <p className="text-base sm:text-lg text-slate-300 mt-4 leading-relaxed font-sans">
+            Delivering chemical consistency, process integrity, and uninterrupted supply chains to upstream exploration, LNG liquefaction, refinery complexes, power stations, and manufacturing plants.
           </p>
         </div>
 
-        {/* Bento Grid with high visual contrast */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* Left Grid Panel: Selector list */}
-          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3.5 h-fit">
+          {/* Left Sector List */}
+          <div className="lg:col-span-5 space-y-3">
+            <span className="block text-xs font-bold text-slate-400 uppercase tracking-wider pl-1">
+              Select Operating Industry
+            </span>
+
             {INDUSTRY_APPLICATIONS.map((app, index) => {
               const matches = app.id === selectedAppId;
               return (
                 <button
                   key={app.id}
                   onClick={() => setSelectedAppId(app.id)}
-                  className={`text-left p-4 rounded-none border-2 transition-all duration-150 flex items-center justify-between gap-4 cursor-pointer relative ${
+                  className={`w-full text-left p-4 rounded-lg border transition-all duration-150 flex items-center justify-between gap-3 cursor-pointer ${
                     matches
-                      ? "bg-slate-950 border-cyan-500 text-white shadow-lg"
-                      : "bg-slate-950/45 border-slate-800 text-slate-300 hover:text-white hover:bg-slate-950"
+                      ? "bg-slate-900 border-amber-500 text-white shadow-lg ring-1 ring-amber-500/40"
+                      : "bg-slate-900/60 border-slate-800 text-slate-300 hover:text-white hover:bg-slate-900 hover:border-slate-700"
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <div className={`p-2 rounded-none border ${matches ? "bg-cyan-500/10 text-cyan-400 border-cyan-500/30" : "bg-slate-900 border-slate-800 text-slate-400"}`}>
+                    <div className={`p-2 rounded shrink-0 ${matches ? "bg-amber-500/15 text-amber-400 border border-amber-500/30" : "bg-slate-950 text-slate-400 border border-slate-800"}`}>
                       {getIcon(app.icon)}
                     </div>
-                    <span className="font-display font-black text-sm uppercase tracking-wide">
-                      {app.name}
-                    </span>
+                    <div>
+                      <span className="font-display font-bold text-sm uppercase tracking-wide block text-white">
+                        {app.name}
+                      </span>
+                      <span className="text-xs text-slate-400 line-clamp-1 font-sans mt-0.5">
+                        {app.description}
+                      </span>
+                    </div>
                   </div>
-                  <span className={`font-mono text-xs font-black ${matches ? "text-cyan-400" : "text-slate-500"}`}>
-                    Ref: 0{index + 1}
+                  <span className={`font-mono text-xs font-bold shrink-0 ${matches ? "text-amber-400" : "text-slate-600"}`}>
+                    0{index + 1}
                   </span>
                 </button>
               );
             })}
           </div>
 
-          {/* Right Panel: Immersive Sector Showcase - Highly detailed with massive image layout */}
-          <div className="lg:col-span-7 bg-slate-950 border-2 border-slate-800 rounded-none overflow-hidden flex flex-col justify-between">
+          {/* Right Immersive Details Panel */}
+          <div className="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-lg overflow-hidden flex flex-col justify-between shadow-xl">
             
-            {/* Visual Header Image Container */}
-            <div className="relative h-64 w-full cursor-pointer overflow-hidden bg-slate-950">
+            {/* Header Image */}
+            <div className="relative h-60 sm:h-72 w-full overflow-hidden bg-slate-950">
               <img
                 src={appImages[activeApp.id]}
-                alt={`${activeApp.name} Industrial Sector`}
+                alt={activeApp.name}
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover opacity-75 cursor-zoom-in transition-transform duration-700 hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
               
-              {/* Category Identifier */}
-              <div className="absolute top-4 left-4 font-mono text-xs font-black bg-slate-900/95 border border-slate-800 text-slate-100 px-3 py-1.5 rounded-none shadow">
-                SECTOR SERIES 0{INDUSTRY_APPLICATIONS.indexOf(activeApp) + 1}
-              </div>
-
-              {/* Tap to Zoom indicator */}
-              <div className="absolute top-4 right-4 font-mono text-xs font-black bg-slate-950/95 border-2 border-cyan-500 text-cyan-400 px-3 py-1.5 rounded-none shadow">
-                TAP TO ZOOM IMAGE
+              <div className="absolute top-4 left-4 bg-slate-950/85 backdrop-blur border border-slate-700 text-amber-400 px-3 py-1 rounded text-xs font-bold uppercase">
+                SECTOR SPECIFICATION • 0{INDUSTRY_APPLICATIONS.indexOf(activeApp) + 1}
               </div>
             </div>
 
-            {/* Application Detail Column */}
-            <div className="p-6 md:p-8 space-y-6">
-              <div className="space-y-2">
-                <h3 className="font-display font-black text-2xl sm:text-3xl text-white uppercase tracking-tight">
+            {/* Content Body */}
+            <div className="p-6 sm:p-8 space-y-6">
+              <div>
+                <h3 className="font-display font-black text-2xl text-white uppercase tracking-tight">
                   {activeApp.name}
                 </h3>
-                <p className="text-sm font-bold text-slate-100 leading-relaxed font-sans">
+                <p className="text-sm text-slate-300 leading-relaxed font-sans mt-2">
                   {activeApp.description}
                 </p>
               </div>
 
-              <div className="border-t-2 border-slate-800 pt-5 space-y-5">
+              {/* Requirement Profile */}
+              <div className="border-t border-slate-800 pt-5 space-y-4">
                 <div>
-                  <h4 className="font-mono text-xs font-black text-cyan-400 uppercase tracking-widest mb-2">
-                    PROCESS REQUIREMENT PROFILE
+                  <h4 className="text-xs font-bold text-amber-400 uppercase tracking-wider mb-1.5">
+                    Operating Environment & Technical Challenges:
                   </h4>
-                  <p className="text-sm font-bold text-slate-200 leading-relaxed font-sans">
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
                     {activeApp.details}
                   </p>
                 </div>
 
                 <div>
-                  <h4 className="font-mono text-xs font-black text-amber-500 uppercase tracking-widest mb-2">
-                    SUGGESTED REQUISITION MATERIALS
+                  <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2.5">
+                    Core Supplied Formulations & Consumables:
                   </h4>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {activeApp.keyProducts.map((prod, idx) => (
-                      <span
+                      <div
                         key={idx}
-                        className="bg-slate-900 border-2 border-slate-800 px-3 py-2 rounded-none text-xs font-mono font-black text-slate-100 flex items-center gap-2"
+                        className="bg-slate-950 border border-slate-800 px-3 py-2 rounded text-xs text-slate-200 flex items-center gap-2"
                       >
-                        <Check className="h-4 w-4 text-cyan-400 shrink-0 stroke-[3]" />
-                        {prod}
-                      </span>
+                        <CheckCircle2 className="h-3.5 w-3.5 text-amber-500 shrink-0" />
+                        <span>{prod}</span>
+                      </div>
                     ))}
                   </div>
                 </div>
               </div>
 
-              {/* Direct Inquiry Jumper */}
-              <div className="border-t-2 border-slate-800 pt-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                <span className="text-xs text-slate-400 font-mono font-bold uppercase">
-                  READY FOR COA VERIFIED SUPPLY
+              {/* Footer Quote Action */}
+              <div className="border-t border-slate-800 pt-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <span className="text-xs text-slate-400">
+                  Ready for project staging & volume pricing
                 </span>
                 
                 <button
                   onClick={() => onSelectApplication(activeApp.name)}
-                  className="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-6 py-3 text-xs font-display font-black tracking-widest uppercase rounded-none cursor-pointer transition-all shrink-0 hover:scale-[1.02] active:scale-95 border-2 border-cyan-500"
+                  className="bg-amber-500 hover:bg-amber-400 text-slate-950 px-6 py-2.5 text-xs font-display font-black tracking-wider uppercase rounded cursor-pointer transition-all flex items-center justify-center gap-2 shadow"
                 >
-                  SET IN TECHNICAL QUOTE
+                  REQUEST SECTOR QUOTE
+                  <ArrowRight className="h-3.5 w-3.5" />
                 </button>
               </div>
 

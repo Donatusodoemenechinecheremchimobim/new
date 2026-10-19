@@ -1,169 +1,175 @@
 import React from "react";
 import { COMPANY_PROFILE } from "../data";
-import { ShieldAlert, MapPin, CheckCircle, Award, Factory, Globe } from "lucide-react";
+import { ShieldCheck, MapPin, CheckCircle2, Award, Factory, Globe, Building2, FileCheck, Users2 } from "lucide-react";
 import { IMAGES } from "../imageAssets";
 
 export default function AboutSection() {
   return (
-    <section id="about-us" className="py-16 md:py-24 bg-slate-950 border-b border-slate-900">
+    <section id="about-us" className="py-16 md:py-24 bg-slate-950 border-b border-slate-800 text-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         
-        {/* About Section Header */}
-        <div className="border-t-4 border-cyan-500 pt-4 mb-12">
-          <span className="font-mono text-sm font-black text-cyan-400 uppercase tracking-widest block mb-1">
-            WHO WE ARE
-          </span>
-          <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-white uppercase tracking-tight">
-            ABOUT OIL DROP CHEMICAL LTD
+        {/* Section Header */}
+        <div className="max-w-3xl mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 border border-amber-500/30 rounded text-amber-400 text-xs font-bold uppercase tracking-wider mb-4">
+            <Building2 className="h-4 w-4" />
+            <span>Corporate Profile & Governance</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-white uppercase tracking-tight leading-tight">
+            Building Africa’s Most Trusted <br />
+            <span className="text-amber-500">Industrial Chemical Supply Chain</span>
           </h2>
-          <p className="text-sm sm:text-base font-bold text-slate-200 mt-2 max-w-2xl leading-relaxed">
-            Linking global manufacturers to industrial end-users across critical energy lanes and manufacturing hubs.
+          <p className="text-base sm:text-lg text-slate-300 mt-4 leading-relaxed font-sans">
+            OILDROP Chemical Ltd operates as an integrated industrial procurement partner and technical distributor, supplying premium process chemicals, specialized adsorbents, and heavy industrial consumables to high-demand sectors.
           </p>
         </div>
 
-        {/* Dynamic Dual Grid: text column and large physical layout images */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
+        {/* Core Narrative & Image Showcase */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
           
-          {/* Left Text Col */}
+          {/* Left Narrative Column */}
           <div className="lg:col-span-7 space-y-6">
-            <h3 className="font-display font-black text-lg sm:text-xl text-white uppercase tracking-wider">
-              Sourcing • Supply • Logistics
-            </h3>
-            
-            <p className="text-sm sm:text-base font-bold text-slate-200 leading-relaxed font-sans">
-              {COMPANY_PROFILE.aboutText}
-            </p>
+            <div className="space-y-4 text-slate-300 leading-relaxed font-sans text-sm sm:text-base">
+              <p>
+                Founded with a deliberate focus on industrial excellence, OILDROP addresses the chronic challenges of chemical supply in Africa: inconsistent product purity, protracted lead times, and opaque technical specifications.
+              </p>
+              <p>
+                By maintaining direct, verified procurement relationships with primary global chemical manufacturers in North America, Western Europe, and Asia, we eliminate intermediaries and guarantee that every drum, IBC, and bulk consignment meets certified manufacturer standards.
+              </p>
+              <p>
+                Our operational model pairs international sourcing reach from our Houston liaison desk with deep local execution and dedicated physical warehousing in Port Harcourt, Nigeria.
+              </p>
+            </div>
 
-            <p className="text-sm sm:text-base font-bold text-slate-200 leading-relaxed font-sans">
-              We support industrial facilities requiring consistent operations. By building direct procurement loops with chemical synthesizers, we guarantee material authenticity and provide complete shipping logistics transparency.
-            </p>
+            {/* Strategic Pillars */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+              <div className="bg-slate-900 border border-slate-800 p-4 rounded">
+                <div className="flex items-center gap-2 text-amber-400 font-display font-bold text-sm uppercase mb-1">
+                  <ShieldCheck className="h-4 w-4" />
+                  <span>Uncompromising Quality</span>
+                </div>
+                <p className="text-xs text-slate-300">
+                  100% batch traceability with original manufacturer Certificates of Analysis (COA) and independent lab verification.
+                </p>
+              </div>
 
-            {/* Structured Functional Roles */}
-            <div className="pt-6 border-t-2 border-slate-800">
-              <h4 className="font-display font-black text-xs uppercase tracking-widest text-slate-300 mb-4">
-                Core Assets & Guarantees:
-              </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {COMPANY_PROFILE.functionalGoal.roles.map((role, idx) => (
-                  <div key={idx} className="bg-slate-900 border-2 border-slate-800 p-4 rounded-none flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-cyan-400 shrink-0 mt-0.5" />
-                    <div>
-                      <h5 className="font-display font-black text-xs text-white uppercase tracking-wide">
-                        {role.title}
-                      </h5>
-                      <p className="text-slate-300 font-bold text-xs mt-1.5 leading-relaxed">
-                        {role.desc}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+              <div className="bg-slate-900 border border-slate-800 p-4 rounded">
+                <div className="flex items-center gap-2 text-amber-400 font-display font-bold text-sm uppercase mb-1">
+                  <Factory className="h-4 w-4" />
+                  <span>Plant-Ready Inventory</span>
+                </div>
+                <p className="text-xs text-slate-300">
+                  Strategic buffer inventory in Port Harcourt enabling rapid dispatch for continuous operations and unexpected plant shutdowns.
+                </p>
               </div>
             </div>
 
           </div>
 
-          {/* Right Visual Image Col with double images */}
-          <div className="lg:col-span-5 grid grid-cols-2 gap-4">
-            
-            {/* Top Image Frame */}
-            <div className="relative h-48 sm:h-64 rounded-none border-2 border-slate-800 overflow-hidden bg-slate-900 col-span-2 cursor-pointer">
+          {/* Right Image Showcase */}
+          <div className="lg:col-span-5 grid grid-cols-2 gap-3">
+            <div className="col-span-2 relative h-56 rounded-lg overflow-hidden border border-slate-800 bg-slate-900 shadow-xl">
               <img
                 src={IMAGES.logisticsHub}
-                alt="Cargo cargo shipping"
+                alt="Port Harcourt Logistics Center"
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover cursor-zoom-in transition-transform duration-500 hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent pointer-events-none"></div>
-              <span className="absolute bottom-3 left-3 bg-slate-950/95 border border-slate-700 px-2.5 py-1 rounded-none font-mono text-xs font-black text-white shadow">
-                DISTRIBUTION NETWORK • TAP TO ZOOM
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+              <span className="absolute bottom-3 left-3 text-xs font-bold text-white bg-slate-950/80 backdrop-blur px-2.5 py-1 rounded border border-slate-700">
+                Port Harcourt Distribution Hub
               </span>
             </div>
 
-            {/* Bottom Left Frame */}
-            <div className="relative h-36 rounded-none border-2 border-slate-800 overflow-hidden bg-slate-900 cursor-pointer">
+            <div className="relative h-40 rounded-lg overflow-hidden border border-slate-800 bg-slate-900 shadow-lg">
               <img
-                src={IMAGES.plantDehydrator}
-                alt="Refinery plant vessels"
+                src={IMAGES.imgWA0007}
+                alt="Laboratory testing"
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover cursor-zoom-in transition-transform duration-500 hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
               />
-              <span className="absolute bottom-2 left-2 bg-slate-950/95 border border-slate-700 px-2.5 py-1 rounded-none font-mono text-xs font-black text-white shadow">
-                PROCESS CORRIDOR • ZOOM
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+              <span className="absolute bottom-2 left-2 text-[11px] font-bold text-white bg-slate-950/80 backdrop-blur px-2 py-0.5 rounded border border-slate-700">
+                QA / QC Lab Station
               </span>
             </div>
 
-            {/* Bottom Right Frame */}
-            <div className="relative h-36 rounded-none border-2 border-slate-800 overflow-hidden bg-slate-900 cursor-pointer">
+            <div className="relative h-40 rounded-lg overflow-hidden border border-slate-800 bg-slate-900 shadow-lg">
               <img
-                src={IMAGES.labTesting}
-                alt="Quality checking"
+                src={IMAGES.sievedDesiccant}
+                alt="Desiccant inspection"
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover cursor-zoom-in transition-transform duration-500 hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
               />
-              <span className="absolute bottom-2 left-2 bg-slate-950/95 border border-slate-700 px-2.5 py-1 rounded-none font-mono text-xs font-black text-white shadow">
-                COA VALIDATION • ZOOM
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+              <span className="absolute bottom-2 left-2 text-[11px] font-bold text-white bg-slate-950/80 backdrop-blur px-2 py-0.5 rounded border border-slate-700">
+                Sieved Desiccant Stock
               </span>
             </div>
-
           </div>
 
         </div>
 
-        {/* Twin Geographic Coordinates - Nigeria vs Houston */}
-        <div className="bg-slate-900 border-2 border-slate-800 p-6 md:p-8 rounded-none">
-          <h3 className="font-display font-black text-xl sm:text-2xl text-white uppercase tracking-tight mb-6 border-b-2 border-slate-800 pb-4 flex items-center gap-2">
-            <Globe className="h-5.5 w-5.5 text-cyan-400" />
-            OPERATIONAL BASES & NODES
-          </h3>
+        {/* Operational Geography & Locations */}
+        <div className="bg-slate-900 border border-slate-800 rounded-lg p-6 sm:p-8">
+          <div className="flex items-center gap-2 mb-6 border-b border-slate-800 pb-4">
+            <Globe className="h-5 w-5 text-amber-400" />
+            <h3 className="text-xl font-display font-bold text-white uppercase">
+              Global Sourcing & Local Execution Network
+            </h3>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             
-            {/* Nigeria Node */}
-            <div className="space-y-4">
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1.5 bg-cyan-950/80 border border-cyan-500/35 text-cyan-400 font-mono text-xs font-black uppercase tracking-wider rounded-none">
-                <MapPin className="h-4.5 w-4.5" />
-                AFRICA HEADQUARTERS
-              </div>
-              <h4 className="font-display font-black text-2xl text-white uppercase tracking-wide leading-none">
-                {COMPANY_PROFILE.geographicStructure.nigeria.location}
-              </h4>
-              <p className="text-sm font-bold text-slate-200 leading-relaxed font-sans">
-                {COMPANY_PROFILE.geographicStructure.nigeria.scope}
-              </p>
-              
-              <div className="bg-slate-950 p-4 rounded-none font-mono text-xs font-bold text-slate-300 space-y-2 border-2 border-slate-800">
-                <div className="justify-between flex">
-                  <span className="text-slate-400 font-black">DEPOT ACCESS:</span>
-                  <span className="text-white font-black uppercase">PORT ONNE / APAPA ACCESS</span>
+            {/* Nigeria Operational Base */}
+            <div className="bg-slate-950 p-6 rounded-lg border border-slate-800 flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 uppercase tracking-wider">
+                  <MapPin className="h-4 w-4" />
+                  <span>Nigeria Operations Center</span>
                 </div>
-                <div className="justify-between flex">
-                  <span className="text-slate-400 font-black">STORAGE STATUS:</span>
-                  <span className="text-green-400 font-black uppercase">ACTIVE SECURED STORAGE</span>
+                <h4 className="text-lg font-display font-bold text-white uppercase">
+                  Port Harcourt Logistics Hub
+                </h4>
+                <p className="text-sm text-slate-300 leading-relaxed font-sans">
+                  Strategically positioned in the Trans-Amadi / Onne industrial corridor. Manages bonded stockpiles, palletized handling, local packaging, and expedited road haulage across the Niger Delta and Nigerian manufacturing clusters.
+                </p>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-slate-850 space-y-1.5 text-xs text-slate-400">
+                <div className="flex justify-between">
+                  <span className="font-semibold">Facility Role:</span>
+                  <span className="text-slate-200">Warehousing, Staging, Rapid Dispatch</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="font-semibold">Port Proximity:</span>
+                  <span className="text-slate-200">Direct Access to Onne Port & Apapa Terminal</span>
                 </div>
               </div>
             </div>
 
-            {/* Houston Node */}
-            <div className="space-y-4 border-t-2 md:border-t-0 md:border-l-2 border-slate-800 pt-6 md:pt-0 md:pl-8">
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1.5 bg-amber-950/80 border border-amber-500/35 text-amber-500 font-mono text-xs font-black uppercase tracking-wider rounded-none">
-                <MapPin className="h-4.5 w-4.5" />
-                INTERNATIONAL DESK
-              </div>
-              <h4 className="font-display font-black text-2xl text-white uppercase tracking-wide leading-none">
-                {COMPANY_PROFILE.geographicStructure.international.location}
-              </h4>
-              <p className="text-sm font-bold text-slate-200 leading-relaxed font-sans">
-                {COMPANY_PROFILE.geographicStructure.international.scope}
-              </p>
-
-              <div className="bg-slate-950 p-4 rounded-none font-mono text-xs font-bold text-slate-300 space-y-2 border-2 border-slate-800">
-                <div className="justify-between flex">
-                  <span className="text-slate-400 font-black">PROCUREMENT HUB:</span>
-                  <span className="text-white font-black uppercase">TEXAS LIAISON DESK</span>
+            {/* Houston Procurement Desk */}
+            <div className="bg-slate-950 p-6 rounded-lg border border-slate-850 flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-400 uppercase tracking-wider">
+                  <Globe className="h-4 w-4" />
+                  <span>International Procurement</span>
                 </div>
-                <div className="justify-between flex">
-                  <span className="text-slate-400 font-black">DELIVERY DESK:</span>
-                  <span className="text-cyan-400 font-black uppercase">DIRECT EXPORT DECLARED</span>
+                <h4 className="text-lg font-display font-bold text-white uppercase">
+                  Houston Coordination Desk
+                </h4>
+                <p className="text-sm text-slate-300 leading-relaxed font-sans">
+                  Located in Texas, USA—the epicenter of global energy chemicals. Interfaces directly with primary chemical synthesizers across the US Gulf Coast, Western Europe, and Asia for volume allocation, quality validation, and export freight.
+                </p>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-slate-850 space-y-1.5 text-xs text-slate-400">
+                <div className="flex justify-between">
+                  <span className="font-semibold">Facility Role:</span>
+                  <span className="text-slate-200">OEM Direct Contracting & QC Inspections</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="font-semibold">Corridor:</span>
+                  <span className="text-slate-200">US Gulf Coast • Antwerp • Singapore • Africa</span>
                 </div>
               </div>
             </div>

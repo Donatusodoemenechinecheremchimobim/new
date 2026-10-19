@@ -4,6 +4,7 @@ export interface ProductItem {
   description: string;
   specifications?: string[];
   casNumber?: string;
+  typicalApplications?: string[];
 }
 
 export interface ProductGroup {
@@ -12,6 +13,27 @@ export interface ProductGroup {
   icon: string;
   description: string;
   items: ProductItem[];
+}
+
+export interface CapabilityItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  features: string[];
+  icon: string;
+  image?: string;
+}
+
+export interface InfrastructureItem {
+  id: string;
+  title: string;
+  category: "warehousing" | "handling" | "logistics" | "laboratory" | "port";
+  location: string;
+  capacity?: string;
+  description: string;
+  highlights: string[];
+  image: string;
 }
 
 export interface IndustryApplication {
@@ -29,6 +51,7 @@ export interface GalleryItem {
   category: "water-treatment" | "industrial-filtration" | "oil-gas" | "logistics-procurement" | "technical-facilities";
   description: string;
   url: string;
+  location?: string;
 }
 
 export interface QuoteRequest {
@@ -43,7 +66,9 @@ export interface QuoteRequest {
   estimatedQuantity: string;
   deliveryLocation: string;
   requiredTimeline: string;
+  casNumber?: string;
   technicalSpecs?: string;
   status: "Evaluation Pending" | "Technical Matching" | "Commercial Quoting" | "Processed";
   createdAt: string;
 }
+

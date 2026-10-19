@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { QuoteRequest } from "../types";
-import { Send, FileText, Trash2, ClipboardList, Gauge, HelpCircle, FileCheck, CheckCircle2 } from "lucide-react";
+import { Send, FileText, Trash2, ClipboardList, Gauge, CheckCircle2, ShieldCheck, HelpCircle, PackageCheck, AlertCircle, Building2 } from "lucide-react";
 
 interface ProcurementSectionProps {
   prefilledProduct: string;
@@ -74,11 +74,11 @@ export default function ProcurementSection({
     e.preventDefault();
 
     if (!companyName || !contactPerson || !email || !phone || !productRequired || !estimatedQuantity || !deliveryLocation) {
-      alert("Please populate all mandated technical fields before submitting.");
+      alert("Please populate all required fields before submitting your RFQ.");
       return;
     }
 
-    const nextId = "REQ-OD-" + Math.floor(100000 + Math.random() * 900000);
+    const nextId = "RFQ-OD-" + Math.floor(100000 + Math.random() * 900000);
     const newRequest: QuoteRequest = {
       id: nextId,
       companyName,
@@ -91,7 +91,7 @@ export default function ProcurementSection({
       estimatedQuantity: `${estimatedQuantity} ${quantityUnit}`,
       deliveryLocation,
       requiredTimeline: requiredTimeline.replace("_", " "),
-      technicalSpecs: technicalSpecs || "No specialized custom specs supplied.",
+      technicalSpecs: technicalSpecs || "Standard analytical purity and batch COA required.",
       status: "Evaluation Pending",
       createdAt: new Date().toISOString(),
     };
@@ -103,10 +103,9 @@ export default function ProcurementSection({
     setSubmittedId(nextId);
     handleClearForm();
 
-    // Auto clear submission notification alert after 7 seconds
     setTimeout(() => {
       setSubmittedId(null);
-    }, 7000);
+    }, 8000);
   };
 
   const handleDeleteRequest = (id: string) => {
@@ -115,86 +114,72 @@ export default function ProcurementSection({
     localStorage.setItem("odcl_quote_history", JSON.stringify(nextHistory));
   };
 
-  // Live Calculations (Engineering Mock Calculations)
   const quantityValue = parseFloat(estimatedQuantity) || 0;
   
-  // Calculate Standard IBC Containers (approx 1 Metric Ton = 1 IBC volume check)
-  const estimatedIBCPackCount = quantityValue > 0 
-    ? Math.ceil(quantityValue * (quantityUnit.startsWith("Metric") ? 1.1 : 0.8)) 
+  // Calculate Standard IBC or drum pack units
+  const estimatedUnits = quantityValue > 0 
+    ? Math.ceil(quantityValue * (quantityUnit.startsWith("Metric") ? 1.05 : 0.85)) 
     : 0;
-  
-  // Logistics Hazard Footprint estimate based on chemical groups
-  const getHazardSpecs = () => {
-    if (chemicalGroup.includes("Water")) {
-      return { class: "Class 8: Corrosive Fluid", packing: "IBC Composite, UN-approved" };
-    }
-    if (chemicalGroup.includes("Filtration")) {
-      return { class: "Class 9: Solid Non-Hazardous", packing: "Heavy PP Multi-ply Woven Bags" };
-    }
-    if (chemicalGroup.includes("Oil")) {
-      return { class: "Class 3: Flammable Liquid / Toxic", packing: "Carbon Steel Intermediate Drums" };
-    }
-    return { class: "Class 8 / Class 9 Mixed Compatibility", packing: "Standard High-density Polyethylene Containers" };
-  };
-
-  const activeHazard = getHazardSpecs();
 
   return (
-    <section id="procurement-desk" className="py-16 md:py-24 bg-slate-950 border-b border-slate-900">
+    <section id="procurement-desk" className="py-16 md:py-24 bg-slate-950 border-b border-slate-800 text-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         
-        {/* Verification Title Block */}
-        <div className="border-t-4 border-cyan-500 pt-4 mb-12">
-          <span className="font-mono text-sm font-black text-cyan-400 uppercase tracking-widest block mb-1">
-            REQUEST SPECIFICATIONS
-          </span>
-          <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-white uppercase tracking-tight">
-            PROCUREMENT & QUOTATION SYSTEM
+        {/* Section Header */}
+        <div className="max-w-3xl mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 border border-amber-500/30 rounded text-amber-400 text-xs font-bold uppercase tracking-wider mb-4">
+            <Building2 className="h-4 w-4" />
+            <span>Commercial & Technical RFQ</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-white uppercase tracking-tight leading-tight">
+            Procurement Desk & <br />
+            <span className="text-amber-500">Request For Quotation (RFQ)</span>
           </h2>
-          <p className="text-sm sm:text-base font-bold text-slate-200 mt-2 max-w-2xl leading-relaxed">
-            Submit your technical specs and delivery schedules. Our commercial desk in Port Harcourt and Houston will review and draft an official formulation pricing slate.
+          <p className="text-base sm:text-lg text-slate-300 mt-4 leading-relaxed font-sans">
+            Submit your material specifications, required packaging, and delivery schedule. Our technical team in Port Harcourt and Houston will review availability, calculate landed logistics, and provide a formal quotation.
           </p>
         </div>
 
         {submittedId && (
-          <div className="bg-green-950/40 border-2 border-green-500/30 p-5 rounded-none mb-8 flex items-start gap-4 animate-in fade-in duration-350">
-            <CheckCircle2 className="h-6 w-6 text-green-400 shrink-0 mt-0.5" />
+          <div className="bg-emerald-950/60 border border-emerald-500/40 p-5 rounded-lg mb-8 flex items-start gap-4 animate-in fade-in duration-300">
+            <CheckCircle2 className="h-6 w-6 text-emerald-400 shrink-0 mt-0.5" />
             <div>
-              <h4 className="font-display font-black text-sm text-green-300 uppercase tracking-wide">
-                Specification Logged Successfully
+              <h4 className="font-display font-bold text-base text-emerald-300 uppercase">
+                RFQ Submitted Successfully
               </h4>
-              <p className="text-sm font-bold text-green-400 mt-1">
-                Your request has been logged with reference tag <strong className="font-mono">#{submittedId}</strong>. We are initiating formulation matching and shipper carrier calculations.
+              <p className="text-sm text-slate-300 mt-1">
+                Your quotation request has been logged under reference tag <strong className="font-mono text-emerald-300">#{submittedId}</strong>. Our commercial sourcing desk is initiating batch verification and landed freight calculations.
               </p>
             </div>
           </div>
         )}
 
-        {/* Form and Preview Split */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* Left Column Form */}
-          <form onSubmit={handleSubmit} className="lg:col-span-7 bg-slate-900 border-2 border-slate-800 p-6 md:p-8 rounded-none space-y-6">
-            <h3 className="font-display font-black text-lg text-white uppercase tracking-wide border-b-2 border-slate-800 pb-3 flex justify-between items-center">
-              <span>Sourcing Specification Manifest</span>
+          {/* RFQ Form */}
+          <form onSubmit={handleSubmit} className="lg:col-span-7 bg-slate-900 border border-slate-800 p-6 sm:p-8 rounded-lg space-y-6 shadow-xl">
+            <div className="flex justify-between items-center border-b border-slate-800 pb-4">
+              <h3 className="font-display font-bold text-lg text-white uppercase">
+                Material Requisition Parameters
+              </h3>
               <button
                 type="button"
                 onClick={handleClearForm}
-                className="font-mono text-xs font-black text-slate-400 hover:text-cyan-400 uppercase"
+                className="text-xs font-bold text-slate-400 hover:text-amber-400 uppercase transition-colors"
               >
-                CLEAR DATA
+                Reset Form
               </button>
-            </h3>
+            </div>
 
-            {/* Section 1: Customer Coordinates */}
+            {/* Section 1: Client Details */}
             <div className="space-y-4">
-              <span className="block font-mono text-xs font-black text-cyan-400 uppercase tracking-wider">
-                [01] CLIENT DETAILS
+              <span className="text-xs font-bold text-amber-400 uppercase tracking-wider block">
+                01. Company & Contact Information
               </span>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono font-black text-slate-350 uppercase mb-2">
+                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
                     Company Name *
                   </label>
                   <input
@@ -202,70 +187,70 @@ export default function ProcurementSection({
                     required
                     value={companyName}
                     onChange={(e) => setCompanyName(e.target.value)}
-                    placeholder="e.g. Niger Delta Refining Corp"
-                    className="w-full bg-slate-950 border-2 border-slate-800 focus:border-cyan-500 rounded-none px-3.5 py-3 text-sm text-white font-bold placeholder-slate-700 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-colors"
+                    placeholder="e.g. NLNG / TotalEnergies / Seplat"
+                    className="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 rounded px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono font-black text-slate-350 uppercase mb-2">
-                    Contact Person *
+                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                    Contact Person & Title *
                   </label>
                   <input
                     type="text"
                     required
                     value={contactPerson}
                     onChange={(e) => setContactPerson(e.target.value)}
-                    placeholder="e.g. Engr. Chibundu Sadiq"
-                    className="w-full bg-slate-950 border-2 border-slate-800 focus:border-cyan-500 rounded-none px-3.5 py-3 text-sm text-white font-bold placeholder-slate-700 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-colors"
+                    placeholder="e.g. Engr. T. Balogun, Lead Chemist"
+                    className="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 rounded px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono font-black text-slate-350 uppercase mb-2">
-                    Official Email *
+                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                    Corporate Email *
                   </label>
                   <input
                     type="email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="procurement@corp.com"
-                    className="w-full bg-slate-950 border-2 border-slate-800 focus:border-cyan-500 rounded-none px-3.5 py-3 text-sm text-white font-bold placeholder-slate-700 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-colors"
+                    placeholder="procurement@company.com"
+                    className="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 rounded px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono font-black text-slate-350 uppercase mb-2">
-                    Telephone Contacts *
+                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                    Phone / WhatsApp *
                   </label>
                   <input
                     type="text"
                     required
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    placeholder="+234 803 123 4567"
-                    className="w-full bg-slate-950 border-2 border-slate-800 focus:border-cyan-500 rounded-none px-3.5 py-3 text-sm text-white font-bold placeholder-slate-700 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-colors"
+                    placeholder="+234 803 000 0000"
+                    className="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 rounded px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none transition-colors"
                   />
                 </div>
               </div>
             </div>
 
-            {/* Section 2: Specialty Parameters */}
-            <div className="space-y-4 border-t-2 border-slate-800 pt-5">
-              <span className="block font-mono text-xs font-black text-cyan-400 uppercase tracking-wider">
-                [02] PROCESS REQUIREMENT DETAILS
+            {/* Section 2: Technical Specifications */}
+            <div className="space-y-4 border-t border-slate-800 pt-5">
+              <span className="text-xs font-bold text-amber-400 uppercase tracking-wider block">
+                02. Chemical Formulation & Industry Requirements
               </span>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono font-black text-slate-350 uppercase mb-2">
-                    Material Group Sourcing
+                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                    Product Category
                   </label>
                   <select
                     value={chemicalGroup}
                     onChange={(e) => setChemicalGroup(e.target.value)}
-                    className="w-full bg-slate-950 border-2 border-slate-800 focus:border-cyan-500 rounded-none px-3.5 py-3 text-sm text-white font-black focus:outline-none focus:ring-2 focus:ring-cyan-500/20 cursor-pointer"
+                    className="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 rounded px-3 py-2.5 text-sm text-white focus:outline-none cursor-pointer"
                   >
                     <option>Water Treatment Chemicals</option>
                     <option>Industrial Filtration Materials</option>
@@ -276,13 +261,13 @@ export default function ProcurementSection({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono font-black text-slate-350 uppercase mb-2">
-                    Target Application
+                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                    Operating Industry / Application
                   </label>
                   <select
                     value={industrialApplication}
                     onChange={(e) => setIndustrialApplication(e.target.value)}
-                    className="w-full bg-slate-950 border-2 border-slate-800 focus:border-cyan-500 rounded-none px-3.5 py-3 text-sm text-white font-black focus:outline-none focus:ring-2 focus:ring-cyan-500/20 cursor-pointer"
+                    className="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 rounded px-3 py-2.5 text-sm text-white focus:outline-none cursor-pointer"
                   >
                     <option>Oil & Gas Production and Processing</option>
                     <option>Natural Gas Processing and LNG Systems</option>
@@ -294,7 +279,7 @@ export default function ProcurementSection({
                 </div>
 
                 <div className="sm:col-span-2">
-                  <label className="block text-xs font-mono font-black text-slate-350 uppercase mb-2">
+                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
                     Product / Material Name Required *
                   </label>
                   <input
@@ -302,28 +287,28 @@ export default function ProcurementSection({
                     required
                     value={productRequired}
                     onChange={(e) => setProductRequired(e.target.value)}
-                    placeholder="e.g. Triethylene Glycol (TEG) 99.5% purity"
-                    className="w-full bg-slate-950 border-2 border-slate-800 focus:border-cyan-500 rounded-none px-3.5 py-3 text-sm text-white font-bold placeholder-slate-700 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-colors"
+                    placeholder="e.g. Triethylene Glycol (TEG) 99.5% or Molecular Sieve 4A"
+                    className="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 rounded px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none transition-colors"
                   />
                   {prefilledProduct && (
-                    <span className="text-xs font-mono font-black text-cyan-400 mt-1.5 block">
-                      ✔ Loaded from product selector prefill selection
+                    <span className="text-xs text-amber-400 mt-1 block">
+                      ✔ Automatically populated from catalog selection
                     </span>
                   )}
                 </div>
               </div>
             </div>
 
-            {/* Section 3: Quantity, Time, and Logistics details */}
-            <div className="space-y-4 border-t-2 border-slate-800 pt-5">
-              <span className="block font-mono text-xs font-black text-cyan-400 uppercase tracking-wider">
-                [03] QUANTITIES & ROUTING DESTINATIONS
+            {/* Section 3: Quantity & Delivery */}
+            <div className="space-y-4 border-t border-slate-800 pt-5">
+              <span className="text-xs font-bold text-amber-400 uppercase tracking-wider block">
+                03. Volume & Logistics Specifications
               </span>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono font-black text-slate-350 uppercase mb-2">
-                    Estimated Quantity Required *
+                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                    Estimated Quantity *
                   </label>
                   <div className="flex gap-2">
                     <input
@@ -332,223 +317,170 @@ export default function ProcurementSection({
                       min="1"
                       value={estimatedQuantity}
                       onChange={(e) => setEstimatedQuantity(e.target.value)}
-                      placeholder="e.g. 24"
-                      className="w-1/2 bg-slate-950 border-2 border-slate-800 focus:border-cyan-500 rounded-none px-3.5 py-3 text-sm text-white font-bold focus:outline-none transition-colors"
+                      placeholder="e.g. 20"
+                      className="w-1/2 bg-slate-950 border border-slate-800 focus:border-amber-500 rounded px-3 py-2 text-sm text-white focus:outline-none"
                     />
                     <select
                       value={quantityUnit}
                       onChange={(e) => setQuantityUnit(e.target.value)}
-                      className="w-1/2 bg-slate-950 border-2 border-slate-800 focus:border-cyan-500 rounded-none px-2.5 py-3 text-xs font-mono font-black text-white focus:outline-none cursor-pointer"
+                      className="w-1/2 bg-slate-950 border border-slate-800 focus:border-amber-500 rounded px-2 py-2 text-xs text-white focus:outline-none cursor-pointer"
                     >
                       <option>Metric Tons (MT)</option>
-                      <option>IBC Pallet Drums (1000L)</option>
-                      <option>Standard Steel Barrels (200L)</option>
-                      <option>Kilograms (KG)</option>
+                      <option>IBC Totes (1000L)</option>
+                      <option>Steel Drums (200L / 210L)</option>
+                      <option>25kg Bags / Super Sacks</option>
                     </select>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono font-black text-slate-350 uppercase mb-2">
-                    Delivery Destination *
+                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                    Delivery Destination / Port *
                   </label>
                   <input
                     type="text"
                     required
                     value={deliveryLocation}
                     onChange={(e) => setDeliveryLocation(e.target.value)}
-                    placeholder="e.g. Onne Free Zone Depot, Port Harcourt"
-                    className="w-full bg-slate-950 border-2 border-slate-800 focus:border-cyan-500 rounded-none px-3.5 py-3 text-sm text-white font-bold placeholder-slate-700 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-colors"
+                    placeholder="e.g. Port Harcourt Depot / Onne Port"
+                    className="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 rounded px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono font-black text-slate-350 uppercase mb-2">
-                    Required Supply Timeline
+                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                    Required Delivery Timeline
                   </label>
                   <select
                     value={requiredTimeline}
                     onChange={(e) => setRequiredTimeline(e.target.value)}
-                    className="w-full bg-slate-950 border-2 border-slate-800 focus:border-cyan-500 rounded-none px-3.5 py-3 text-sm text-white font-black focus:outline-none focus:ring-2 focus:ring-cyan-500/20 cursor-pointer"
+                    className="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 rounded px-3 py-2.5 text-sm text-white focus:outline-none cursor-pointer"
                   >
-                    <option value="Urgent_15_Days">Urgent (Within 15 Days)</option>
+                    <option value="Urgent_15_Days">Urgent (Within 15 Days - Staged Inventory)</option>
                     <option value="30_Days">Standard (30 Days)</option>
-                    <option value="60_Days">Planned Logistics (60 Days+)</option>
-                    <option value="Continuous_Contract">Continuous Blanket Supply Contract</option>
+                    <option value="60_Days">Scheduled Project Turnaround (60 Days+)</option>
+                    <option value="Continuous_Contract">Long-Term Annual Blanket Supply</option>
                   </select>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono font-black text-slate-350 uppercase mb-3">
-                    Requisition Certifications
+                  <label className="block text-xs font-semibold text-slate-300 mb-2">
+                    Quality Assurance Documentation
                   </label>
-                  <div className="flex gap-4 pt-1.5 text-sm font-bold">
-                    <label className="flex items-center gap-1.5 text-slate-200">
-                      <input type="radio" defaultChecked name="coa" className="accent-cyan-500 scale-110" />
+                  <div className="flex gap-4 pt-1 text-xs text-slate-300">
+                    <label className="flex items-center gap-1.5 cursor-pointer">
+                      <input type="checkbox" defaultChecked className="accent-amber-500" />
                       COA Required
                     </label>
-                    <label className="flex items-center gap-1.5 text-slate-200">
-                      <input type="radio" name="coa" className="accent-cyan-500 scale-110" />
-                      REACH Compliant
+                    <label className="flex items-center gap-1.5 cursor-pointer">
+                      <input type="checkbox" defaultChecked className="accent-amber-500" />
+                      TDS & MSDS
                     </label>
                   </div>
                 </div>
 
                 <div className="sm:col-span-2">
-                  <label className="block text-xs font-mono font-black text-slate-350 uppercase mb-2">
-                    Special Specifications / Instructions
+                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                    Special Specifications / Operating Requirements
                   </label>
                   <textarea
                     rows={3}
                     value={technicalSpecs}
                     onChange={(e) => setTechnicalSpecs(e.target.value)}
-                    placeholder="Specify viscosity limits, packaging sizes, purity, or ASTM standards..."
-                    className="w-full bg-slate-950 border-2 border-slate-800 focus:border-cyan-500 rounded-none px-3.5 py-3 text-sm text-white font-bold placeholder-slate-700 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-colors font-mono"
+                    placeholder="Provide specific ASTM criteria, density, active ingredient percentage, or unique site access protocols..."
+                    className="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 rounded px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none transition-colors font-sans"
                   ></textarea>
                 </div>
               </div>
             </div>
 
-            {/* Submission triggers */}
-            <div className="pt-6 border-t-2 border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4">
-              <div className="text-xs font-mono font-bold text-slate-400 max-w-sm text-center sm:text-left">
-                * Our technical team will generate a pricing proposal matching industrial standards.
+            {/* Submission Action */}
+            <div className="pt-6 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4">
+              <div className="text-xs text-slate-400">
+                All requests receive formal commercial review within 24–48 hours.
               </div>
               <button
                 type="submit"
-                className="w-full sm:w-auto bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-8 py-4 rounded-none font-display font-black text-sm tracking-wider uppercase transition-all duration-150 flex items-center justify-center gap-2.5 cursor-pointer shadow-lg hover:scale-[1.02] active:scale-95"
+                className="w-full sm:w-auto bg-amber-500 hover:bg-amber-400 text-slate-950 px-8 py-3.5 rounded font-display font-black text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg"
               >
-                SUBMIT SPECIFICATION
-                <Send className="h-4.5 w-4.5 stroke-[2.5]" />
+                SUBMIT RFQ SPECIFICATION
+                <Send className="h-4 w-4" />
               </button>
             </div>
-
           </form>
 
-          {/* Right Column Interactive Dynamic Blueprint Preview */}
+          {/* Right Column: Interactive Requisition Preview */}
           <div className="lg:col-span-5 space-y-6">
-                       {/* Dynamic Sourcing visualizer panel & estimated containers */}
-            <div className="bg-slate-900 border-2 border-slate-800 p-5 rounded-none">
-              <h4 className="font-display font-black text-xs uppercase tracking-wider text-white mb-4 flex items-center gap-2 border-b-2 border-slate-800 pb-3">
-                <Gauge className="h-5 w-5 text-cyan-400 shrink-0" />
-                PACKAGING & LOGISTICS ASSESSOR
+            
+            {/* Live Logistics Footprint */}
+            <div className="bg-slate-900 border border-slate-800 p-5 rounded-lg space-y-4">
+              <h4 className="font-display font-bold text-sm uppercase text-white flex items-center gap-2 border-b border-slate-800 pb-3">
+                <Gauge className="h-4 w-4 text-amber-500" />
+                Packaging & Sourcing Estimation
               </h4>
 
-              <div className="space-y-4">
-                <div className="flex justify-between items-center bg-slate-950 p-4 border-2 border-slate-800">
-                  <div>
-                    <span className="block text-xs font-mono font-bold text-slate-400 uppercase">ESTIMATED STORAGE FOOTPRINT</span>
-                    <strong className="text-base font-display font-black text-white">{estimatedIBCPackCount || "0"} STANDARD UNITS</strong>
-                  </div>
-                  <div className="text-right font-mono text-xs font-black text-cyan-400">
-                    {estimatedIBCPackCount > 0 ? "IBC UNITS DETECTED" : "NO VALUE LOADED"}
-                  </div>
+              <div className="bg-slate-950 p-4 rounded border border-slate-850 flex justify-between items-center">
+                <div>
+                  <span className="block text-[11px] font-semibold text-slate-400 uppercase">Estimated Handling Units:</span>
+                  <span className="text-lg font-display font-bold text-white">
+                    {estimatedUnits > 0 ? `${estimatedUnits} Packaging Units` : "Enter quantity for estimate"}
+                  </span>
                 </div>
+                <PackageCheck className="h-6 w-6 text-amber-400" />
+              </div>
 
-                <div className="text-xs space-y-2 font-mono font-bold text-slate-300 bg-slate-950 p-4 border-2 border-slate-800">
-                  <div className="flex justify-between border-b border-slate-900 pb-2">
-                    <span className="text-slate-400 font-black">REGULATORY HAZARD:</span>
-                    <span className="text-slate-200 uppercase font-black">{activeHazard.class}</span>
-                  </div>
-                  <div className="flex justify-between pt-1">
-                    <span className="text-slate-400 font-black">PACKING STANDARD:</span>
-                    <span className="text-slate-200 uppercase font-black text-right">{activeHazard.packing}</span>
-                  </div>
+              <div className="bg-slate-950 p-4 rounded border border-slate-850 space-y-2 text-xs">
+                <div className="flex justify-between">
+                  <span className="text-slate-400">Target Category:</span>
+                  <span className="text-slate-200 font-semibold">{chemicalGroup}</span>
                 </div>
-
-                {/* Simulated Packing graphic */}
-                {estimatedIBCPackCount > 0 && (
-                  <div className="bg-slate-950 border-2 border-slate-800 p-4 text-center">
-                    <span className="block font-mono text-xs font-black text-slate-400 mb-2">Simulated Container Consolidation</span>
-                    <div className="flex flex-wrap justify-center gap-1.5 max-w-xs mx-auto">
-                      {Array.from({ length: Math.min(estimatedIBCPackCount, 24) }).map((_, idx) => (
-                        <div
-                          key={idx}
-                          className="h-5 w-5 bg-cyan-950 border border-cyan-500 flex items-center justify-center text-xs font-mono font-black text-cyan-400"
-                          title="Volumetric Unit PACK"
-                        >
-                          U
-                        </div>
-                      ))}
-                      {estimatedIBCPackCount > 24 && (
-                        <div className="text-xs font-black text-slate-400 self-center font-mono">+{estimatedIBCPackCount - 24} Units</div>
-                      )}
-                    </div>
-                  </div>
-                )}
+                <div className="flex justify-between">
+                  <span className="text-slate-400">Lead Sourcing Node:</span>
+                  <span className="text-amber-400 font-semibold">Houston OEM Desk / PH Hub</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-400">Quality Standard:</span>
+                  <span className="text-emerald-400 font-semibold">100% COA Batch-Matched</span>
+                </div>
               </div>
             </div>
 
-            {/* Sourcing Draft Board Sheet (Dynamic Manifest representation) */}
-            <div className="bg-slate-900 border-2 border-dashed border-slate-700 p-6 rounded-none relative overflow-hidden">
-              {/* Background circular flask watermarked design */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.02] pointer-events-none scale-150">
-                <svg className="h-48 w-48 text-cyan-500" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19 19.5v-1l-2.6-3.8V7a1 1 0 0 0-1-1H11V3.5a1.5 1.5 0 0 0-3 0V6H8.6a1 1 0 0 0-1 1v7.7L5 18.5v1A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5z" />
-                </svg>
+            {/* Spec Sheet Watermark Preview */}
+            <div className="bg-slate-900 border border-slate-800 p-6 rounded-lg space-y-4">
+              <div className="flex justify-between items-center border-b border-slate-800 pb-3">
+                <div>
+                  <span className="text-[10px] font-mono text-amber-400 uppercase font-bold">ODCL COMMERCIAL DESK</span>
+                  <h5 className="text-sm font-display font-bold text-white uppercase">Requisition Summary</h5>
+                </div>
+                <span className="text-[10px] bg-slate-950 border border-slate-700 text-slate-400 px-2 py-1 rounded">
+                  DRAFT SPEC
+                </span>
               </div>
 
-              {/* Watermark label */}
-              <div className="absolute -right-12 top-6 rotate-45 bg-amber-500/10 text-amber-500 border-2 border-amber-500/20 px-10 py-1.5 text-xs font-mono font-black tracking-widest uppercase">
-                SPECIFICATION SHEET
-              </div>
-
-              <div className="space-y-4 relative z-10 font-mono text-xs text-slate-300">
-                {/* Draft Document Header */}
-                <div className="border-b border-slate-800 pb-3 text-center space-y-1">
-                  <h4 className="font-display font-black text-sm text-white uppercase tracking-wider">ODCL SOURCING PROPOSAL</h4>
-                  <p className="text-xs font-black text-slate-500">STANDARD SUPPLY CHAIN LOGISTICS PROTOCOL</p>
+              <div className="space-y-2.5 text-xs text-slate-300 font-sans">
+                <div className="flex justify-between border-b border-slate-800/60 pb-1.5">
+                  <span className="text-slate-400">Requester:</span>
+                  <span className="text-white font-semibold">{companyName || "—"}</span>
                 </div>
-
-                {/* Form fields representation */}
-                <div className="space-y-3 text-xs font-bold leading-normal">
-                  <div className="grid grid-cols-3 py-1.5 border-b border-slate-800/80">
-                    <span className="text-slate-400 uppercase font-black">CLIENT REF:</span>
-                    <span className="col-span-2 text-white uppercase font-black">{companyName || "NOT PROVIDED"}</span>
-                  </div>
-
-                  <div className="grid grid-cols-3 py-1.5 border-b border-slate-800/80">
-                    <span className="text-slate-400 uppercase font-black">CONTACT REP:</span>
-                    <span className="col-span-2 text-slate-200 uppercase font-black">{contactPerson || "NOT PROVIDED"}</span>
-                  </div>
-
-                  <div className="grid grid-cols-3 py-1.5 border-b border-slate-800/80">
-                    <span className="text-slate-400 uppercase font-black">PRODUCT REQ:</span>
-                    <span className="col-span-2 text-cyan-400 font-black uppercase">{productRequired || "PENDING PRODUCT SOURCING"}</span>
-                  </div>
-
-                  <div className="grid grid-cols-3 py-1.5 border-b border-slate-800/80">
-                    <span className="text-slate-400 uppercase font-black">QTY PARAMS:</span>
-                    <span className="col-span-2 text-slate-200 font-black">{estimatedQuantity ? `${estimatedQuantity} ${quantityUnit}` : "NOT CHOSEN"}</span>
-                  </div>
-
-                  <div className="grid grid-cols-3 py-1.5 border-b border-slate-800/80">
-                    <span className="text-slate-400 uppercase font-black">DESTINATION:</span>
-                    <span className="col-span-2 text-white uppercase font-black">{deliveryLocation || "NO LOCATION SPECIFIED"}</span>
-                  </div>
-
-                  <div className="grid grid-cols-3 py-1.5 border-b border-slate-800/80">
-                    <span className="text-slate-400 uppercase font-black">TIMELINE:</span>
-                    <span className="col-span-2 text-slate-200 uppercase font-black">{requiredTimeline.replace("_", " ")}</span>
-                  </div>
-
-                  <div className="py-2">
-                    <span className="text-slate-400 uppercase font-black block mb-1.5">SPECIAL LOG NOTES:</span>
-                    <p className="p-3 bg-slate-950 rounded-none text-slate-300 font-medium font-mono border border-slate-800 leading-relaxed">
-                      {technicalSpecs || "Standard analytical purity thresholds required."}
-                    </p>
-                  </div>
+                <div className="flex justify-between border-b border-slate-800/60 pb-1.5">
+                  <span className="text-slate-400">Contact:</span>
+                  <span className="text-slate-200">{contactPerson || "—"}</span>
                 </div>
-
-                <div className="border-t border-slate-800 pt-4 flex gap-4 text-xs font-black text-slate-400">
-                  <div className="w-1/2">
-                    <span>Approved by Desk Analyst</span>
-                    <div className="h-6 border-b border-slate-800 mt-1"></div>
-                  </div>
-                  <div className="w-1/2">
-                    <span>Houston Coord Liaison</span>
-                    <div className="h-6 border-b border-slate-800 mt-1"></div>
-                  </div>
+                <div className="flex justify-between border-b border-slate-800/60 pb-1.5">
+                  <span className="text-slate-400">Chemical Required:</span>
+                  <span className="text-amber-400 font-semibold">{productRequired || "—"}</span>
+                </div>
+                <div className="flex justify-between border-b border-slate-800/60 pb-1.5">
+                  <span className="text-slate-400">Volume:</span>
+                  <span className="text-white">{estimatedQuantity ? `${estimatedQuantity} ${quantityUnit}` : "—"}</span>
+                </div>
+                <div className="flex justify-between border-b border-slate-800/60 pb-1.5">
+                  <span className="text-slate-400">Delivery Node:</span>
+                  <span className="text-white">{deliveryLocation || "—"}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-400">Timeline:</span>
+                  <span className="text-slate-200">{requiredTimeline.replace("_", " ")}</span>
                 </div>
               </div>
             </div>
@@ -557,70 +489,56 @@ export default function ProcurementSection({
 
         </div>
 
-        {/* Local Storage Records historical ledger */}
+        {/* Local Requisition Log for User Reference */}
         {requestHistory.length > 0 && (
-          <div className="mt-16 bg-slate-900 border-2 border-slate-800 p-6 rounded-none">
-            <h3 className="font-display font-black text-xl text-white uppercase tracking-wide mb-6 border-b-2 border-slate-800 pb-4 flex items-center gap-2">
-              <ClipboardList className="h-5.5 w-5.5 text-cyan-400" />
-              ACTIVE CLIENT INQUIRY JOURNAL
+          <div className="mt-16 bg-slate-900 border border-slate-800 p-6 sm:p-8 rounded-lg">
+            <h3 className="font-display font-bold text-xl text-white uppercase mb-6 flex items-center gap-2 border-b border-slate-800 pb-4">
+              <ClipboardList className="h-5 w-5 text-amber-500" />
+              Active Client Requisition History ({requestHistory.length})
             </h3>
 
             <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse text-xs">
+              <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b-2 border-slate-800 text-slate-200 font-mono text-xs font-black uppercase tracking-wider">
-                    <th className="py-3.5 px-4 font-black">REQUEST ID</th>
-                    <th className="py-3.5 px-4 font-black">COMPANY / PERSON</th>
-                    <th className="py-3.5 px-4 font-black">PRODUCT SOURCED</th>
-                    <th className="py-3.5 px-4 font-black">EST. QUANTITY</th>
-                    <th className="py-3.5 px-4 font-black">DESTINATION DOCK</th>
-                    <th className="py-3.5 px-4 text-center font-black">SOURCING STATUS</th>
-                    <th className="py-3.5 px-4 text-right font-black">ACTION</th>
+                  <tr className="border-b border-slate-800 text-slate-400 uppercase tracking-wider font-semibold">
+                    <th className="py-3 px-4">RFQ Ref</th>
+                    <th className="py-3 px-4">Company</th>
+                    <th className="py-3 px-4">Material Required</th>
+                    <th className="py-3 px-4">Quantity</th>
+                    <th className="py-3 px-4">Destination</th>
+                    <th className="py-3 px-4 text-center">Status</th>
+                    <th className="py-3 px-4 text-right">Action</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y-2 divide-slate-800/80">
+                <tbody className="divide-y divide-slate-800">
                   {requestHistory.map((item) => (
-                    <tr key={item.id} className="hover:bg-slate-950/50 text-slate-200 transition-colors">
-                      <td className="py-3.5 px-4 font-mono text-cyan-400 font-black text-xs">{item.id}</td>
+                    <tr key={item.id} className="hover:bg-slate-950/40 text-slate-300 transition-colors">
+                      <td className="py-3.5 px-4 font-mono text-amber-400 font-bold">{item.id}</td>
                       <td className="py-3.5 px-4">
-                        <span className="block font-black text-sm text-white uppercase tracking-wide">{item.companyName}</span>
-                        <span className="text-xs font-bold text-slate-400 block mt-0.5">{item.contactPerson}</span>
+                        <span className="font-semibold text-white block">{item.companyName}</span>
+                        <span className="text-[11px] text-slate-400">{item.contactPerson}</span>
                       </td>
-                      <td className="py-3.5 px-4 uppercase font-mono text-xs text-white font-black">
-                        {item.productRequired}
-                      </td>
-                      <td className="py-3.5 px-4 text-white font-mono font-black text-xs">{item.estimatedQuantity}</td>
-                      <td className="py-3.5 px-4 text-slate-300 font-bold text-xs">{item.deliveryLocation}</td>
+                      <td className="py-3.5 px-4 font-semibold text-white">{item.productRequired}</td>
+                      <td className="py-3.5 px-4">{item.estimatedQuantity}</td>
+                      <td className="py-3.5 px-4">{item.deliveryLocation}</td>
                       <td className="py-3.5 px-4 text-center">
-                        <span className="inline-block px-3 py-1 bg-slate-950 border-2 border-cyan-500 text-cyan-400 text-xs font-mono font-black rounded-none uppercase animate-pulse">
+                        <span className="inline-block px-2.5 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 rounded text-[11px] font-semibold">
                           {item.status}
                         </span>
                       </td>
                       <td className="py-3.5 px-4 text-right">
                         <button
                           onClick={() => handleDeleteRequest(item.id)}
-                          className="p-1.5 text-slate-400 hover:text-red-400 transition-colors cursor-pointer"
-                          title="Purge Spec from Browser Session"
+                          className="text-slate-400 hover:text-red-400 transition-colors p-1"
+                          title="Remove from history"
                         >
-                          <Trash2 className="h-4.5 w-4.5 stroke-[2.5]" />
+                          <Trash2 className="h-4 w-4" />
                         </button>
                       </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
-            </div>
-
-            <div className="mt-6 text-right">
-              <button
-                onClick={() => {
-                  localStorage.removeItem("odcl_quote_history");
-                  setRequestHistory([]);
-                }}
-                className="text-xs font-mono font-black text-red-400 hover:text-red-300 transition-colors uppercase cursor-pointer"
-              >
-                Clear Sourcing Journal History
-              </button>
             </div>
           </div>
         )}

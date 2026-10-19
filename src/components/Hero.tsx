@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArrowRight, Drill, Database, RefreshCw, Layers, ShieldCheck, HelpCircle, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, ShieldCheck, CheckCircle2, ChevronLeft, ChevronRight, Sparkles, Building2 } from "lucide-react";
 import { IMAGES } from "../imageAssets";
 
 interface HeroProps {
@@ -8,236 +8,226 @@ interface HeroProps {
 }
 
 export default function Hero({ onQuoteClick, onExploreProducts }: HeroProps) {
-  // Configured list of premium pictures the user provided to load dynamically in Hero
-  const heroImages = [
+  const showcaseSlides = [
     { 
       src: IMAGES.heroOildrop, 
-      alt: "Industrial distillation system", 
-      ref: "PORT: PH_NGA / INCOMING SHIPMENTS", 
-      feed: "FEED STOCK: ACTIVE AMINE & TEG",
-      disc: "TEG DEHYDRATOR",
-      strength: "UNIFORM ≥85 N"
+      title: "Gas Dehydration & Refining Systems", 
+      location: "Industrial Process Operations",
+      description: "Supply of high-purity triethylene glycol (TEG) and active process chemicals for continuous gas processing."
     },
     { 
       src: IMAGES.bluePallet, 
-      alt: "Chemical stock shipment pallet", 
-      ref: "STOCK: SECURED BLUE CHEMICAL PALLET", 
-      feed: "INDUSTRIAL BULK PACKAGING",
-      disc: "DISTRIBUTION CENTER",
-      strength: "PREMIUM GRADE LOT-09"
+      title: "Direct Palletized Chemical Inventory", 
+      location: "Port Harcourt Distribution Center",
+      description: "Secure, weather-controlled staging and ready-dispatch stock for regional energy and manufacturing plants."
+    },
+    { 
+      src: IMAGES.sievedDesiccant, 
+      title: "Sieved Desiccant & Adsorbent Media", 
+      location: "Quality Inspection Facility",
+      description: "Precision-graded silica gel, molecular sieves, and adsorbent beds for industrial gas and air drying units."
     },
     { 
       src: IMAGES.waterTreatment, 
-      alt: "Water treatment chemicals and purification loop", 
-      ref: "PLANT: METROPOLITAN PURIFICATION SECTOR", 
-      feed: "COAGULANTS & WATER REGULATORS",
-      disc: "PURIFICATION LOOP",
-      strength: "BATCH STABILITY LEVEL 1"
-    },
-    { 
-      src: IMAGES.bluePallet1, 
-      alt: "Staged raw chemicals on pallet", 
-      ref: "WAREHOUSE: PORT HARCOURT STORAGE", 
-      feed: "STAGED RESIDUES & ADDITIVES",
-      disc: "GLYCOLS DEHYDRATION",
-      strength: "CERTIFIED COMPONENT"
+      title: "Water Treatment & Clarification", 
+      location: "Process Water Infrastructure",
+      description: "Scale inhibitors, biocides, coagulants, and pH regulators engineered for municipal and plant-loop systems."
     },
     { 
       src: IMAGES.imgWA0007, 
-      alt: "Analytical lab testing system", 
-      ref: "SOURCE HUB: NIGERIAN LOGISTICS PIPELINE", 
-      feed: "COA COMPLIANT REAGENTS",
-      disc: "REAGENT FEED SYSTEM",
-      strength: "COA LAB VERIFIED"
+      title: "Quality Assurance & COA Verification", 
+      location: "Analytical Lab & Sampling Desk",
+      description: "Every batch is verified against manufacturer certificates of analysis and OEM technical specifications."
     },
     { 
       src: IMAGES.imgWA0015, 
-      alt: "High-pressure vessel maintenance", 
-      ref: "SYSTEM: BULK DEHYDRATOR INTERFACE", 
-      feed: "SURFACE VALVES AND PRESSURE INLETS",
-      disc: "MAINTENANCE NODE",
-      strength: "PRESSURE TEST PASS"
+      title: "Heavy Vessel & Filtration Maintenance", 
+      location: "Field Engineering Services",
+      description: "Supporting turnarounds, plant shutdowns, and bed change-outs with certified industrial media."
     },
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const handleNextHero = () => {
-    setActiveIndex((prev) => (prev + 1) % heroImages.length);
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % showcaseSlides.length);
   };
 
-  const handlePrevHero = () => {
-    setActiveIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + showcaseSlides.length) % showcaseSlides.length);
   };
 
-  const activeHero = heroImages[activeIndex];
+  const current = showcaseSlides[activeIndex];
 
   return (
-    <section className="relative overflow-hidden bg-slate-950 py-16 md:py-24 border-b border-slate-800">
-      {/* Structural Graphic Grid Overlays */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-35"></div>
-      
-      {/* Light Blur Glow behind Heading */}
-      <div className="absolute -top-40 left-1/3 h-[500px] w-[500px] rounded-full bg-orange-500/5 blur-[120px] pointer-events-none"></div>
+    <section className="relative overflow-hidden bg-slate-950 py-14 lg:py-20 border-b border-slate-800">
+      {/* Background Subtle Industrial Grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b15_1px,transparent_1px),linear-gradient(to_bottom,#1e293b15_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
         
-        {/* Main Split Layout: Left Text / Right Heavy Industrial Media Framing */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        {/* Main Grid: Left Value Proposition / Right Physical Asset Display */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
-          {/* Left Textual Spec Pillar */}
-          <div className="space-y-6 lg:col-span-7">
-            {/* Tag Alert */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-900 border-l-4 border-orange-500 border border-slate-850 rounded-none text-orange-400 font-mono text-sm font-black tracking-wider uppercase">
-              <span className="h-2 w-2 rounded-none bg-orange-500 animate-pulse"></span>
-              TRUSTED REGIONAL SUPPLIER
+          {/* Left Text Column */}
+          <div className="space-y-5 lg:col-span-7">
+            {/* Corporate Badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-900 border border-slate-700/90 rounded text-amber-400 text-xs font-bold tracking-wider uppercase">
+              <ShieldCheck className="h-4 w-4 text-amber-400 shrink-0" />
+              <span>Certified Industrial Chemical Partner • Sub-Saharan Africa & Global</span>
             </div>
 
-            {/* Title: Thick, Rugged, High-contrast, Bold Typography */}
-            <h1 className="font-display font-black text-6xl sm:text-7xl md:text-8xl tracking-tighter uppercase text-white leading-[0.85] mt-3 mb-4">
-              Oil Drop <br />
-              Chemical <span className="text-orange-500 italic block sm:inline">Ltd.</span>
+            {/* Main Headline */}
+            <h1 className="font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-5xl tracking-tight text-white leading-[1.12] uppercase">
+              Engineered Chemical <br />
+              <span className="text-amber-500">Sourcing & Supply Chain</span> <br />
+              For Heavy Industry
             </h1>
 
-            {/* Subtitle: High-clarity Industrial Spec */}
-            <p className="font-display text-lg sm:text-xl font-extrabold tracking-wider text-slate-200 uppercase">
-              Industrial Chemical Sourcing & Supply Chain
+            {/* Direct Value Description */}
+            <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed max-w-2xl font-sans">
+              OILDROP Chemical delivers mission-critical process chemicals, filtration adsorbents, and bulk industrial materials to oil & gas operators, refining complexes, power utilities, and industrial manufacturers.
             </p>
 
-            {/* Concise Core Statement */}
-            <p className="text-sm sm:text-base text-slate-200 font-bold leading-relaxed max-w-2xl font-sans">
-              We provide straight-forward chemical procurement, bulk distribution, and optimized shipping logistics. We supply high-quality process additives, premium filtration media, and industrial consumables directly to power, energy, water treatment, and manufacturing facilities.
-            </p>
+            {/* Key Value Highlights */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1 text-xs sm:text-sm text-slate-300">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-amber-500 shrink-0" />
+                <span>Tier-1 Global OEM Manufacturer Sourcing</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-amber-500 shrink-0" />
+                <span>Port Harcourt Warehousing & Rapid Dispatch</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-amber-500 shrink-0" />
+                <span>Full COA & OEM Technical Compliance</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-amber-500 shrink-0" />
+                <span>Critical Plant Shutdown & Turnaround Support</span>
+              </div>
+            </div>
 
-            {/* Dual CTA Block */}
-            <div className="flex flex-wrap items-center gap-4 pt-4">
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center gap-3 pt-3">
               <button
                 onClick={onQuoteClick}
-                className="bg-orange-500 text-slate-900 px-6 py-3.5 text-xs font-display font-black tracking-widest uppercase rounded-none border-2 border-orange-500 hover:bg-slate-950 hover:text-orange-500 transition-all cursor-pointer active:scale-95 flex items-center gap-2 group"
+                className="bg-amber-500 hover:bg-amber-400 text-slate-950 px-6 py-3 text-xs font-display font-black tracking-wider uppercase rounded shadow-lg hover:shadow-amber-500/20 transition-all duration-150 flex items-center gap-2 cursor-pointer active:scale-98"
               >
-                REQUEST TECHNICAL QUOTE
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                REQUEST A TECHNICAL QUOTE
+                <ArrowRight className="h-4 w-4 stroke-[2.5]" />
               </button>
               
               <button
                 onClick={onExploreProducts}
-                className="bg-slate-900 hover:bg-slate-850 hover:text-white border-2 border-slate-700 hover:border-slate-500 text-slate-300 px-6 py-3.5 text-xs font-display font-black tracking-widest uppercase rounded-none cursor-pointer transition-all flex items-center gap-1"
+                className="bg-slate-900 hover:bg-slate-850 text-white border border-slate-700 hover:border-slate-600 px-5 py-3 text-xs font-display font-bold tracking-wider uppercase rounded transition-all duration-150 cursor-pointer"
               >
-                PRODUCT PORTFOLIO
+                VIEW PRODUCT PORTFOLIO
               </button>
             </div>
 
-            {/* Quick Sourcing Ticker Stats / Live metrics */}
-            <div className="grid grid-cols-3 gap-2 sm:gap-4 border-t-4 border-slate-800 pt-8 mt-8">
-              <div className="min-w-0">
-                <dt className="text-[10px] sm:text-xs md:text-sm font-black text-slate-100 uppercase tracking-widest leading-tight">Sourced Materials</dt>
-                <dd className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-orange-500 mt-1 truncate">42+</dd>
-                <div className="text-[9px] sm:text-xs text-slate-400 font-bold mt-1 uppercase truncate">PORT GRADES</div>
+            {/* Corporate Proof Numbers */}
+            <div className="grid grid-cols-3 gap-4 border-t border-slate-800 pt-5 mt-4">
+              <div>
+                <div className="text-xl sm:text-2xl font-display font-black text-amber-500">45+</div>
+                <div className="text-[11px] text-slate-400 font-semibold uppercase tracking-wider mt-0.5">Industrial Formulations</div>
               </div>
-              <div className="border-l-2 sm:border-l-4 border-orange-500 pl-2 sm:pl-4 min-w-0">
-                <dt className="text-[10px] sm:text-xs md:text-sm font-black text-slate-100 uppercase tracking-widest leading-tight">Global Nodes</dt>
-                <dd className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-white mt-1 truncate">PH/HOU</dd>
-                <div className="text-[9px] sm:text-xs text-slate-400 font-bold mt-1 uppercase truncate">NIGERIA & USA</div>
+              <div className="border-l border-slate-800 pl-4">
+                <div className="text-xl sm:text-2xl font-display font-black text-white">100%</div>
+                <div className="text-[11px] text-slate-400 font-semibold uppercase tracking-wider mt-0.5">COA & Lab Verified</div>
               </div>
-              <div className="border-l-2 sm:border-l-4 border-white pl-2 sm:pl-4 min-w-0">
-                <dt className="text-[10px] sm:text-xs md:text-sm font-black text-slate-100 uppercase tracking-widest leading-tight">Verification</dt>
-                <dd className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-orange-500 mt-1 truncate">100%</dd>
-                <div className="text-[9px] sm:text-xs text-slate-400 font-bold mt-1 uppercase truncate">COA VERIFIED</div>
+              <div className="border-l border-slate-800 pl-4">
+                <div className="text-xl sm:text-2xl font-display font-black text-amber-500">24/7</div>
+                <div className="text-[11px] text-slate-400 font-semibold uppercase tracking-wider mt-0.5">Shutdown Dispatch</div>
               </div>
             </div>
 
           </div>
 
-          {/* Right Visual Frame - Spaces for picture and professional engineering blueprints */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative z-10 w-full overflow-hidden rounded-none border-2 border-slate-800 bg-slate-900 p-2.5 shadow-2xl">
+          {/* Right Media Carousel showcasing real facilities & products */}
+          <div className="lg:col-span-5">
+            <div className="relative rounded-lg border border-slate-800 bg-slate-900 overflow-hidden shadow-2xl">
               
-              {/* Main Sourcing Picture Container */}
-              <div className="relative h-64 sm:h-80 lg:h-[350px] w-full overflow-hidden rounded-none bg-slate-950 group/img cursor-pointer">
+              {/* Image Frame */}
+              <div className="relative h-64 sm:h-72 md:h-80 w-full overflow-hidden bg-slate-950">
                 <img
-                  src={activeHero.src}
-                  alt={activeHero.alt}
+                  src={current.src}
+                  alt={current.title}
                   referrerPolicy="no-referrer"
-                  className="h-full w-full object-cover transition-all duration-700 hover:scale-105 cursor-zoom-in brightness-110"
+                  className="h-full w-full object-cover transition-all duration-300 hover:scale-105"
                 />
+
+                {/* Dark Vignette Overlay for Readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
                 
-                {/* Visual Technical Tags Overlay */}
-                <div className="absolute top-4 left-4 font-mono text-xs font-black bg-slate-950/95 backdrop-blur border-2 border-slate-700 text-white px-2 py-1.5 rounded-none shadow">
-                  {activeHero.ref}
-                </div>
-                
-                <div className="absolute bottom-4 right-4 font-mono text-xs font-black bg-slate-950/95 backdrop-blur border-2 border-orange-500 text-orange-400 px-2.5 py-1.5 rounded-none shadow">
-                  {activeHero.feed}
+                {/* Location & Title Overlay */}
+                <div className="absolute top-3 left-3 right-3 flex justify-between items-start">
+                  <span className="text-xs font-semibold bg-slate-950/85 backdrop-blur border border-slate-700/80 text-amber-400 px-2.5 py-0.5 rounded">
+                    {current.location}
+                  </span>
+                  <span className="text-xs font-bold text-slate-300 bg-slate-950/85 backdrop-blur px-2 py-0.5 rounded border border-slate-800">
+                    {activeIndex + 1} / {showcaseSlides.length}
+                  </span>
                 </div>
 
-                {/* Left/Right Slides Quick Touch Clickers */}
+                {/* Bottom Caption */}
+                <div className="absolute bottom-3 left-3 right-3 text-left">
+                  <h2 className="text-sm sm:text-base font-display font-bold text-white leading-snug">
+                    {current.title}
+                  </h2>
+                  <p className="text-xs text-slate-300 mt-0.5 line-clamp-2">
+                    {current.description}
+                  </p>
+                </div>
+
+                {/* Navigation Arrows */}
                 <button 
-                  onClick={(e) => { e.stopPropagation(); handlePrevHero(); }}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-slate-950/95 hover:bg-slate-900 border-2 border-slate-700 text-slate-100 hover:text-white rounded-none cursor-pointer opacity-100 sm:opacity-0 group-hover/img:opacity-100 transition-opacity z-20"
-                  aria-label="Previous Image"
+                  onClick={handlePrev}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 bg-slate-950/80 hover:bg-slate-900 border border-slate-700 text-white rounded-full transition-all cursor-pointer"
+                  aria-label="Previous Slide"
                 >
-                  <ChevronLeft className="h-5 w-5 font-bold" />
+                  <ChevronLeft className="h-4 w-4" />
                 </button>
                 <button 
-                  onClick={(e) => { e.stopPropagation(); handleNextHero(); }}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-slate-950/95 hover:bg-slate-900 border-2 border-slate-700 text-slate-100 hover:text-white rounded-none cursor-pointer opacity-100 sm:opacity-0 group-hover/img:opacity-100 transition-opacity z-20"
-                  aria-label="Next Image"
+                  onClick={handleNext}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 bg-slate-950/80 hover:bg-slate-900 border border-slate-700 text-white rounded-full transition-all cursor-pointer"
+                  aria-label="Next Slide"
                 >
-                  <ChevronRight className="h-5 w-5 font-bold" />
+                  <ChevronRight className="h-4 w-4" />
                 </button>
-
-                {/* Main Swipe Hint strip in top right */}
-                <div className="absolute top-4 right-4 font-mono text-xs font-black bg-cyan-950/95 border-2 border-cyan-500 text-cyan-400 px-2 py-1.5 uppercase tracking-wider">
-                  IMAGE {activeIndex + 1} OF {heroImages.length}
-                </div>
-
-                {/* Left Solid Accent Line */}
-                <div className="absolute inset-y-0 left-0 w-2 bg-orange-500"></div>
               </div>
 
-              {/* Decorative Thumbnail Selector Grid to allow clicking tons of pictures */}
-              <div className="mt-3">
-                <span className="font-mono text-xs font-black text-slate-200 block mb-2 uppercase tracking-wide">
-                  IMAGES GALLERY (TAP THUMBNAIL TO SWITCH, TAP IMAGE TO ZOOM)
-                </span>
-                <div className="grid grid-cols-6 gap-1.5 bg-slate-950 p-2 border-2 border-slate-800">
-                  {heroImages.map((img, idx) => (
+              {/* Thumbnails Navigation Row */}
+              <div className="p-3 bg-slate-950/90 border-t border-slate-800">
+                <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center justify-between">
+                  <span>Physical Inventory & Field Operations</span>
+                  <span className="text-amber-500 text-[10px]">Select to view</span>
+                </div>
+                <div className="grid grid-cols-6 gap-1.5">
+                  {showcaseSlides.map((slide, idx) => (
                     <button
                       key={idx}
                       onClick={() => setActiveIndex(idx)}
-                      className={`relative h-11 sm:h-12 border-2 transition-all overflow-hidden ${
-                        idx === activeIndex 
-                          ? "border-orange-500 ring-4 ring-orange-500/30" 
-                          : "border-slate-800 hover:border-slate-500 opacity-70 hover:opacity-100"
+                      className={`relative h-11 rounded overflow-hidden border transition-all cursor-pointer ${
+                        idx === activeIndex
+                          ? "border-amber-500 ring-2 ring-amber-500/30 scale-102"
+                          : "border-slate-800 opacity-60 hover:opacity-100 hover:border-slate-600"
                       }`}
-                      title={img.alt}
+                      title={slide.title}
                     >
                       <img 
-                        src={img.src} 
-                        alt="Preview Thumbnail" 
-                        className="w-full h-full object-cover scale-105"
+                        src={slide.src} 
+                        alt={slide.title} 
+                        className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-black/10"></div>
                     </button>
                   ))}
                 </div>
               </div>
 
-              {/* Decorative Tech Specs base */}
-              <div className="mt-3 grid grid-cols-2 gap-2 text-xs font-mono text-slate-350 border-t-2 border-slate-800 pt-3">
-                <div className="flex justify-between">
-                  <span className="font-bold text-slate-400">TYPE:</span>
-                  <span className="text-white font-black uppercase">{activeHero.disc}</span>
-                </div>
-                <div className="flex justify-between pl-2 border-l-2 border-slate-800">
-                  <span className="font-bold text-slate-400">STATUS:</span>
-                  <span className="text-white font-black uppercase">{activeHero.strength}</span>
-                </div>
-              </div>
             </div>
-
-            {/* Visual Floating Graphic behind Frame */}
-            <div className="absolute -right-6 top-1/2 -translate-y-1/2 w-72 h-72 border border-slate-800/10 rounded-full [mask-image:linear-gradient(to_bottom,black,transparent)] pointer-events-none hidden lg:block"></div>
           </div>
 
         </div>
